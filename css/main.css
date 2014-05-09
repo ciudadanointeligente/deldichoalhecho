@@ -20,6 +20,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   background-color: #DFF2F1;
+  background: url("../img/texture.jpg") repeat scroll 0 0;
 }
 
 p { margin: 1em 0; }
@@ -28,16 +29,27 @@ a         { color: #1795CF; }
 a:hover   { color: #2BB3E2; }
 /*a:visited { color: #006DAA; }*/
 
+/*H*/
+
+h1 {
+  text-align: center;
+}
+
 /*HEADER*/
+
+.header {
+  background-color: rgba(223, 242, 241, 0.24);
+}
 
 h3.title {
   float: left;
   font-weight: 300;
+  margin: 10px 0;
 }
 
 .nav {
   float: right;
-  margin: 26px 0px;
+  margin: 13px 0px 0px;
 }
 
 /*****************************************************************************/
@@ -45,6 +57,15 @@ h3.title {
 /* Home
 /*
 /*****************************************************************************/
+
+.ribbon {
+  width: 30%;
+  margin: 40px auto;
+  background: #EECD14;
+  padding: 1px 0px 11px;
+  color: #fff;
+}
+
 .posts {
   list-style-type: none;
   margin-bottom: 2em;
@@ -129,4 +150,17 @@ svg text {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
   color: #FFF;
+}
+
+/*FOOTER*/
+
+.footer {
+  background-color: rgba(223, 242, 241, 0.24);
+  padding: 40px 0px;
+  /*border-top: 1px solid #A9CCCB;*/
+  margin-top: 70px;
+}
+
+.footer ul {
+  list-style: none;
 }
