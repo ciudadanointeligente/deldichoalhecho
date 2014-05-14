@@ -1,0 +1,59 @@
+---
+layout: default
+title: el 21
+---
+
+<div class="container">
+  <div class="ribbon">
+    <h1>21 de Mayo 2014 b</h1>
+  </div>
+
+  <div class="data-content">
+    
+  </div>
+
+
+  <script type="text/javascript" src="/js/tabletop.js"></script>
+  <script type="text/javascript">
+    window.onload = function() { init() };
+
+    var public_spreadsheet_url = '0Aq8cCRsryS2PdF91S0VkblE4YXNHWlk4QmJaYmdHSUE';
+
+    function init() {
+      Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         simpleSheet: false } );
+    }
+
+    function showInfo(data, tabletop) {
+      var cnt = fila = 0;
+
+      $.each( tabletop.sheets(), function(i, sheet) {
+        var rows = sheet.all().length;
+        for(i = 0; i < rows; i++ ) {
+          if(cnt == 0)
+            $(".data-content").append("<div class='row fila"+fila+"'>");
+          
+          var promesa = sheet.elements[i].promesa;
+          //console.log('promesa: '+sheet.elements[i].promesa)
+          var detalles = sheet.elements[i].detalles;
+          //console.log('detalles: '+sheet.elements[i].detalles)
+          var tipo = sheet.elements[i].tipo;
+          //console.log('tipo: '+sheet.elements[i].tipo)
+          var area = sheet.elements[i].area;
+          //console.log('area: '+sheet.elements[i].area)
+          var twitter = '<a href="#" onclick="window.open(\'https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;hashtags=deldichoalhecho&amp;text='+promesa+'\',\'twitter\',\'width=450, height=250\')">twitter</a>';
+
+          $(".fila"+fila).append("<div class='col-md-3 cajita'><span class='area'>"+area+"</span><ul><li>"+twitter+"</li></ul><h2>"+promesa+"</h2><p>"+detalles+"</p><ul><li>"+tipo+"</li></ul></div>");
+
+          cnt++;
+          if(cnt == 4) {
+            $(".data-content").append("</div>");
+            cnt = 0;
+            fila++;
+          }
+        }
+      });
+    }
+  </script>
+</div>
