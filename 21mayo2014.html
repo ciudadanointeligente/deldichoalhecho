@@ -8,6 +8,7 @@ title: Your New Jekyll Site
   </div>
 </div>
 
+
 <!-- CHART -->
 
 <style>
@@ -193,13 +194,14 @@ nv.addGraph(function() {
       .y(function(d) { return d.value })
       .margin({top: 0, right: 0, bottom: 0, left: 60})
       .showValues(true)
-      .tooltip(function(key, x, y, e, graph, n_promesas, link_ley) {
-        var text_for_twitter = encodeURIComponent(y + '% de cumplimiento en ' + x + ',');
-        return '<h5 class="'+x+'">' +  y + 'de Cumplimiento</h5>' +
-               '<p> De las ' + e.point.n_promesas + ' promesas en ' + x + ' entre ' + key + '.</p>' +
-               '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>' +
-               '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
-    })
+      .tooltip(false)
+    //   .tooltip(function(key, x, y, e, graph, n_promesas, link_ley) {
+    //     var text_for_twitter = encodeURIComponent(y + '% de cumplimiento en ' + x + ',');
+    //     return '<h5 class="'+x+'">' +  y + 'de Cumplimiento</h5>' +
+    //            '<p> De las ' + e.point.n_promesas + ' promesas en ' + x + ' entre ' + key + '.</p>' +
+    //            '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>' +
+    //            '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
+    // })
       .valueFormat(d3.format('%'))
       // .barColor(d3.scale.category20().range())
       .transitionDuration(250)
