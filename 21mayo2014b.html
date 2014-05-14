@@ -45,17 +45,17 @@ title: el 21
           {
             for (x = 0; x < cnt_tipo.length; x++) 
             {
-              tipo += '<li class="tipo-'+cnt_tipo[x].toLowerCase()+'">'+cnt_tipo[x]+'</li>';
+              tipo += '<li class="type-'+cnt_tipo[x].toLowerCase()+'">'+cnt_tipo[x]+'</li>';
             }
           } 
           else 
           {
-            tipo = '<li class="tipo-'+tmp_tipo.toLowerCase()+'">'+tmp_tipo+'</li>';
+            tipo = '<li class="type-'+tmp_tipo.toLowerCase()+'">'+tmp_tipo+'</li>';
           }
           
           var twitter = '<a href="#" onclick="window.open(\'https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;hashtags=deldichoalhecho&amp;text='+promesa+'\',\'twitter\',\'width=450, height=250\')">twitter</a>';
 
-          $(".fila"+fila).append("<div class='col-md-3 cajita'><span class='area'>"+area+"</span><ul class='social'><li>"+twitter+"</li></ul><h2 class='title'>"+promesa+"</h2><p class='detail'>"+detalles+"</p><ul class='type'>"+tipo+"</ul></div>");
+          $(".fila"+fila).append("<div class='col-md-3 cajita'><span class='area'>"+area+"</span><ul id='social'><li>"+twitter+"</li></ul><h2 id='title'>"+promesa+"</h2><p class='detail'>"+detalles+"</p><ul id='type'>"+tipo+"</ul></div>");
 
           cnt++;
           
