@@ -35,6 +35,11 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-weight: 700;
+  margin: 80px 0 40px;
+}
+
 /*HEADER*/
 
 .header {
@@ -201,9 +206,15 @@ ul#social a {
 
 ul#social a:hover {
   background: #1795CF;
+  margin: 0px 0px 10px;
+  line-height: 23px;
 }
 
 /*50 promesas*/
+
+h4#title {
+  font-weight: 700;
+}
 
 #type li {
   margin-bottom: 16px;
