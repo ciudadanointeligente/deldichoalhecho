@@ -59,11 +59,30 @@ h3.title {
 /*****************************************************************************/
 
 .ribbon {
-  width: 30%;
+  width: 24%;
   margin: 40px auto;
-  background: #EECD14;
-  padding: 1px 0px 11px;
+  background: #7ACBDA;
+  padding: 1px 0px 10px;
   color: #fff;
+  position: relative;
+}
+
+.ribbon:before {
+  content: url(/img/ribbon-before.png);
+  position: absolute;
+  left: -43px;
+  bottom: -23px;
+}
+
+.ribbon:after {
+  content: url(/img/ribbon-after.png);
+  position: absolute;
+  right: -43px;
+  bottom: -23px;
+}
+
+.ribbon h1 {
+  font-size: 28px;
 }
 
 .posts {
