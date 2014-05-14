@@ -179,6 +179,12 @@ svg text {
   color: #FFF;
 }
 
+/*CAJITAS PROMESAS*/
+
+.cajita {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 /*FOOTER*/
 
 .footer {
