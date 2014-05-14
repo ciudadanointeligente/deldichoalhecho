@@ -61,7 +61,7 @@ h3.title {
 .ribbon {
   width: 24%;
   margin: 40px auto;
-  background: #7ACBDA;
+  background: #1AA7D8;
   padding: 1px 0px 10px;
   color: #fff;
   position: relative;
@@ -83,6 +83,14 @@ h3.title {
 
 .ribbon h1 {
   font-size: 28px;
+}
+
+.hero h2 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 42px;
+  width: 80%;
+  margin: 70px auto 20px;
 }
 
 .posts {
