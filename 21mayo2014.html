@@ -232,3 +232,22 @@ nv.addGraph(function() {
 </script>
 
 <!-- END CHART -->
+
+<div class="container">
+  <div id="data-content"></div>
+</div>
+
+  <script type="text/javascript" src="/js/tabletop.js"></script>
+  <script type="text/javascript">
+    window.onload = function() { init() };
+
+    var public_spreadsheet_url = '0Aq8cCRsryS2PdF91S0VkblE4YXNHWlk4QmJaYmdHSUE';
+
+    function init() {
+      Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         simpleSheet: false } );
+    }
+  </script>
+  <script type="text/javascript" src="/js/ddah.js"></script>
+
