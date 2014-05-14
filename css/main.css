@@ -185,6 +185,30 @@ svg text {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/*50 promesas*/
+#type > .type-c {
+  width: 196px;
+  height: 45px;
+  background: url('/img/sprite-estado.png') 0 -174px;
+  color: white;
+}
+
+/*programa gobierno*/
+#type > .type-p {
+  width: 196px;
+  height: 45px;
+  background: url('/img/sprite-estado.png') 0 -89px;
+  color: white;
+}
+
+/*nueva promesas*/
+#type > .type-n {
+  width: 196px;
+  height: 45px;
+  background: url('/img/sprite-estado.png') 0 0;
+  color: white;
+}
+
 /*FOOTER*/
 
 .footer {
