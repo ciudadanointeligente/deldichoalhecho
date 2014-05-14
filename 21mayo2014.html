@@ -44,6 +44,7 @@ title: Promesas 2014
 
 <div class="container">
   <h3>A continuación verás como se despliegan en tiempo real las promesas del primer discurso de 21 de Mayo de la Presidenta Bachelet</h3>
+  <a href="#" id="refresh-promisses"><i class="fa fa-refresh"></i></a>
   <div id="data-content"></div>
 </div>
 
@@ -59,10 +60,11 @@ title: Promesas 2014
                        simpleSheet: false } );
   }
 
-  setInterval(function () {
+  $('#refresh-promisses').on('click', function(e){
+    e.preventDefault();
     $("#data-content").empty();
-    init();    
-  }, 10000);
+    init();
+  });
 </script>
 <script type="text/javascript" src="/js/ddah.js"></script>
 
