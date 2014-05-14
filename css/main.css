@@ -204,27 +204,52 @@ ul#social a:hover {
 }
 
 /*50 promesas*/
-#type > .type-c {
-  width: 196px;
-  height: 45px;
-  background: url('/img/sprite-estado.png') 0 -174px;
-  color: white;
+
+#type li {
+  margin-bottom: 16px;
+}
+
+ul#type {
+  list-style: none;
+}
+
+#type > .type-c, #type > .type-p, #type > .type-n {
+  position: relative;
+}
+
+#type > .type-c:after {
+  content: "50 PROMESAS";
+  background: url('/img/sprite-estado.png') 118px 41px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 5px 9px 10px;
+  font-size: 14px;
+  color: #fff;
 }
 
 /*programa gobierno*/
-#type > .type-p {
-  width: 196px;
-  height: 45px;
-  background: url('/img/sprite-estado.png') 0 -89px;
-  color: white;
+#type > .type-p:after {
+  content: "PROGRAMA DE GOBIERNO";
+  background: url('/img/sprite-estado.png') 197px 126px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 5px 6px 11px;
+  font-size: 14px;
+  color: #fff;
 }
 
 /*nueva promesas*/
-#type > .type-n {
-  width: 196px;
-  height: 45px;
-  background: url('/img/sprite-estado.png') 0 0;
-  color: white;
+#type > .type-n:after {
+  content: "NUEVA PROMESA";
+  background: url('/img/sprite-estado.png') 140px 209px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 4px 8px 11px;
+  font-size: 14px;
+  color: #fff;
 }
 
 /*FOOTER*/
