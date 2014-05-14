@@ -58,6 +58,11 @@ title: Promesas 2014
                        callback: showInfo,
                        simpleSheet: false } );
   }
+
+  setInterval(function () {
+    $("#data-content").empty();
+    init();    
+  }, 10000);
 </script>
 <script type="text/javascript" src="/js/ddah.js"></script>
 
