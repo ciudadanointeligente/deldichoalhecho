@@ -23,12 +23,12 @@ function showInfo(data, tabletop) {
       {
         for (x = 0; x < cnt_tipo.length; x++) 
         {
-          tipo += '<li class="type-'+cnt_tipo[x].toLowerCase()+'">'+cnt_tipo[x]+'</li>';
+          tipo += '<li class="type-'+cnt_tipo[x].toLowerCase()+'">&nbsp;</li>';
         }
       } 
       else 
       {
-        tipo = '<li class="type-'+tmp_tipo.toLowerCase()+'">'+tmp_tipo+'</li>';
+        tipo = '<li class="type-'+tmp_tipo.toLowerCase()+'">&nbsp;</li>';
       }
 
       if(detail.length > 215)
@@ -37,7 +37,7 @@ function showInfo(data, tabletop) {
       var twitter = '<a href="#" onclick="window.open(\'https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;hashtags=deldichoalhecho&amp;text='+promesa+'\',\'twitter\',\'width=450, height=250\')">twitter</a>';
       var modal = '<div class="modal fade" id="myModal-'+i+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel">'+promesa+'</h4></div><div class="modal-body">'+detail+'</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button></div></div></div></div>';
 
-      $(".fila"+fila).append("<div class='col-md-3'><div class='cajita'><span class='area'>"+area+"</span><ul id='social'><li>"+twitter+"</li></ul><h4 id='title'>"+promesa+"</h4><p class='detail'>"+min_detail+view_more+"</p><ul id='type'>"+tipo+"</ul></div>"+modal+"</div>");
+      $(".fila"+fila).append("<div class='col-md-3'><div class='cajita'><span class='area'>"+area+"</span><h4 id='title'>"+promesa+"</h4><ul id='social'><li>"+twitter+"</li></ul><p class='detail'>"+min_detail+view_more+"</p><ul id='type'>"+tipo+"</ul></div>"+modal+"</div>");
 
       cnt++;
       
