@@ -5,102 +5,127 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
+        "n_palabras" : 0 ,
         "value" : 0.0223
       } , 
       { 
         "label" : "Cultura" ,
+        "n_palabras" : 0 ,
         "value" : 0.0155
       } , 
       { 
         "label" : "Defensa" ,
+        "n_palabras" : 0 ,
         "value" : 0.0181
       } , 
       { 
         "label" : "Deporte" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       {
         "label" : "Derechos Humanos" ,
+        "n_palabras" : 0 ,
         "value" : 0.0374
       } , 
       { 
         "label" : "Desarrollo Social" ,
-        "value" : 0.0972
+        "n_palabras" : 0 ,
+        "value" : 0.09720
       } , 
       { 
         "label" : "Descentralización" ,
+        "n_palabras" : 0 ,
         "value" : 0.0369
       } , 
       {
         "label" : "Discriminación" ,
+        "n_palabras" : 0 ,
         "value" : 0.0136
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
+        "n_palabras" : 0 ,
         "value" : 0.1695
       },
       { 
         "label" : "Educación" ,
+        "n_palabras" : 0 ,
         "value" : 0.0578
       },
       { 
         "label" : "Energía" ,
+        "n_palabras" : 0 ,
         "value" : 0.0359
       },
       { 
         "label" : "Estado y Democracia" ,
+        "n_palabras" : 0 ,
         "value" : 0.0105
       },
       { 
         "label" : "Género" ,
+        "n_palabras" : 0 ,
         "value" : 0.0231
       },
       { 
         "label" : "Justicia" ,
+        "n_palabras" : 0 ,
         "value" : 0.0249
       },
       { 
         "label" : "Medio Ambiente" ,
+        "n_palabras" : 0 ,
         "value" : 0.0117
       },
       { 
         "label" : "Minería" ,
+        "n_palabras" : 0 ,
         "value" : 0.0364
       },
       { 
         "label" : "Obras Públicas" ,
+        "n_palabras" : 0 ,
         "value" : 0.0348
       },
       { 
         "label" : "Pueblos Originarios" ,
+        "n_palabras" : 0 ,
         "value" : 0.0080
       },
       { 
         "label" : "Reconstrucción" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Relaciones Exteriores" ,
+        "n_palabras" : 0 ,
         "value" : 0.0174
       },
       { 
         "label" : "Salud" ,
+        "n_palabras" : 0 ,
         "value" : 0.0386
       },
       { 
         "label" : "Seguridad Pública" ,
+        "n_palabras" : 0 ,
         "value" : 0.0212
       },
       { 
         "label" : "Trabajo y Previsión" ,
+        "n_palabras" : 0 ,
         "value" : 0.0279
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
+        "n_palabras" : 0 ,
         "value" : 0.0232
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
+        "n_palabras" : 0 ,
         "value" : 0.0449
       }
     ]
@@ -111,103 +136,128 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "value" : 0.018
+        "n_palabras" : 0 ,
+        "value" : 0.01754
       }, 
       { 
         "label" : "Cultura" ,
-        "value" : 0.007
+        "n_palabras" : 0 ,
+        "value" : 0.00676
       }, 
       { 
         "label" : "Defensa" ,
-        "value" : 0.013
+        "n_palabras" : 0 ,
+        "value" : 0.01294
       }, 
       { 
         "label" : "Deporte" ,
-        "value" : 0.016
+        "n_palabras" : 0 ,
+        "value" : 0.01591
       }, 
       {
         "label" : "Derechos Humanos" ,
-        "value" : 0.009
+        "n_palabras" : 0 ,
+        "value" : 0.00862
       }, 
       { 
         "label" : "Desarrollo Social" ,
-        "value" : 0.077
+        "n_palabras" : 0 ,
+        "value" : 0.07745
       }, 
       { 
         "label" : "Descentralización" ,
-        "value" : 0.026
+        "n_palabras" : 0 ,
+        "value" : 0.02593
       }, 
       { 
         "label" : "Discriminación" ,
-        "value" : 0.004
+        "n_palabras" : 0 ,
+        "value" : 0.00414
       }, 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "value" : 0.050
+        "n_palabras" : 0 ,
+        "value" : 0.05017
       },
       { 
         "label" : "Educación" ,
-        "value" : 0.073
+        "n_palabras" : 0 ,
+        "value" : 0.07261
       },
       { 
         "label" : "Energía" ,
-        "value" : 0.015
+        "n_palabras" : 0 ,
+        "value" : 0.01469
       },
       { 
         "label" : "Estado y Democracia" ,
-        "value" : 0.077
+        "n_palabras" : 0 ,
+        "value" : 0.07716
       },
       { 
         "label" : "Género" ,
-        "value" : 0.018
+        "n_palabras" : 0 ,
+        "value" : 0.01830
       },
       { 
         "label" : "Justicia" ,
-        "value" : 0.021
+        "n_palabras" : 0 ,
+        "value" : 0.02080
       },
       { 
         "label" : "Medio Ambiente" ,
-        "value" : 0.016
+        "n_palabras" : 0 ,
+        "value" : 0.01638
       },
       { 
         "label" : "Minería" ,
-        "value" : 0.009
+        "n_palabras" : 0 ,
+        "value" : 0.00944
       },
       { 
         "label" : "Obras Públicas" ,
-        "value" : 0.011
+        "n_palabras" : 0 ,
+        "value" : 0.01125
       },
       { 
         "label" : "Pueblos Originarios" ,
-        "value" : 0.013
+        "n_palabras" : 0 ,
+        "value" : 0.01265
       },
       { 
         "label" : "Reconstrucción" ,
-        "value" : 0.113
+        "n_palabras" : 0 ,
+        "value" : 0.11346
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "value" : 0.028
+        "n_palabras" : 0 ,
+        "value" : 0.02786
       },
       { 
         "label" : "Salud" ,
-        "value" : 0.069
+        "n_palabras" : 0 ,
+        "value" : 0.06865
       },
       { 
         "label" : "Seguridad Pública" ,
-        "value" : 0.083
+        "n_palabras" : 0 ,
+        "value" : 0.08304
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "value" : 0.069
+        "n_palabras" : 0 ,
+        "value" : 0.06882
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "value" : 0.016
+        "n_palabras" : 0 ,
+        "value" : 0.01562
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "value" : 0.002
+        "n_palabras" : 0 ,
+        "value" : 0.00245
       }
     ]
   },
@@ -217,102 +267,127 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "value" : 0.005
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Cultura" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Defensa" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Deporte" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       {
         "label" : "Derechos Humanos" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Desarrollo Social" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Descentralización" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Discriminación" ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Educación" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Energía" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Estado y Democracia" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Género" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Justicia" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Medio Ambiente" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Minería" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Obras Públicas" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Pueblos Originarios" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Reconstrucción" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Relaciones Exteriores" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Salud" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Seguridad Pública" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Trabajo y Previsión" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
+        "n_palabras" : 0 ,
         "value" : 0
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
+        "n_palabras" : 0 ,
         "value" : 0
       }
     ]
@@ -327,20 +402,19 @@ nv.addGraph(function() {
       .y(function(d) { return d.value })
       .margin({top: 0, right: 0, bottom: 0, left: 200})
       .showValues(true)
-      .tooltip(false)
-    //   .tooltip(function(key, x, y, e, graph, n_promesas, link_ley) {
-    //     var text_for_twitter = encodeURIComponent(y + '% de cumplimiento en ' + x + ',');
-    //     return '<h5 class="'+x+'">' +  y + 'de Cumplimiento</h5>' +
-    //            '<p> De las ' + e.point.n_promesas + ' promesas en ' + x + ' entre ' + key + '.</p>' +
-    //            '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>' +
-    //            '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
-    // })
-      .valueFormat(d3.format('p'))
+      .tooltip(function(key, x, y, e, graph, n_palabras, link_ley) {
+        var text_for_twitter = encodeURIComponent(y + '% de cumplimiento en ' + x + ',');
+        return '<p>' +  e.point.n_palabras + ' palabras del discurso</p>'
+               // '<p> De las ' + e.point.n_promesas + ' promesas en ' + x + ' entre ' + key + '.</p>' +
+               // '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>'
+               // '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
+    })
       // .barColor(d3.scale.category20().range())
       .transitionDuration(250)
       .stacked(false)
       .showControls(false);
 
+  chart.valueFormat(d3.format('%'));
   chart.xAxis
       .showMaxMin(false)
 
