@@ -4,40 +4,104 @@ long_short_data = [
     color: '#821E5F',
     values: [
       { 
-        "label" : "Group A" ,
-        "value" : 1.8746444827653
+        "label" : "Agricultura" ,
+        "value" : 0.0223
       } , 
       { 
-        "label" : "Group B" ,
-        "value" : 8.0961543492239
+        "label" : "Cultura" ,
+        "value" : 0.0155
       } , 
       { 
-        "label" : "Group C" ,
-        "value" : 0.57072943117674
+        "label" : "Defensa" ,
+        "value" : 0.0181
       } , 
       { 
-        "label" : "Group D" ,
-        "value" : 2.4174010336624
+        "label" : "Deporte" ,
+        "value" : 0
       } , 
       {
-        "label" : "Group E" ,
-        "value" : 0.72009071426284
+        "label" : "Derechos Humanos" ,
+        "value" : 0.0374
       } , 
       { 
-        "label" : "Group F" ,
-        "value" : 0.77154485523777
+        "label" : "Desarrollo Social" ,
+        "value" : 0.0972
       } , 
       { 
-        "label" : "Group G" ,
-        "value" : 0.90152097798131
+        "label" : "Descentralización" ,
+        "value" : 0.0369
       } , 
       {
-        "label" : "Group H" ,
-        "value" : 0.91445417330854
+        "label" : "Discriminación" ,
+        "value" : 0.0136
       } , 
       { 
-        "label" : "Group I" ,
-        "value" : 0.055746319141851
+        "label" : "Economía, Fomento y Turismo" ,
+        "value" : 0.1695
+      },
+      { 
+        "label" : "Educación" ,
+        "value" : 0.0578
+      },
+      { 
+        "label" : "Energía" ,
+        "value" : 0.0359
+      },
+      { 
+        "label" : "Estado y Democracia" ,
+        "value" : 0.0105
+      },
+      { 
+        "label" : "Género" ,
+        "value" : 0.0231
+      },
+      { 
+        "label" : "Justicia" ,
+        "value" : 0.0249
+      },
+      { 
+        "label" : "Medio Ambiente" ,
+        "value" : 0.0117
+      },
+      { 
+        "label" : "Minería" ,
+        "value" : 0.0364
+      },
+      { 
+        "label" : "Obras Públicas" ,
+        "value" : 0.0348
+      },
+      { 
+        "label" : "Pueblos Originarios" ,
+        "value" : 0.0080
+      },
+      { 
+        "label" : "Reconstrucción" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Relaciones Exteriores" ,
+        "value" : 0.0174
+      },
+      { 
+        "label" : "Salud" ,
+        "value" : 0.0386
+      },
+      { 
+        "label" : "Seguridad Pública" ,
+        "value" : 0.0212
+      },
+      { 
+        "label" : "Trabajo y Previsión" ,
+        "value" : 0.0279
+      },
+      { 
+        "label" : "Transporte y Telecomunicaciones" ,
+        "value" : 0.0232
+      },
+      { 
+        "label" : "Vivienda y Urbanismo" ,
+        "value" : 0.0449
       }
     ]
   },
@@ -46,40 +110,104 @@ long_short_data = [
     color: '#1795CF',
     values: [
       { 
-        "label" : "Group A" ,
-        "value" : 25.307646510375
-      } , 
+        "label" : "Agricultura" ,
+        "value" : 0.018
+      }, 
       { 
-        "label" : "Group B" ,
-        "value" : 16.756779544553
-      } , 
+        "label" : "Cultura" ,
+        "value" : 0.007
+      }, 
       { 
-        "label" : "Group C" ,
-        "value" : 18.451534877007
-      } , 
+        "label" : "Defensa" ,
+        "value" : 0.013
+      }, 
       { 
-        "label" : "Group D" ,
-        "value" : 8.6142352811805
-      } , 
+        "label" : "Deporte" ,
+        "value" : 0.016
+      }, 
       {
-        "label" : "Group E" ,
-        "value" : 7.8082472075876
-      } , 
+        "label" : "Derechos Humanos" ,
+        "value" : 0.009
+      }, 
       { 
-        "label" : "Group F" ,
-        "value" : 5.259101026956
-      } , 
+        "label" : "Desarrollo Social" ,
+        "value" : 0.077
+      }, 
       { 
-        "label" : "Group G" ,
-        "value" : 0.30947953487127
-      } , 
+        "label" : "Descentralización" ,
+        "value" : 0.026
+      }, 
       { 
-        "label" : "Group H" ,
-        "value" : 0
-      } , 
+        "label" : "Discriminación" ,
+        "value" : 0.004
+      }, 
       { 
-        "label" : "Group I" ,
-        "value" : 0 
+        "label" : "Economía, Fomento y Turismo" ,
+        "value" : 0.050
+      },
+      { 
+        "label" : "Educación" ,
+        "value" : 0.073
+      },
+      { 
+        "label" : "Energía" ,
+        "value" : 0.015
+      },
+      { 
+        "label" : "Estado y Democracia" ,
+        "value" : 0.077
+      },
+      { 
+        "label" : "Género" ,
+        "value" : 0.018
+      },
+      { 
+        "label" : "Justicia" ,
+        "value" : 0.021
+      },
+      { 
+        "label" : "Medio Ambiente" ,
+        "value" : 0.016
+      },
+      { 
+        "label" : "Minería" ,
+        "value" : 0.009
+      },
+      { 
+        "label" : "Obras Públicas" ,
+        "value" : 0.011
+      },
+      { 
+        "label" : "Pueblos Originarios" ,
+        "value" : 0.013
+      },
+      { 
+        "label" : "Reconstrucción" ,
+        "value" : 0.113
+      },
+      { 
+        "label" : "Relaciones Exteriores" ,
+        "value" : 0.028
+      },
+      { 
+        "label" : "Salud" ,
+        "value" : 0.069
+      },
+      { 
+        "label" : "Seguridad Pública" ,
+        "value" : 0.083
+      },
+      { 
+        "label" : "Trabajo y Previsión" ,
+        "value" : 0.069
+      },
+      { 
+        "label" : "Transporte y Telecomunicaciones" ,
+        "value" : 0.016
+      },
+      { 
+        "label" : "Vivienda y Urbanismo" ,
+        "value" : 0.002
       }
     ]
   },
@@ -88,40 +216,104 @@ long_short_data = [
     color: '#F8981D',
     values: [
       { 
-        "label" : "Group A" ,
-        "value" : 25.307646510375
+        "label" : "Agricultura" ,
+        "value" : 0.005
       } , 
       { 
-        "label" : "Group B" ,
-        "value" : 16.756779544553
-      } , 
-      { 
-        "label" : "Group C" ,
-        "value" : 18.451534877007
-      } , 
-      { 
-        "label" : "Group D" ,
-        "value" : 8.6142352811805
-      } , 
-      {
-        "label" : "Group E" ,
-        "value" : 7.8082472075876
-      } , 
-      { 
-        "label" : "Group F" ,
-        "value" : 5.259101026956
-      } , 
-      { 
-        "label" : "Group G" ,
-        "value" : 0.30947953487127
-      } , 
-      { 
-        "label" : "Group H" ,
+        "label" : "Cultura" ,
         "value" : 0
       } , 
       { 
-        "label" : "Group I" ,
-        "value" : 0 
+        "label" : "Defensa" ,
+        "value" : 0
+      } , 
+      { 
+        "label" : "Deporte" ,
+        "value" : 0
+      } , 
+      {
+        "label" : "Derechos Humanos" ,
+        "value" : 0
+      } , 
+      { 
+        "label" : "Desarrollo Social" ,
+        "value" : 0
+      } , 
+      { 
+        "label" : "Descentralización" ,
+        "value" : 0
+      } , 
+      { 
+        "label" : "Discriminación" ,
+        "value" : 0
+      } , 
+      { 
+        "label" : "Economía, Fomento y Turismo" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Educación" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Energía" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Estado y Democracia" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Género" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Justicia" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Medio Ambiente" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Minería" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Obras Públicas" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Pueblos Originarios" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Reconstrucción" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Relaciones Exteriores" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Salud" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Seguridad Pública" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Trabajo y Previsión" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Transporte y Telecomunicaciones" ,
+        "value" : 0
+      },
+      { 
+        "label" : "Vivienda y Urbanismo" ,
+        "value" : 0
       }
     ]
   }
@@ -133,7 +325,7 @@ nv.addGraph(function() {
   chart = nv.models.multiBarHorizontalChart()
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
-      .margin({top: 0, right: 0, bottom: 0, left: 60})
+      .margin({top: 0, right: 0, bottom: 0, left: 200})
       .showValues(true)
       .tooltip(false)
     //   .tooltip(function(key, x, y, e, graph, n_promesas, link_ley) {
@@ -143,7 +335,7 @@ nv.addGraph(function() {
     //            '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>' +
     //            '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
     // })
-      .valueFormat(d3.format('%'))
+      .valueFormat(d3.format('p'))
       // .barColor(d3.scale.category20().range())
       .transitionDuration(250)
       .stacked(false)
@@ -152,10 +344,10 @@ nv.addGraph(function() {
   chart.xAxis
       .showMaxMin(false)
 
-  chart.yAxis
-      .tickFormat(d3.format('%'));
+  // chart.yAxis
+  //     .tickFormat(d3.format('%'));
 
-  chart.forceY([0,1]);
+  // chart.forceY([0,1]);
 
   d3.select('#chart1 svg')
       .datum(long_short_data)
