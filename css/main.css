@@ -35,6 +35,11 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-weight: 700;
+  margin: 80px 0 40px;
+}
+
 /*HEADER*/
 
 .header {
@@ -59,11 +64,38 @@ h3.title {
 /*****************************************************************************/
 
 .ribbon {
-  width: 30%;
+  width: 24%;
   margin: 40px auto;
-  background: #EECD14;
-  padding: 1px 0px 11px;
+  background: #1AA7D8;
+  padding: 1px 0px 10px;
   color: #fff;
+  position: relative;
+}
+
+.ribbon:before {
+  content: url(/img/ribbon-before.png);
+  position: absolute;
+  left: -43px;
+  bottom: -23px;
+}
+
+.ribbon:after {
+  content: url(/img/ribbon-after.png);
+  position: absolute;
+  right: -43px;
+  bottom: -23px;
+}
+
+.ribbon h1 {
+  font-size: 28px;
+}
+
+.hero h2 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 42px;
+  width: 80%;
+  margin: 70px auto 20px;
 }
 
 .posts {
@@ -150,6 +182,83 @@ svg text {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
   color: #FFF;
+}
+
+/*CAJITAS PROMESAS*/
+
+.cajita {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+ul#social {
+  list-style: none;
+}
+
+ul#social a {
+  background: #7ACBDA;
+  padding: 0px 7px 2px;
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul#social a:hover {
+  background: #1795CF;
+}
+
+/*50 promesas*/
+
+h4#title {
+  font-weight: 700;
+}
+
+#type li {
+  margin-bottom: 16px;
+}
+
+ul#type {
+  list-style: none;
+}
+
+#type > .type-c, #type > .type-p, #type > .type-n {
+  position: relative;
+}
+
+#type > .type-c:after {
+  content: "50 PROMESAS";
+  background: url('/img/sprite-estado.png') 118px 41px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 5px 9px 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/*programa gobierno*/
+#type > .type-p:after {
+  content: "PROGRAMA DE GOBIERNO";
+  background: url('/img/sprite-estado.png') 197px 126px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 5px 6px 11px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/*nueva promesas*/
+#type > .type-n:after {
+  content: "NUEVA PROMESA";
+  background: url('/img/sprite-estado.png') 140px 209px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  padding: 4px 8px 11px;
+  font-size: 14px;
+  color: #fff;
 }
 
 /*FOOTER*/
