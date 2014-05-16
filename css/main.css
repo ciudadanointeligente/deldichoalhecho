@@ -38,6 +38,7 @@ h1 {
 h3 {
   font-weight: 700;
   margin: 80px 0 40px;
+  line-height: 36px;
 }
 
 /*HEADER*/
@@ -221,6 +222,21 @@ h4#title {
 ul#type {
   list-style: none;
 }
+
+a#refresh-promisses {
+  font-size: 14px;
+  font-weight: 500;
+  background: #1795CF;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #fff;
+}
+
+a#refresh-promisses:hover {
+  background: #2BB3E2;
+}
+
 
 #type > .type-c, #type > .type-p, #type > .type-n {
   position: relative;
