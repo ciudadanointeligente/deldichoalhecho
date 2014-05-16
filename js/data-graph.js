@@ -5,93 +5,98 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0223
+        "n_palabras" : 251 ,
+        "value" : 2
       } , 
       { 
         "label" : "Cultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0155
+        "n_palabras" : 175 ,
+        "value" : 2
       } , 
       { 
         "label" : "Defensa" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0181
+        "n_palabras" : 204 ,
+        "value" : 2
       } , 
       { 
         "label" : "Deporte" ,
-        "n_palabras" : 0 ,
+        "n_palabras" : 26 ,
         "value" : 0
       } , 
       {
         "label" : "Derechos Humanos" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0374
+        "n_palabras" : 421 ,
+        "value" : 4
       } , 
       { 
         "label" : "Desarrollo Social" ,
-        "n_palabras" : 0 ,
-        "value" : 0.09720
+        "n_palabras" : 1094 ,
+        "value" : 10
       } , 
       { 
         "label" : "Descentralización" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0369
+        "n_palabras" : 415 ,
+        "value" : 4
       } , 
       {
         "label" : "Discriminación" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0136
+        "n_palabras" : 153 ,
+        "value" : 1
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0.1695
+        "n_palabras" : 1283 ,
+        "value" : 11
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0578
+        "n_palabras" : 651 ,
+        "value" : 6
       },
       { 
         "label" : "Energía" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0359
+        "n_palabras" : 404 ,
+        "value" : 4
       },
       { 
         "label" : "Estado y Democracia" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0105
+        "n_palabras" : 118 ,
+        "value" : 1
       },
       { 
         "label" : "Género" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0231
+        "n_palabras" : 260 ,
+        "value" : 2
       },
       { 
         "label" : "Justicia" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0249
+        "n_palabras" : 280 ,
+        "value" : 2
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0117
+        "n_palabras" : 132 ,
+        "value" : 1
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0364
+        "n_palabras" : 410 ,
+        "value" : 4
       },
       { 
         "label" : "Obras Públicas" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0348
+        "n_palabras" : 392 ,
+        "value" : 3
       },
       { 
         "label" : "Pueblos Originarios" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0080
+        "n_palabras" : 90 ,
+        "value" : 1
+      },
+            { 
+        "label" : "Recaudación y Gasto Público" ,
+        "n_palabras" : 578 ,
+        "value" : 5
       },
       { 
         "label" : "Reconstrucción" ,
@@ -100,33 +105,33 @@ long_short_data = [
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0174
+        "n_palabras" : 196 ,
+        "value" : 2
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0386
+        "n_palabras" : 319 ,
+        "value" : 3
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0212
+        "n_palabras" : 239 ,
+        "value" : 2
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0279
+        "n_palabras" : 314 ,
+        "value" : 3
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0232
+        "n_palabras" : 261 ,
+        "value" : 2
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0.0449
+        "n_palabras" : 506 ,
+        "value" : 4
       }
     ]
   },
@@ -136,128 +141,134 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01754
+        "n_palabras" : 301 ,
+        "value" : 2
       }, 
       { 
         "label" : "Cultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0.00676
+        "n_palabras" : 116 ,
+        "value" : 1
       }, 
       { 
         "label" : "Defensa" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01294
+        "n_palabras" : 222 ,
+        "value" : 1
       }, 
       { 
         "label" : "Deporte" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01591
+        "n_palabras" : 273 ,
+        "value" : 2
       }, 
       {
         "label" : "Derechos Humanos" ,
-        "n_palabras" : 0 ,
-        "value" : 0.00862
+        "n_palabras" : 148 ,
+        "value" : 1
       }, 
       { 
         "label" : "Desarrollo Social" ,
-        "n_palabras" : 0 ,
-        "value" : 0.07745
+        "n_palabras" : 1329 ,
+        "value" : 8
       }, 
       { 
         "label" : "Descentralización" ,
-        "n_palabras" : 0 ,
-        "value" : 0.02593
+        "n_palabras" : 445 ,
+        "value" : 3
       }, 
       { 
         "label" : "Discriminación" ,
-        "n_palabras" : 0 ,
-        "value" : 0.00414
+        "n_palabras" : 71 ,
+        "value" : 0
       }, 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0.05017
+        "n_palabras" : 861 ,
+        "value" : 5
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 0 ,
-        "value" : 0.07261
+        "n_palabras" : 1246 ,
+        "value" : 7
       },
       { 
         "label" : "Energía" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01469
+        "n_palabras" : 252 ,
+        "value" : 1
       },
       { 
         "label" : "Estado y Democracia" ,
-        "n_palabras" : 0 ,
-        "value" : 0.07716
+        "n_palabras" : 1324 ,
+        "value" : 8
       },
       { 
         "label" : "Género" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01830
+        "n_palabras" : 314 ,
+        "value" : 2
       },
       { 
         "label" : "Justicia" ,
-        "n_palabras" : 0 ,
-        "value" : 0.02080
+        "n_palabras" : 357 ,
+        "value" : 2
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01638
+        "n_palabras" : 281 ,
+        "value" : 2
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 0 ,
-        "value" : 0.00944
+        "n_palabras" : 162 ,
+        "value" : 1
       },
       { 
         "label" : "Obras Públicas" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01125
+        "n_palabras" : 193 ,
+        "value" : 1
       },
       { 
         "label" : "Pueblos Originarios" ,
+        "n_palabras" : 217 ,
+        "value" : 1
+      },
+      },
+      { 
+        "label" : "Recaudación y Gasto Público" ,
         "n_palabras" : 0 ,
-        "value" : 0.01265
+        "value" : 0
       },
       { 
         "label" : "Reconstrucción" ,
-        "n_palabras" : 0 ,
-        "value" : 0.11346
+        "n_palabras" : 1947 ,
+        "value" : 11
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "n_palabras" : 0 ,
-        "value" : 0.02786
+        "n_palabras" : 478 ,
+        "value" : 3
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 0 ,
-        "value" : 0.06865
+        "n_palabras" : 1178 ,
+        "value" : 7
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 0 ,
-        "value" : 0.08304
+        "n_palabras" : 1425 ,
+        "value" : 8
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "n_palabras" : 0 ,
-        "value" : 0.06882
+        "n_palabras" : 1181 ,
+        "value" : 7
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "n_palabras" : 0 ,
-        "value" : 0.01562
+        "n_palabras" : 268 ,
+        "value" : 2
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0.00245
+        "n_palabras" : 42 ,
+        "value" : 0
       }
     ]
   },
@@ -355,6 +366,12 @@ long_short_data = [
         "n_palabras" : 0 ,
         "value" : 0
       },
+      },
+      { 
+        "label" : "Recaudación y Gasto Público" ,
+        "n_palabras" : 0 ,
+        "value" : 0
+      },
       { 
         "label" : "Reconstrucción" ,
         "n_palabras" : 0 ,
@@ -404,7 +421,7 @@ nv.addGraph(function() {
       .showValues(true)
       .tooltip(function(key, x, y, e, graph, n_palabras, link_ley) {
         var text_for_twitter = encodeURIComponent(y + '% de cumplimiento en ' + x + ',');
-        return '<p>' +  e.point.n_palabras + ' palabras del discurso</p>'
+        return '<p>' +  e.point.n_palabras + ' palabras en el discurso</p>'
                // '<p> De las ' + e.point.n_promesas + ' promesas en ' + x + ' entre ' + key + '.</p>' +
                // '<div><a target="_blank" href="'+ e.point.link_ley +'">¿Cómo cumple la promesa? </a></div>'
                // '<div style="float:right;"><a href="https://twitter.com/share?text='+text_for_twitter+'&via=ciudadanoi&hashtags=21mayo" target="_blank" class="twitter-share-button"><i class="fa fa-twitter"></i> Twittear</a></div>'
