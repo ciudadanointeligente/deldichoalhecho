@@ -74,14 +74,14 @@ h3.title {
 }
 
 .ribbon:before {
-  content: url(/img/ribbon-before.png);
+  content: url(../img/ribbon-before.png);
   position: absolute;
   left: -43px;
   bottom: -23px;
 }
 
 .ribbon:after {
-  content: url(/img/ribbon-after.png);
+  content: url(../img/ribbon-after.png);
   position: absolute;
   right: -43px;
   bottom: -23px;
@@ -244,7 +244,7 @@ a#refresh-promisses:hover {
 
 #type > .type-c:after {
   content: "50 PROMESAS";
-  background: url('/img/sprite-estado.png') 118px 41px;
+  background: url('../img/sprite-estado.png') 118px 41px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -256,7 +256,7 @@ a#refresh-promisses:hover {
 /*programa gobierno*/
 #type > .type-p:after {
   content: "PROGRAMA DE GOBIERNO";
-  background: url('/img/sprite-estado.png') 197px 126px;
+  background: url('../img/sprite-estado.png') 197px 126px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -268,7 +268,7 @@ a#refresh-promisses:hover {
 /*nueva promesas*/
 #type > .type-n:after {
   content: "NUEVA PROMESA";
-  background: url('/img/sprite-estado.png') 140px 209px;
+  background: url('../img/sprite-estado.png') 140px 209px;
   position: absolute;
   top: 0;
   right: -25px;

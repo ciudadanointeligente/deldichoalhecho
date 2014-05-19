@@ -5,16 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
+        <meta property="og:title" content="{{ page.title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.deldichoalhecho.cl/" />
+        <meta property="og:image" content="http://www.deldichoalhecho.cl/img/logo-ogp.png" />
+        <meta property="og:description" content="Sitio de monitoreo de cumplimiento de Ciudadano Inteligente" />
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link href="/css/nv.d3.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css">
+        <link href="{{ site.baseurl }}/css/nv.d3.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 
     </head>
     <body>
@@ -22,10 +27,10 @@
       <div class="site">
         <div class="header">
           <div class="container">
-            <h3 class="title"><a href="/"><img src="/img/logo-ddah.png"></a></h3>
+            <h3 class="title"><a href="/"><img src="{{ site.baseurl }}/img/logo-ddah.png"></a></h3>
             <div class="nav">
               <ul class="list-inline">
-                <li><a class="extra" href="/21mayo2014.html">21 Mayo 2014</a></li>
+                <li><a class="extra" href="{{ site.baseurl }}/21mayo2014.html">21 Mayo 2014</a></li>
               </ul>
             </div>
           </div>
@@ -38,7 +43,7 @@
             <div class="row">
               <div class="col-md-4">
                 <ul>
-                  <li><a href="http://www.ciudadanointeligente.org/" target="_blank"><img src="/img/logo-fci.png" alt="Fundación Ciudadano Inteligente" title="Fundación Ciudadano Inteligente"></a></li>
+                  <li><a href="http://www.ciudadanointeligente.org/" target="_blank"><img src="{{ site.baseurl }}/img/logo-fci.png" alt="Fundación Ciudadano Inteligente" title="Fundación Ciudadano Inteligente"></a></li>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -51,7 +56,7 @@
               </div>
               <div class="col-md-4">
                 <ul>
-                  <li><img src="/img/logo-uc.png" alt="Facultad de Comunicaciones UC" title="Facultad de Comunicaciones UC"></li>
+                  <li><img src="{{ site.baseurl }}/img/logo-uc.png" alt="Facultad de Comunicaciones UC" title="Facultad de Comunicaciones UC"></li>
                 </ul>
               </div>
             </div>
@@ -59,5 +64,6 @@
         </div>
       </div>
 
+      <!-- Google Analytics --> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-48506201-1'); // Replace with your property ID. ga('send', 'pageview');  </script> <!-- End Google Analytics -->
     </body>
 </html>
