@@ -1,4 +1,5 @@
-name: del Dicho al Hecho
+name: Del Dicho al Hecho
+author: Fundación Ciudadano Inteligente
+url: http://deldichoalhecho.cl
 markdown: redcarpet
 highlighter: true
-baseurl: /deldichoalhecho
