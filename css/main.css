@@ -13,17 +13,18 @@
 html, body { height: 100%; }
 
 body {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   background-color: #40BDF1;
+  color: #0F2356;
 }
 
 p { margin: 1em 0; }
 
-a         { color: #1795CF; }
-a:hover   { color: #2BB3E2; }
+a         { color: #FFF; }
+a:hover   { color: #FFF; }
 /*a:visited { color: #006DAA; }*/
 
 /*H*/
@@ -34,9 +35,8 @@ h1 {
 
 h3 {
   font-weight: 700;
-  margin: 50px 0 40px;
+  margin: 50px 0 0px;
   line-height: 36px;
-  color: #fff;
 }
 
 /*HEADER*/
@@ -118,7 +118,6 @@ h3.title {
   font-size: 42px;
   width: 80%;
   margin: 70px auto 20px;
-  color: #fff;
 }
 
 .posts {
@@ -234,6 +233,14 @@ div.legend {
   margin-bottom: 15px;
 }
 
+.cajita a {
+  color: #40BDF1;
+}
+
+p.detail {
+  font-size: 14px;
+}
+
 ul#social {
   list-style: none;
 }
@@ -257,7 +264,7 @@ span.area {
 }
 
 div#data-content {
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 /*50 promesas*/
@@ -337,4 +344,8 @@ a#refresh-promisses:hover {
 
 .footer ul {
   list-style: none;
+}
+
+.footer a {
+  color: #40BDF1;
 }
