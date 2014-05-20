@@ -15,12 +15,9 @@ html, body { height: 100%; }
 body {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
-  /*color: #FFF;*/
-  /*background-color: #0F2356;*/
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  background-color: #DFF2F1;
-  background: url("../img/texture.jpg") repeat scroll 0 0;
+  background-color: #40BDF1;
 }
 
 p { margin: 1em 0; }
@@ -37,8 +34,9 @@ h1 {
 
 h3 {
   font-weight: 700;
-  margin: 80px 0 40px;
+  margin: 50px 0 40px;
   line-height: 36px;
+  color: #fff;
 }
 
 /*HEADER*/
@@ -67,9 +65,9 @@ h3.title {
 .ribbon {
   width: 24%;
   margin: 40px auto;
-  background: #1AA7D8;
+  background: #FFF;
   padding: 1px 0px 10px;
-  color: #fff;
+  color: #40BDF1;
   position: relative;
 }
 
@@ -97,6 +95,7 @@ h3.title {
   font-size: 42px;
   width: 80%;
   margin: 70px auto 20px;
+  color: #fff;
 }
 
 .posts {
@@ -122,6 +121,7 @@ h3.title {
 
 .header a {
   text-decoration: none;
+  color: #fff;
 }
 
 .footer .contact {
@@ -187,8 +187,13 @@ svg text {
 
 /*CAJITAS PROMESAS*/
 
+.red-background {
+  background: #E53E3E;
+  margin-top: 60px;
+}
+
 .cajita {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 1);
   padding: 15px;
   margin-bottom: 15px;
 }
@@ -198,7 +203,7 @@ ul#social {
 }
 
 ul#social a {
-  background: #7ACBDA;
+  background: #40BDF1;
   padding: 0px 7px 2px;
   border-radius: 3px;
   color: #fff;
@@ -207,6 +212,16 @@ ul#social a {
 
 ul#social a:hover {
   background: #1795CF;
+}
+
+span.area {
+  color: #E53E3E;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+div#data-content {
+  margin-bottom: 50px;
 }
 
 /*50 promesas*/
