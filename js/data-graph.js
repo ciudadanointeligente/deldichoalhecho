@@ -1,143 +1,143 @@
 long_short_data = [ 
   {
-    key: 'Bachelet 2006',
-    color: '#821E5F',
+    key: 'Bachelet 2014',
+    color: '#E53E3E',
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 251 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Cultura" ,
-        "n_palabras" : 175 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Defensa" ,
-        "n_palabras" : 204 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Deporte" ,
-        "n_palabras" : 26 ,
+        "n_palabras" : 0 ,
         "value" : 0
       } , 
       {
         "label" : "Derechos Humanos" ,
-        "n_palabras" : 421 ,
-        "value" : 0.04
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Desarrollo Social" ,
-        "n_palabras" : 1094 ,
-        "value" : 0.10
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Descentralización" ,
-        "n_palabras" : 415 ,
-        "value" : 0.04
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
-      {
+      { 
         "label" : "Discriminación" ,
-        "n_palabras" : 153 ,
-        "value" : 0.01
+        "n_palabras" : 0 ,
+        "value" : 0
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 1283 ,
-        "value" : 0.11
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 651 ,
-        "value" : 0.06
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Energía" ,
-        "n_palabras" : 404 ,
-        "value" : 0.04
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Estado y Democracia" ,
-        "n_palabras" : 118 ,
-        "value" : 0.01
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Género" ,
-        "n_palabras" : 260 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Justicia" ,
-        "n_palabras" : 280 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 132 ,
-        "value" : 0.01
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 457 ,
-        "value" : 0.04
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Obras Públicas" ,
-        "n_palabras" : 392 ,
-        "value" : 0.03
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Pueblos Originarios" ,
-        "n_palabras" : 90 ,
-        "value" : 0.01
+        "n_palabras" : 0 ,
+        "value" : 0
       },
-            { 
+      { 
         "label" : "Recaudación y Gasto Público" ,
-        "n_palabras" : 578 ,
-        "value" : 0.05
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Reconstrucción" ,
         "n_palabras" : 0 ,
-        "value" : 0.00
+        "value" : 0
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "n_palabras" : 196 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 319 ,
-        "value" : 0.03
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 239 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "n_palabras" : 314 ,
-        "value" : 0.03
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "n_palabras" : 261 ,
-        "value" : 0.02
+        "n_palabras" : 0 ,
+        "value" : 0
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "n_palabras" : 506 ,
-        "value" : 0.04
+        "n_palabras" : 0 ,
+        "value" : 0
       }
     ]
   },
   {
     key: 'Piñera 2010',
-    color: '#1795CF',
+    color: '#0F2356',
     values: [
       { 
         "label" : "Agricultura" ,
@@ -272,138 +272,138 @@ long_short_data = [
     ]
   },
   {
-    key: 'Bachelet 2014',
-    color: '#F8981D',
+    key: 'Bachelet 2006',
+    color: '#FFFFFF',
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 251 ,
+        "value" : 0.02
       } , 
       { 
         "label" : "Cultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 175 ,
+        "value" : 0.02
       } , 
       { 
         "label" : "Defensa" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 204 ,
+        "value" : 0.02
       } , 
       { 
         "label" : "Deporte" ,
-        "n_palabras" : 0 ,
+        "n_palabras" : 26 ,
         "value" : 0
       } , 
       {
         "label" : "Derechos Humanos" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 421 ,
+        "value" : 0.04
       } , 
       { 
         "label" : "Desarrollo Social" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 1094 ,
+        "value" : 0.10
       } , 
       { 
         "label" : "Descentralización" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 415 ,
+        "value" : 0.04
       } , 
-      { 
+      {
         "label" : "Discriminación" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 153 ,
+        "value" : 0.01
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 1283 ,
+        "value" : 0.11
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 651 ,
+        "value" : 0.06
       },
       { 
         "label" : "Energía" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 404 ,
+        "value" : 0.04
       },
       { 
         "label" : "Estado y Democracia" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 118 ,
+        "value" : 0.01
       },
       { 
         "label" : "Género" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 260 ,
+        "value" : 0.02
       },
       { 
         "label" : "Justicia" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 280 ,
+        "value" : 0.02
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 132 ,
+        "value" : 0.01
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 457 ,
+        "value" : 0.04
       },
       { 
         "label" : "Obras Públicas" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 392 ,
+        "value" : 0.03
       },
       { 
         "label" : "Pueblos Originarios" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 90 ,
+        "value" : 0.01
       },
-      { 
+            { 
         "label" : "Recaudación y Gasto Público" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 578 ,
+        "value" : 0.05
       },
       { 
         "label" : "Reconstrucción" ,
         "n_palabras" : 0 ,
-        "value" : 0
+        "value" : 0.00
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 196 ,
+        "value" : 0.02
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 319 ,
+        "value" : 0.03
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 239 ,
+        "value" : 0.02
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 314 ,
+        "value" : 0.03
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 261 ,
+        "value" : 0.02
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 506 ,
+        "value" : 0.04
       }
     ]
   }
@@ -433,8 +433,8 @@ nv.addGraph(function() {
   chart.xAxis
       .showMaxMin(false)
 
-  // chart.yAxis
-  //     .tickFormat(d3.format('%'));
+  chart.yAxis
+      .tickFormat(d3.format('f'));
 
   // chart.forceY([0,1]);
 
