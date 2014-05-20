@@ -225,6 +225,22 @@ div.legend {
 .red-background {
   background: #E53E3E;
   margin-top: 60px;
+  position: relative;
+}
+
+.red-background:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(229, 62, 62, 0);
+  border-bottom-color: #E53E3E;
+  border-width: 30px;
+  margin-left: -30px;
 }
 
 .red-background h3 {
