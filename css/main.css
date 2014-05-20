@@ -227,6 +227,10 @@ div.legend {
   margin-top: 60px;
 }
 
+.red-background h3 {
+  color: #fff;
+}
+
 .cajita {
   background: rgba(255, 255, 255, 1);
   padding: 15px;
