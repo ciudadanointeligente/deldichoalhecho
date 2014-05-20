@@ -1,6 +1,6 @@
 name: Del Dicho al Hecho
 author: Fundación Ciudadano Inteligente
-# url: http://deldichoalhecho.cl
-url: http://localhost:4000
+url: http://deldichoalhecho.cl
+# url: http://localhost:4000
 markdown: redcarpet
 highlighter: true
