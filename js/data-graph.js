@@ -277,8 +277,8 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 251 ,
-        "value" : 0.02
+        "n_palabras" : 339 ,
+        "value" : 0.03
       } , 
       { 
         "label" : "Cultura" ,
@@ -317,12 +317,12 @@ long_short_data = [
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 1283 ,
-        "value" : 0.11
+        "n_palabras" : 1326 ,
+        "value" : 0.12
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 651 ,
+        "n_palabras" : 713 ,
         "value" : 0.06
       },
       { 
@@ -347,7 +347,7 @@ long_short_data = [
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 132 ,
+        "n_palabras" : 152 ,
         "value" : 0.01
       },
       { 
@@ -367,8 +367,8 @@ long_short_data = [
       },
             { 
         "label" : "Recaudación y Gasto Público" ,
-        "n_palabras" : 578 ,
-        "value" : 0.05
+        "n_palabras" : 191 ,
+        "value" : 0.02
       },
       { 
         "label" : "Reconstrucción" ,
@@ -382,13 +382,13 @@ long_short_data = [
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 319 ,
-        "value" : 0.03
+        "n_palabras" : 422 ,
+        "value" : 0.04
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 239 ,
-        "value" : 0.02
+        "n_palabras" : 310 ,
+        "value" : 0.03
       },
       { 
         "label" : "Trabajo y Previsión" ,
