@@ -433,8 +433,8 @@ nv.addGraph(function() {
   chart.xAxis
       .showMaxMin(false)
 
-  // chart.yAxis
-  //     .tickFormat(d3.format('%'));
+  chart.yAxis
+      .tickFormat(d3.format('f'));
 
   // chart.forceY([0,1]);
 
