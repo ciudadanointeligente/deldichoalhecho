@@ -1,0 +1,152 @@
+---
+layout: default
+title: del Dicho al Hecho
+---
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="/css/nv.d3.css" rel="stylesheet" type="text/css">
+
+<style>
+
+
+.chart svg {
+  height: 450px;
+  min-width: 100px;
+  min-height: 100px;
+/*
+  margin: 50px;
+  Minimum height and width is a good idea to prevent negative SVG dimensions...
+  For example width should be =< margin.left + margin.right + 1,
+  of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+*/
+}
+
+</style>
+<body>
+  <div class="container">
+    <h1>Título</h1>
+    <div id="chart1" class='chart with-transitions'>
+      <svg></svg>
+    </div>
+  </div>
+
+<script src="/js/d3.v3.js"></script>
+<script src="/js/nv.d3.js"></script>
+<script src="/js/tooltip.js"></script>
+<script src="/js/utils.js"></script>
+<!-- <script src="../src/interactiveLayer.js"></script> -->
+<!-- <script src="../src/models/legend.js"></script> -->
+<!-- <script src="../src/models/axis.js"></script> -->
+<!-- <script src="../src/models/scatter.js"></script> -->
+<!-- <script src="../src/models/line.js"></script> -->
+<!-- <script src="../src/models/cumulativeLineChart.js"></script> -->
+<script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stores rendered charts in nv.graphs, and may do more in the future... it's NOT required
+
+nv.addGraph(function() {  
+   var chart = nv.models.cumulativeLineChart()
+             .useInteractiveGuideline(true)
+             .x(function(d) { return d[0] })
+             .y(function(d) { return d[1]/100 })
+             // .color(d3.scale.category10().range())
+             .average(function(d) { return d.mean/100; })
+             .transitionDuration(300)
+             .clipVoronoi(false);
+
+   chart.xAxis
+      .tickFormat(function(d) {
+          return d3.time.format('%d/%m/%y')(new Date(d))
+        });
+
+  chart.yAxis
+      .tickFormat(d3.format('%'));
+
+  d3.select('#chart1 svg')
+      .datum(cumulativeTestData())
+      .call(chart);
+
+  //TODO: Figure out a good way to do this automatically
+  nv.utils.windowResize(chart.update);
+
+  chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+  return chart;
+});
+
+nv.addGraph(function() {  
+   var chart = nv.models.cumulativeLineChart()
+             .useInteractiveGuideline(false)
+             .rightAlignYAxis(true)
+             .margin({right:90})
+             .x(function(d) { return d[0] })
+             .y(function(d) { return d[1]/100 })
+             .color(d3.scale.category10().range())
+             .average(function(d) { return d.mean/100; })
+             .clipVoronoi(false);
+
+   chart.xAxis
+      .tickFormat(function(d) {
+          return d3.time.format('%m/%d/%y')(new Date(d))
+        });
+
+  chart.yAxis
+      .tickFormat(d3.format(',.1%'));
+
+  d3.select('#chart2 svg')
+      .datum(cumulativeTestData())
+      .call(chart);
+
+  //TODO: Figure out a good way to do this automatically
+  nv.utils.windowResize(chart.update);
+
+  chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+  return chart;
+});
+
+
+function cumulativeTestData() {
+
+
+
+  return [
+
+                {
+                    key: "Bachelet 2014-2018",
+                    color: '#F8981D',
+                    values: [ [ 0, 0] , [ 2 , 45]]
+                    ,
+                    mean: 250
+                },
+                {
+                    key: "Piñera 2010-2014",
+                    color: '#1795CF',
+                    values: [ [ 0 , 0] , [ 1 , 54] , [ 2 , 72] , [ 3 , 60] , [ 4 , 54] , [ 5 , 72] , [ 6 , 60] , [ 7 , 54] , [ 8 , 72]]
+                }
+            ];
+
+                
+  /*
+  .map(function(line) {
+    line.values = line.values.map(function(d) { return {x: d[0], y: d[1]/100  }});
+    return line;
+  });
+  */
+}
+
+
+</script>
+
+<div class="container">
+  <div id="home">
+    <h1>Blog Posts</h1>
+    <ul class="posts">
+      {% for post in site.posts %}
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

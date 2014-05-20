@@ -31,7 +31,7 @@ long_short_data = [
       { 
         "label" : "Desarrollo Social" ,
         "n_palabras" : 1094 ,
-        "value" : 0.01
+        "value" : 0.10
       } , 
       { 
         "label" : "Descentralización" ,
@@ -46,7 +46,7 @@ long_short_data = [
       { 
         "label" : "Economía, Fomento y Turismo" ,
         "n_palabras" : 1283 ,
-        "value" : 0.011
+        "value" : 0.11
       },
       { 
         "label" : "Educación" ,
@@ -80,7 +80,7 @@ long_short_data = [
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 410 ,
+        "n_palabras" : 457 ,
         "value" : 0.04
       },
       { 
@@ -237,7 +237,7 @@ long_short_data = [
       { 
         "label" : "Reconstrucción" ,
         "n_palabras" : 1947 ,
-        "value" : 0.011
+        "value" : 0.11
       },
       { 
         "label" : "Relaciones Exteriores" ,
