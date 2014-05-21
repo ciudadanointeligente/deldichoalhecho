@@ -66,7 +66,7 @@ long_short_data = [
       { 
         "label" : "Género" ,
         "n_palabras" : 551 ,
-        "value" : 0.3
+        "value" : 0.03
       },
       { 
         "label" : "Justicia" ,
