@@ -5,133 +5,133 @@ long_short_data = [
     values: [
       { 
         "label" : "Agricultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 789 ,
+        "value" : 0.05
       } , 
       { 
         "label" : "Cultura" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 408 ,
+        "value" : 0.02
       } , 
       { 
         "label" : "Defensa" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 228 ,
+        "value" : 0.01
       } , 
       { 
         "label" : "Deporte" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 276 ,
+        "value" : 0.02
       } , 
       {
         "label" : "Derechos Humanos" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 45 ,
+        "value" : 0.00
       } , 
       { 
         "label" : "Desarrollo Social" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 806 ,
+        "value" : 0.05
       } , 
       { 
         "label" : "Descentralización" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 564 ,
+        "value" : 0.03
       } , 
       { 
         "label" : "Discriminación" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 226 ,
+        "value" : 0.01
       } , 
       { 
         "label" : "Economía, Fomento y Turismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 1679 ,
+        "value" : 0.10
       },
       { 
         "label" : "Educación" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 2160 ,
+        "value" : 0,12
       },
       { 
         "label" : "Energía" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 499 ,
+        "value" : 0.03
       },
       { 
         "label" : "Estado y Democracia" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 764 ,
+        "value" : 0.04
       },
       { 
         "label" : "Género" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 551 ,
+        "value" : 0.3
       },
       { 
         "label" : "Justicia" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 49 ,
+        "value" : 0.00
       },
       { 
         "label" : "Medio Ambiente" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 263 ,
+        "value" : 0.02
       },
       { 
         "label" : "Minería" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 417 ,
+        "value" : 0.02
       },
       { 
         "label" : "Obras Públicas" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 317 ,
+        "value" : 0.02
       },
       { 
         "label" : "Pueblos Originarios" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 172 ,
+        "value" : 0.01
       },
       { 
         "label" : "Recaudación y Gasto Público" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 742 ,
+        "value" : 0.04
       },
       { 
         "label" : "Reconstrucción" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 649 ,
+        "value" : 0.04
       },
       { 
         "label" : "Relaciones Exteriores" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 346 ,
+        "value" : 0.02
       },
       { 
         "label" : "Salud" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 882 ,
+        "value" : 0.05
       },
       { 
         "label" : "Seguridad Pública" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 374 ,
+        "value" : 0.02
       },
       { 
         "label" : "Trabajo y Previsión" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 818 ,
+        "value" : 0.05
       },
       { 
         "label" : "Transporte y Telecomunicaciones" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 252 ,
+        "value" : 0.01
       },
       { 
         "label" : "Vivienda y Urbanismo" ,
-        "n_palabras" : 0 ,
-        "value" : 0
+        "n_palabras" : 904 ,
+        "value" : 0.05
       }
     ]
   },
