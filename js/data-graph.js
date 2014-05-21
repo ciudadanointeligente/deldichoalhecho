@@ -51,7 +51,7 @@ long_short_data = [
       { 
         "label" : "Educación" ,
         "n_palabras" : 2160 ,
-        "value" : 0,12
+        "value" : 0.12
       },
       { 
         "label" : "Energía" ,
