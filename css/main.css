@@ -316,8 +316,19 @@ a#refresh-promisses:hover {
 }
 
 
-#type > .type-c, #type > .type-p, #type > .type-n {
+#type > .type-a, #type > .type-c, #type > .type-p, #type > .type-n {
   position: relative;
+}
+
+#type > .type-a:after {
+  content: "DEL GOBIERNO ANTERIOR";
+  background: url('../img/sprite-estado.png') 0px 41px;
+  position: absolute;
+  top: 0;
+  right: -23px;
+  padding: 5px 9px 10px;
+  font-size: 14px;
+  color: #fff;
 }
 
 #type > .type-c:after {
@@ -353,6 +364,10 @@ a#refresh-promisses:hover {
   padding: 4px 8px 11px;
   font-size: 14px;
   color: #fff;
+}
+
+.list-inline > li {
+  margin-top: 5px;
 }
 
 /*FOOTER*/
