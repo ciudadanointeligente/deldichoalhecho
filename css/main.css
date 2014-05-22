@@ -201,6 +201,26 @@ h3.title {
 
 /*GRAPH*/
 
+section.graph {
+  padding: 10px 0px 90px;
+  position: relative;
+}
+
+section.graph:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(229, 62, 62, 0);
+  border-bottom-color: #40BDF1;
+  border-width: 30px;
+  margin-left: -30px;
+}
+
 svg text {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
