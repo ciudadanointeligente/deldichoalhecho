@@ -31,33 +31,68 @@ title: Promesas 2014
   }
 </style>
 
-<!-- GRAFICO -->
 
+
+<section class="red-background">
+  <a id="promises-section"></a>
+  <div class="container">
+    <h3>Durante la Cuenta Pública estuvimos tomando notas respecto a las promesas que iban siendo enunciadas. Seguiremos ordenándolas y revisándolas, pero mientras te dejamos esta información preeliminar:</h3>
+
+    <p>
+      <a href="#" id="refresh-promisses">Actualizar <i class="fa fa-refresh"></i></a>
+    </p>
+
+    <ul class="list-inline">
+      <li><a href="#" data-filter="agricultura" class="label label-default filtro">Agricultura</a></li>
+      <li><a href="#" data-filter="cultura" class="label label-default filtro">Cultura</a></li>
+      <li><a href="#" data-filter="defensa" class="label label-default filtro">Defensa</a></li>
+      <li><a href="#" data-filter="deporte" class="label label-default filtro">Deporte</a></li>
+      <li><a href="#" data-filter="derechos-humanos" class="label label-default filtro">Derechos Humanos</a></li>
+      <li><a href="#" data-filter="desarrollo-social" class="label label-default filtro">Desarrollo Social</a></li>
+      <li><a href="#" data-filter="descentralizacion" class="label label-default filtro">Descentralización</a></li>
+      <li><a href="#" data-filter="discriminacion" class="label label-default filtro">Discriminación</a></li>
+      <li><a href="#" data-filter="economia-fomento-y-turismo" class="label label-default filtro">Economía, Fomento y Turismo</a></li>
+      <li><a href="#" data-filter="educacion" class="label label-default filtro">Educación</a></li>
+      <li><a href="#" data-filter="energia" class="label label-default filtro">Energía</a></li>
+      <li><a href="#" data-filter="estado-y-democracia" class="label label-default filtro">Estado y Democracia</a></li>
+      <li><a href="#" data-filter="genero" class="label label-default filtro">Género</a></li>
+      <li><a href="#" data-filter="justicia" class="label label-default filtro">Justicia</a></li>
+      <li><a href="#" data-filter="medio-ambiente" class="label label-default filtro">Medio Ambiente</a></li>
+      <li><a href="#" data-filter="mineria" class="label label-default filtro">Minería</a></li>
+      <li><a href="#" data-filter="obras-publicas" class="label label-default filtro">Obras Públicas</a></li>
+      <li><a href="#" data-filter="pueblos-originarios" class="label label-default filtro">Pueblos Originarios</a></li>
+      <li><a href="#" data-filter="recaudacion-y-gasto-publico" class="label label-default filtro">Recaudación y Gasto Público</a></li>
+      <li><a href="#" data-filter="reconstruccion" class="label label-default filtro">Reconstrucción</a></li>
+      <li><a href="#" data-filter="relaciones-exteriores" class="label label-default filtro">Relaciones Exteriores</a></li>
+      <li><a href="#" data-filter="salud" class="label label-default filtro">Salud</a></li>
+      <li><a href="#" data-filter="seguridad-publica" class="label label-default filtro">Seguridad Pública</a></li>
+      <li><a href="#" data-filter="trabajo-y-prevision" class="label label-default filtro">Trabajo y Previsión</a></li>
+      <li><a href="#" data-filter="transporte-y-telecomunicaciones" class="label label-default filtro">Transporte y Telecomunicaciones</a></li>
+      <li><a href="#" data-filter="vivienda-y-urbanismo" class="label label-default filtro">Vivienda y Urbanismo</a></li>
+    </ul>
+    
+    <div id="data-content"></div>
+  </div>
+</section>
+
+<!-- GRAFICO -->
+<section class="graph">
   <div class="container">
   <a id="graph-section"></a>
   <h3>¿De qué hablaron Bachelet y Piñera en sus primeros discursos?</h3>
   <p><a href="http://datahub.io/dataset/del-dicho-al-hecho-2014">Recursos</a> para el Análisis</p>
   <div class="legend">
-    Has click para activar y desactivar discursos
+    Haz click para activar y desactivar discursos
   </div>
   <div id="chart1" class='with-3d-shadow with-transitions'><svg></svg></div>
 </div>  
-
-<!-- FIN GRAFICO -->
+</section>
 
 <script type="text/javascript" src="{{ site.url }}/js/d3.v3.js"></script>
 <script type="text/javascript" src="{{ site.url }}/js/nv.d3.js"></script>
 <script type="text/javascript" src="{{ site.url }}/js/tooltip.js"></script>
 <script type="text/javascript" src="{{ site.url }}/js/data-graph.js"></script>
-
-<section class="red-background">
-  <a id="promises-section"></a>
-  <div class="container">
-    <h3>Durante la Cuenta Pública estuvimos tomando notas respecto a las promesas que iban siendo enunciadas. Seguiremos ordenándolas y revisándolas, pero mientras te dejamos esta información preeliminar:<a href="#" id="refresh-promisses">Actualizar <i class="fa fa-refresh"></i></a></h3>
-    
-    <div id="data-content"></div>
-  </div>
-</section>
+<!-- FIN GRAFICO -->
 
 <script type="text/javascript" src="{{ site.url }}/js/tabletop.js"></script>
 <script type="text/javascript">
@@ -76,6 +111,25 @@ title: Promesas 2014
     $("#data-content").empty();
     init();
   });
+
+  $('.filtro').on('click', function(e){
+    e.preventDefault();
+    var aFilter = new Array('reconstruccion','educacion','recaudacion-y-gasto-publico','economia-fomento-y-turismo','energia','obras-publicas','transporte-y-telecomunicaciones','mineria','medio-ambiente','agricultura','estado-y-democracia','salud','trabajo-y-pensiones','proteccion-social','genero','seguridad-publica','pueblos-originarios','proteccion-social','discriminacion','vivienda-y-urbanismo','descentralizacion','cultura','deporte','defensa','justicia');
+    var filter = $(this).data('filter');
+
+    aFilter.splice( $.inArray(filter, aFilter), 1 );
+
+    if( $.inArray(filter, aFilter) ) {
+
+      $('.'+filter).attr('style','display:block');
+
+      $.each(aFilter, function(index,value){
+        $('.'+value).attr('style','display:none');
+      });
+    }
+
+    
+  })
 </script>
 <script type="text/javascript" src="{{ site.url }}/js/ddah.js"></script>
 
