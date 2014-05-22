@@ -78,7 +78,7 @@ nv.addGraph(function() {
   chart.xAxis
     // .axisLabel("Time (s)")
     // .tickFormat(d3.format('1f'));
-    .tickFormat(function(d) { return d3.time.format('%m/%d/%Y')(new Date(d)); });
+    .tickFormat(d3.format('f'));
 
   chart.yAxis
     // .axisLabel('Voltage (v)')
@@ -114,13 +114,13 @@ function sinAndCos() {
     {
       key: "Bachelet 2014-2018",
       color: '#F8981D',
-      values: [ {x:0 ,y: 0} , {x:1 ,y: 0.54} , {x: 2 ,y: 0.93}, {x: 3 ,y: 0.67}, {x: 4 ,y: 0.78} , {x:5 ,y: 0} , {x:6 ,y: 0.54} , {x:7 ,y: 0.93}, {x:8 ,y: 0.67}]
+      values: [ {x:'21 de mayo' ,y: 0} , {x:1 ,y: 0.54} , {x: 2 ,y: 0.93}, {x: 3 ,y: 0.67}, {x: 4 ,y: 0.78} , {x:5 ,y: 0} , {x:6 ,y: 0.54} , {x:7 ,y: 0.93}, {x:8 ,y: 0.67}]
     }
     ,
     {
       key: "Piñera 2010-2014",
       color: '#1795CF',
-      values: [ {x:0 ,y: 0} , {x:1 ,y: 0.54} , {x: 2 ,y: 0.93}, {x: 3 ,y: 0.67}, {x: 4 ,y: 0.93}]
+      values: [ {x:'21 de mayo' ,y: 0} , {x:2012 ,y: 0.54} , {x:2012 ,y: 0.93}, {x:2013 ,y: 0.67}, {x:2013 ,y: 0.93}, {x:2014 ,y: 0.74}]
     }
   ];
 }
