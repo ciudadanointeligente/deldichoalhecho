@@ -355,6 +355,10 @@ a#refresh-promisses:hover {
   color: #fff;
 }
 
+.list-inline > li {
+  margin-top: 5px;
+}
+
 /*FOOTER*/
 
 .footer {
