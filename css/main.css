@@ -322,10 +322,10 @@ a#refresh-promisses:hover {
 
 #type > .type-a:after {
   content: "DEL GOBIERNO ANTERIOR";
-  background: url('../img/sprite-estado.png') 0px 41px;
+  background: url('../img/sprite-estado.png') -4px 41px;
   position: absolute;
   top: 0;
-  right: -23px;
+  right: -26px;
   padding: 5px 9px 10px;
   font-size: 14px;
   color: #fff;
@@ -333,7 +333,7 @@ a#refresh-promisses:hover {
 
 #type > .type-c:after {
   content: "50 PROMESAS";
-  background: url('../img/sprite-estado.png') 118px 41px;
+  background: url('../img/sprite-estado.png') 118px 124px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -345,7 +345,7 @@ a#refresh-promisses:hover {
 /*programa gobierno*/
 #type > .type-p:after {
   content: "PROGRAMA DE GOBIERNO";
-  background: url('../img/sprite-estado.png') 197px 126px;
+  background: url('../img/sprite-estado.png') 197px 210px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -357,7 +357,7 @@ a#refresh-promisses:hover {
 /*nueva promesas*/
 #type > .type-n:after {
   content: "NUEVA PROMESA";
-  background: url('../img/sprite-estado.png') 140px 209px;
+  background: url('../img/sprite-estado.png') 140px 291px;
   position: absolute;
   top: 0;
   right: -25px;
