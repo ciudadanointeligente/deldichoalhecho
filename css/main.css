@@ -201,6 +201,26 @@ h3.title {
 
 /*GRAPH*/
 
+section.graph {
+  padding: 10px 0px 90px;
+  position: relative;
+}
+
+section.graph:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(229, 62, 62, 0);
+  border-bottom-color: #40BDF1;
+  border-width: 30px;
+  margin-left: -30px;
+}
+
 svg text {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
@@ -316,13 +336,24 @@ a#refresh-promisses:hover {
 }
 
 
-#type > .type-c, #type > .type-p, #type > .type-n {
+#type > .type-a, #type > .type-c, #type > .type-p, #type > .type-n {
   position: relative;
+}
+
+#type > .type-a:after {
+  content: "DEL GOBIERNO ANTERIOR";
+  background: url('../img/sprite-estado.png') -4px 41px;
+  position: absolute;
+  top: 0;
+  right: -26px;
+  padding: 5px 9px 10px;
+  font-size: 14px;
+  color: #fff;
 }
 
 #type > .type-c:after {
   content: "50 PROMESAS";
-  background: url('../img/sprite-estado.png') 118px 41px;
+  background: url('../img/sprite-estado.png') 118px 124px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -334,7 +365,7 @@ a#refresh-promisses:hover {
 /*programa gobierno*/
 #type > .type-p:after {
   content: "PROGRAMA DE GOBIERNO";
-  background: url('../img/sprite-estado.png') 197px 126px;
+  background: url('../img/sprite-estado.png') 197px 210px;
   position: absolute;
   top: 0;
   right: -25px;
@@ -346,13 +377,17 @@ a#refresh-promisses:hover {
 /*nueva promesas*/
 #type > .type-n:after {
   content: "NUEVA PROMESA";
-  background: url('../img/sprite-estado.png') 140px 209px;
+  background: url('../img/sprite-estado.png') 140px 291px;
   position: absolute;
   top: 0;
   right: -25px;
   padding: 4px 8px 11px;
   font-size: 14px;
   color: #fff;
+}
+
+.list-inline > li {
+  margin-top: 5px;
 }
 
 /*FOOTER*/
