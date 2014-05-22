@@ -1,0 +1,81 @@
+---
+layout: default
+title: Promesas 2014
+---
+<div class="container">
+  <div class="hero"><h2>Bienvenido al sitio de monitoreo y rendición de cuentas de Ciudadano Inteligente.</h2></div>
+  <div class="ribbon">
+    <h1>21 de Mayo 2014</h1>
+  </div>
+
+</div>
+
+<!-- CHART -->
+<style>
+  body {
+    overflow-y:scroll;
+  }
+
+  text {
+    font: 12px sans-serif;
+  }
+
+  #chart1 {
+    /*margin: 10px;*/
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  #chart1 svg {
+    height: 2000px;
+  }
+</style>
+
+<!-- GRAFICO -->
+
+  <div class="container">
+  <a id="graph-section"></a>
+  <h3>¿De qué hablaron Bachelet y Piñera en sus primeros discursos?</h3>
+  <p><a href="http://datahub.io/dataset/del-dicho-al-hecho-2014">Recursos</a> para el Análisis</p>
+  <div class="legend">
+    Has click para activar y desactivar discursos
+  </div>
+  <div id="chart1" class='with-3d-shadow with-transitions'><svg></svg></div>
+</div>  
+
+<!-- FIN GRAFICO -->
+
+<script type="text/javascript" src="{{ site.url }}/js/d3.v3.js"></script>
+<script type="text/javascript" src="{{ site.url }}/js/nv.d3.js"></script>
+<script type="text/javascript" src="{{ site.url }}/js/tooltip.js"></script>
+<script type="text/javascript" src="{{ site.url }}/js/data-graph.js"></script>
+
+<section class="red-background">
+  <a id="promises-section"></a>
+  <div class="container">
+    <h3>Durante la Cuenta Pública estuvimos tomando notas respecto a las promesas que iban siendo enunciadas. Seguiremos ordenándolas y revisándolas, pero mientras te dejamos esta información preeliminar:<a href="#" id="refresh-promisses">Actualizar <i class="fa fa-refresh"></i></a></h3>
+    
+    <div id="data-content"></div>
+  </div>
+</section>
+
+<script type="text/javascript" src="{{ site.url }}/js/tabletop.js"></script>
+<script type="text/javascript">
+  window.onload = function() { init() };
+
+  var public_spreadsheet_url = '0Aq8cCRsryS2PdF91S0VkblE4YXNHWlk4QmJaYmdHSUE';
+
+  function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                       callback: showInfo,
+                       simpleSheet: false } );
+  }
+
+  $('#refresh-promisses').on('click', function(e){
+    e.preventDefault();
+    $("#data-content").empty();
+    init();
+  });
+</script>
+<script type="text/javascript" src="{{ site.url }}/js/ddah.js"></script>
+
