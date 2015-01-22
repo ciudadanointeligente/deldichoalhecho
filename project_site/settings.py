@@ -149,8 +149,7 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, '..', 'promises_web', 'static'),
-        os.path.join(BASE_DIR, '..', 'promises_web', 'static'),
+    os.path.join(BASE_DIR, '..', 'promises_web', 'static'),
 )
 
 # EXTRA TEMPLATE_CONTEXT_PROCESSORS
