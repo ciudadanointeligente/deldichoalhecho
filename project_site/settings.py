@@ -52,6 +52,8 @@ INSTALLED_APPS = (
     'annoying',
     'markdown_deux',
     'adminsortable',
+    'instances',
+    'promises_instances',
 )
 
 MIDDLEWARE_CLASSES = (
