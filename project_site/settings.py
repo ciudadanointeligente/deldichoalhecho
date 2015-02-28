@@ -90,7 +90,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-SITE_ID = 2
+SITE_ID = 1
 
 USE_TZ = True
 
