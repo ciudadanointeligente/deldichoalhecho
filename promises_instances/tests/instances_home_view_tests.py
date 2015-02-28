@@ -2,6 +2,7 @@ from django.test import TestCase
 from promises_instances.models import DDAHCategory
 from instances.models import Instance
 from django.core.urlresolvers import reverse
+from django.test import Client
 
 class InstanceHomeView(TestCase):
 	def setUp(self):
@@ -18,6 +19,16 @@ class InstanceHomeView(TestCase):
 	def test_there_is_a_url_for_every_instance(self):
 		'''There is a url for every instance'''
 		instance = Instance.objects.create(label='bici', title='bicicletas')
-		url = reverse('instance_home', kwargs={'label':instance.label})
+		url = reverse('instance_home', kwargs={'slug':instance.label})
 		self.assertTrue(url)
-		
+	
+	def test_the_instance_home_page_contains_the_instance(self):
+		'''The instance home page contains the instance'''
+		instance = Instance.objects.create(label='bici', title='bicicletas')
+		url = reverse('instance_home', kwargs={'slug':instance.label})
+		c = Client()
+		response = c.get(url)
+		self.assertEquals(response.status_code, 200)
+		self.assertIn('instance', response.context)
+		self.assertEquals(response.context['instance'], instance)
+
