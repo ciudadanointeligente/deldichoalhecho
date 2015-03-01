@@ -5,6 +5,6 @@ from promises_instances.views import InstanceDetailView
 
 urlpatterns = patterns('',
         url(r'^(?P<slug>[-\w]+)/?$', 
-        	InstanceDetailView.as_view(template_name='home.html',), 
-        	name = 'instance_home'),
+            InstanceDetailView.as_view(template_name='home.html',), 
+            name = 'instance_home'),
 )

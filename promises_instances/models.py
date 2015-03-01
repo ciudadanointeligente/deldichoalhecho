@@ -4,4 +4,4 @@ from instances.models import Instance
 
 # Create your models here.
 class DDAHCategory(Category):
-	instance = models.ForeignKey(Instance, related_name='categories')
+    instance = models.ForeignKey(Instance, related_name='categories')
