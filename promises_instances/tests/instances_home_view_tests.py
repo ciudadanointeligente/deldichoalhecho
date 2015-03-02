@@ -19,13 +19,13 @@ class InstanceHomeView(TestCase):
         self.assertTrue(instance.categories)
         self.assertEquals(instance.categories.count(), 1)
         self.assertEquals(instance.categories.first(), category)
-    
+
     def test_there_is_a_url_for_every_instance(self):
         '''There is a url for every instance'''
         instance = Instance.objects.create(label='bici', title='bicicletas')
         url = reverse('instance_home', kwargs={'slug':instance.label})
         self.assertTrue(url)
-    
+
     def test_the_instance_home_page_contains_the_instance(self):
         '''The instance home page contains the instance'''
         instance = Instance.objects.create(label='bici', title='bicicletas')
@@ -35,19 +35,19 @@ class InstanceHomeView(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertIn('instance', response.context)
         self.assertEquals(response.context['instance'], instance)
-    
+
     def test_the_home_page_contains_the_right_categories(self):
         '''The home page also brings the right categories as well'''
         instance1 = Instance.objects.create(label='bici1', title='bicicletas1')
         category1 = DDAHCategory.objects.create(name="Education1", instance=instance1)
-        
+
         instance2 = Instance.objects.create(label='bici2', title='bicicletas2')
         category2 = DDAHCategory.objects.create(name="Education1", instance=instance2)
 
         url = reverse('instance_home', kwargs={'slug':instance1.label})
         c = Client()
         response = c.get(url)
-        
+
         self.assertIn('categories', response.context)
         self.assertIn(category1, response.context['categories'])
         self.assertNotIn(category2, response.context['categories'])
@@ -85,3 +85,38 @@ class InstanceHomeView(TestCase):
         self.assertEquals(response.context['summary'].accomplished, 1)
         self.assertEquals(response.context['summary'].no_progress, 1)
         self.assertEquals(response.context['summary'].in_progress, 0)
+
+    def test_the_promisses_come_ordered(self):
+        '''The promises come ordered'''
+        instance1 = Instance.objects.create(label='bici1', title='bicicletas1')
+        one = DDAHCategory.objects.create(name="one", instance=instance1)
+        promise1 = Promise.objects.create(name="this is a promise",\
+                                              person = self.person,
+                                              category=one
+                                              )
+        promise1.fulfillment.percentage = 50
+        promise1.fulfillment.save()
+        two = DDAHCategory.objects.create(name="two", instance=instance1)
+        promise2 = Promise.objects.create(
+                                        name="this is another promise",\
+                                        person = self.person,
+                                        category=two,
+                    )
+        promise2.fulfillment.percentage = 75
+        promise2.fulfillment.save()
+        three = DDAHCategory.objects.create(name="three", instance=instance1)
+        promise3 = Promise.objects.create(
+                                        name="this is another promise",\
+                                        person = self.person,
+                                        category=three,
+                    )
+        promise3.fulfillment.percentage = 25
+        promise3.fulfillment.save()
+
+        url = reverse('instance_home', kwargs={'slug':instance1.label})
+        c = Client()
+        response = c.get(url)
+        self.assertEquals(response.context['categories'].count(), 3)
+        self.assertEquals(response.context['categories'][0], two)
+        self.assertEquals(response.context['categories'][1], one)
+        self.assertEquals(response.context['categories'][2], three)
