@@ -52,6 +52,8 @@ INSTALLED_APPS = (
     'annoying',
     'markdown_deux',
     'adminsortable',
+    'instances',
+    'promises_instances',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,6 +100,7 @@ SOUTH_TESTS_MIGRATE = False
 
 SOUTH_MIGRATION_MODULES = {
     'taggit': 'taggit.south_migrations',
+    'instances': 'instances.south_migrations',
 }
 
 # Static files (CSS, JavaScript, Images)
