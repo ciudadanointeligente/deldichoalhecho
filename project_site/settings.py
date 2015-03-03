@@ -153,6 +153,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '..', 'promises_web', 'static'),
+    # os.path.join(BASE_DIR, '..', 'deldichoalhecho_theme', 'edicion2015'),
 )
 
 # EXTRA TEMPLATE_CONTEXT_PROCESSORS
