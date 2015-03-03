@@ -9,12 +9,13 @@
 }
 
 .ribbon {
-  width: 30%;
+  max-width: 530px;
   margin: 30px auto 0px;
   background: #FFF;
   padding: 1px 0px 10px;
   color: #40BDF1;
   position: relative;
+  width: auto;
 }
 
 .ribbon h1 {
