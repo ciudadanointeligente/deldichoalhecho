@@ -162,6 +162,11 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
 )
 # END OF HEROKU SPECIFICS
+
+# Instances configuration
+BASE_HOST = '127.0.0.1.xip.io'
+BASE_PORT = '8000'
+
 try:
     from local_settings import *
 except ImportError:
