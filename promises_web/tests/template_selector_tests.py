@@ -22,7 +22,7 @@ class TemplateSelectorTestCase(TestCase):
         url = reverse('promises_home')
         c = Client()
         response = c.get(url)
-        self.assertTemplateUsed(response, 'base.html')
+        self.assertTemplateUsed(response, 'instances/index.html')
 
     def test_get_base_if_template_not_in_theme(self):
     	'''If a certain template cannot be found uses the one in base'''
@@ -32,7 +32,7 @@ class TemplateSelectorTestCase(TestCase):
         response = c.get(url)
         self.assertEquals(response.status_code, 200)
         ## home.html contains the phrase testest
-        self.assertIn("testest", response.rendered_content)
+        self.assertIn("No hay instancias presentes.", response.rendered_content)
 
     def test_get_template_when_no_template_is_selected(self):
         '''If the config value for the current theme is empty'''
