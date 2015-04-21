@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'south',
-    'taggit',
     'popolo',
     'constance',
     'constance.backends.database',
@@ -48,10 +47,7 @@ INSTALLED_APPS = (
     'promises',
     'promises_web',
     'deldichoalhecho_theme',
-    'popit',
-    'annoying',
     'markdown_deux',
-    'adminsortable',
     'instances',
     'promises_instances',
 )
@@ -99,7 +95,6 @@ USE_TZ = True
 SOUTH_TESTS_MIGRATE = False
 
 SOUTH_MIGRATION_MODULES = {
-    'taggit': 'taggit.south_migrations',
     'instances': 'instances.south_migrations',
 }
 
@@ -109,15 +104,15 @@ SOUTH_MIGRATION_MODULES = {
 STATIC_URL = '/static/'
 
 #CONSTANCE
-CONSTANCE_CONFIG = {
-        'LANDING_PHRASE': ("Del dicho al hecho", 'the landing phrase for the site'),
-        'DESCRIPTION_PHRASE': ("Promise tracking site", 'the description of the site'),
-        'GOOGLE_ANALYTICS': ("UA-XXXXXXX-X", "Google analytics code "),
-        'DISQUS_SHORTCODE': ("disqusshortcode", "Disqus shortcode"),
-        'CURRENT_THEME': ("base", "Current theme"),
-        'OG_IMAGE':("https://raw.githubusercontent.com/ciudadanointeligente/check-it/100dias/deldichoalhecho_theme/100dias/static/img/logo-og.png",
-            "Image to be displayed for OG")
-}
+CONSTANCE_CONFIG = {'LANDING_PHRASE': ("Del dicho al hecho", 'the landing phrase for the site'),
+                    'DESCRIPTION_PHRASE': ("Promise tracking site", 'the description of the site'),
+                    'GOOGLE_ANALYTICS': ("UA-XXXXXXX-X", "Google analytics code "),
+                    'DISQUS_SHORTCODE': ("disqusshortcode", "Disqus shortcode"),
+                    'CURRENT_THEME': ("base", "Current theme"),
+                    'OG_IMAGE': ("https://raw.githubusercontent.com/ciudadanointeligente/check-it/100dias/deldichoalhecho_theme/100dias/static/img/logo-og.png",
+                        "Image to be displayed for OG"),
+                    }
+
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "django.core.context_processors.debug",
@@ -136,7 +131,7 @@ TEMPLATE_LOADERS = (
 # Parse database configuration from $DATABASE_URL
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
-    DATABASES['default'] =  dj_database_url.config()
+    DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
