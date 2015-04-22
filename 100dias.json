@@ -8,7 +8,7 @@
     "end_date": "", 
     "honorific_suffix": "", 
     "additional_name": "", 
-    "gender": null, 
+    "gender": "male", 
     "created_at": "2014-04-15T21:21:32.854Z", 
     "death_date": "", 
     "updated_at": "2014-04-15T21:21:32.860Z", 
@@ -21,7 +21,6 @@
     "image": "", 
     "birth_date": "", 
     "patronymic_name": "", 
-    "slug": "felipe", 
     "biography": ""
   }
 },
@@ -34,7 +33,6 @@
     "end_date": "", 
     "honorific_suffix": "", 
     "additional_name": "", 
-    "gender": null, 
     "created_at": "2014-04-16T14:00:18.396Z", 
     "death_date": "", 
     "updated_at": "2014-04-16T14:00:18.402Z", 
@@ -47,7 +45,6 @@
     "image": "", 
     "birth_date": "", 
     "patronymic_name": "", 
-    "slug": "intendencia-regional-de-valparaiso", 
     "biography": ""
   }
 },
@@ -60,7 +57,7 @@
     "end_date": null, 
     "honorific_suffix": "", 
     "additional_name": "", 
-    "gender": null, 
+    "gender": "female", 
     "created_at": "2014-04-21T16:22:49.196Z", 
     "death_date": "", 
     "updated_at": "2014-04-21T16:22:49.202Z", 
@@ -73,10 +70,15 @@
     "image": null, 
     "birth_date": "", 
     "patronymic_name": "", 
-    "slug": "michelle-bachelet", 
     "biography": ""
   }
-},
+},{
+  "pk": 36,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 36, 
   "model": "promises.category", 
@@ -84,7 +86,13 @@
     "name": "Educaci\u00f3n", 
     "slug": "educacion"
   }
-},
+},{
+  "pk": 37,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 37, 
   "model": "promises.category", 
@@ -92,7 +100,13 @@
     "name": "Salud", 
     "slug": "salud"
   }
-},
+},{
+  "pk": 38,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 38, 
   "model": "promises.category", 
@@ -100,7 +114,13 @@
     "name": "Protecci\u00f3n Social", 
     "slug": "proteccion-social"
   }
-},
+},{
+  "pk": 39,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 39, 
   "model": "promises.category", 
@@ -108,7 +128,13 @@
     "name": "Pensiones", 
     "slug": "pensiones"
   }
-},
+},{
+  "pk": 40,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 40, 
   "model": "promises.category", 
@@ -116,7 +142,13 @@
     "name": "Trabajo", 
     "slug": "trabajo"
   }
-},
+},{
+  "pk": 41,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 41, 
   "model": "promises.category", 
@@ -124,7 +156,13 @@
     "name": "Seguridad P\u00fablica", 
     "slug": "seguridad-publica"
   }
-},
+},{
+  "pk": 42,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 42, 
   "model": "promises.category", 
@@ -132,7 +170,13 @@
     "name": "Descentralizaci\u00f3n", 
     "slug": "descentralizacion"
   }
-},
+},{
+  "pk": 43,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 43, 
   "model": "promises.category", 
@@ -140,7 +184,13 @@
     "name": "Ciudad, Territorio y Reconstrucci\u00f3n", 
     "slug": "ciudad-territorio-y-reconstruccion"
   }
-},
+},{
+  "pk": 44,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 44, 
   "model": "promises.category", 
@@ -148,7 +198,13 @@
     "name": "Medio Ambiente", 
     "slug": "medio-ambiente"
   }
-},
+},{
+  "pk": 45,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 45, 
   "model": "promises.category", 
@@ -156,7 +212,13 @@
     "name": "Cultura", 
     "slug": "cultura"
   }
-},
+},{
+  "pk": 46,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 46, 
   "model": "promises.category", 
@@ -164,7 +226,13 @@
     "name": "Deportes", 
     "slug": "deportes"
   }
-},
+},{
+  "pk": 47,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 47, 
   "model": "promises.category", 
@@ -172,7 +240,13 @@
     "name": "Equidad de g\u00e9nero", 
     "slug": "equidad-de-genero"
   }
-},
+},{
+  "pk": 48,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 48, 
   "model": "promises.category", 
@@ -180,7 +254,13 @@
     "name": "Pueblos Ind\u00edgenas", 
     "slug": "pueblos-indigenas"
   }
-},
+},{
+  "pk": 49,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 49, 
   "model": "promises.category", 
@@ -188,7 +268,13 @@
     "name": "Agr\u00edcultura, recursos h\u00eddricos y pesca", 
     "slug": "agricultura-recursos-hidricos-y-pesca"
   }
-},
+},{
+  "pk": 50,
+  "model": "promises_instances.ddahcategory",
+  "fields": {
+    "instance": 1
+  }
+  },
 {
   "pk": 50, 
   "model": "promises.category", 
@@ -2318,8 +2404,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 56, 
-    "notes": ""
+    "promise": 56
   }
 },
 {
@@ -2327,8 +2412,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 57, 
-    "notes": ""
+    "promise": 57
   }
 },
 {
@@ -2336,8 +2420,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 58, 
-    "notes": ""
+    "promise": 58
   }
 },
 {
@@ -2345,8 +2428,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 59, 
-    "notes": ""
+    "promise": 59
   }
 },
 {
@@ -2354,8 +2436,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 60, 
-    "notes": ""
+    "promise": 60
   }
 },
 {
@@ -2363,8 +2444,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 61, 
-    "notes": ""
+    "promise": 61
   }
 },
 {
@@ -2372,8 +2452,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 62, 
-    "notes": ""
+    "promise": 62
   }
 },
 {
@@ -2381,8 +2460,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 63, 
-    "notes": ""
+    "promise": 63
   }
 },
 {
@@ -2390,8 +2468,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 64, 
-    "notes": ""
+    "promise": 64
   }
 },
 {
@@ -2399,8 +2476,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 65, 
-    "notes": ""
+    "promise": 65
   }
 },
 {
@@ -2408,8 +2484,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 66, 
-    "notes": "\n"
+    "promise": 66
   }
 },
 {
@@ -2417,8 +2492,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 67, 
-    "notes": ""
+    "promise": 67
   }
 },
 {
@@ -2426,8 +2500,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 69, 
-    "notes": ""
+    "promise": 69
   }
 },
 {
@@ -2435,8 +2508,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 70, 
-    "notes": ""
+    "promise": 70
   }
 },
 {
@@ -2444,8 +2516,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 71, 
-    "notes": ""
+    "promise": 71
   }
 },
 {
@@ -2453,8 +2524,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 72, 
-    "notes": ""
+    "promise": 72
   }
 },
 {
@@ -2462,8 +2532,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 73, 
-    "notes": ""
+    "promise": 73
   }
 },
 {
@@ -2471,8 +2540,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 74, 
-    "notes": ""
+    "promise": 74
   }
 },
 {
@@ -2480,8 +2548,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 75, 
-    "notes": ""
+    "promise": 75
   }
 },
 {
@@ -2489,8 +2556,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 76, 
-    "notes": ""
+    "promise": 76
   }
 },
 {
@@ -2498,8 +2564,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 77, 
-    "notes": ""
+    "promise": 77
   }
 },
 {
@@ -2507,8 +2572,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 78, 
-    "notes": ""
+    "promise": 78
   }
 },
 {
@@ -2516,8 +2580,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 79, 
-    "notes": ""
+    "promise": 79
   }
 },
 {
@@ -2525,8 +2588,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 80, 
-    "notes": ""
+    "promise": 80
   }
 },
 {
@@ -2534,8 +2596,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 81, 
-    "notes": ""
+    "promise": 81
   }
 },
 {
@@ -2543,8 +2604,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 82, 
-    "notes": ""
+    "promise": 82
   }
 },
 {
@@ -2552,8 +2612,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 83, 
-    "notes": ""
+    "promise": 83
   }
 },
 {
@@ -2561,8 +2620,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 84, 
-    "notes": ""
+    "promise": 84
   }
 },
 {
@@ -2570,8 +2628,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 85, 
-    "notes": ""
+    "promise": 85
   }
 },
 {
@@ -2579,8 +2636,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 87, 
-    "notes": ""
+    "promise": 87
   }
 },
 {
@@ -2588,8 +2644,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 88, 
-    "notes": "\n"
+    "promise": 88
   }
 },
 {
@@ -2597,8 +2652,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 89, 
-    "notes": ""
+    "promise": 89
   }
 },
 {
@@ -2606,8 +2660,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 90, 
-    "notes": ""
+    "promise": 90
   }
 },
 {
@@ -2615,8 +2668,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 91, 
-    "notes": ""
+    "promise": 91
   }
 },
 {
@@ -2624,8 +2676,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 92, 
-    "notes": ""
+    "promise": 92
   }
 },
 {
@@ -2633,8 +2684,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 93, 
-    "notes": ""
+    "promise": 93
   }
 },
 {
@@ -2642,8 +2692,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 94, 
-    "notes": ""
+    "promise": 94
   }
 },
 {
@@ -2651,8 +2700,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 95, 
-    "notes": ""
+    "promise": 95
   }
 },
 {
@@ -2660,8 +2708,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 96, 
-    "notes": ""
+    "promise": 96
   }
 },
 {
@@ -2669,8 +2716,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 97, 
-    "notes": ""
+    "promise": 97
   }
 },
 {
@@ -2678,8 +2724,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 98, 
-    "notes": ""
+    "promise": 98
   }
 },
 {
@@ -2687,8 +2732,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 99, 
-    "notes": ""
+    "promise": 99
   }
 },
 {
@@ -2696,8 +2740,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 50, 
-    "promise": 100, 
-    "notes": ""
+    "promise": 100
   }
 },
 {
@@ -2705,8 +2748,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 101, 
-    "notes": ""
+    "promise": 101
   }
 },
 {
@@ -2714,8 +2756,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 102, 
-    "notes": ""
+    "promise": 102
   }
 },
 {
@@ -2723,8 +2764,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 103, 
-    "notes": ""
+    "promise": 103
   }
 },
 {
@@ -2732,8 +2772,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 0, 
-    "promise": 104, 
-    "notes": ""
+    "promise": 104
   }
 },
 {
@@ -2741,8 +2780,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 105, 
-    "notes": ""
+    "promise": 105
   }
 },
 {
@@ -2750,8 +2788,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 106, 
-    "notes": ""
+    "promise": 106
   }
 },
 {
@@ -2759,8 +2796,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 75, 
-    "promise": 107, 
-    "notes": ""
+    "promise": 107
   }
 },
 {
@@ -2768,8 +2804,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 108, 
-    "notes": ""
+    "promise": 108
   }
 },
 {
@@ -2777,8 +2812,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 109, 
-    "notes": ""
+    "promise": 109
   }
 },
 {
@@ -2786,8 +2820,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 110, 
-    "notes": ""
+    "promise": 110
   }
 },
 {
@@ -2795,8 +2828,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 111, 
-    "notes": ""
+    "promise": 111
   }
 },
 {
@@ -2804,8 +2836,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 114, 
-    "notes": ""
+    "promise": 114
   }
 },
 {
@@ -2813,8 +2844,7 @@
   "model": "promises.fulfillment", 
   "fields": {
     "percentage": 100, 
-    "promise": 115, 
-    "notes": ""
+    "promise": 115
   }
 },
 {
@@ -3724,14 +3754,6 @@
     "date": "2014-05-22", 
     "promise": 102, 
     "description": "Presidenta alude al tema ind\u00edgena y respectivos [compromisos en cuenta p\u00fablica](http://www.pulso.cl/noticia/actualidad-politica/politica/2014/05/5-43763-9-nuevo-ministerio-y-agenda-para-el-desarrollo-de-los-pueblos-indigenas.shtml)"
-  }
-},
-{
-  "pk": 1, 
-  "model": "promises_web.tagextracss", 
-  "fields": {
-    "classes": "prueba", 
-    "tag": 6
   }
 }
 ]

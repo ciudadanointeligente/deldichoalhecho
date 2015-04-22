@@ -12,4 +12,4 @@ django-picklefield
 django-markdown-deux
 newrelic
 django-subdomain-instances
-ddah-promises
+-e git://github.com/ciudadanointeligente/ddah-promises#egg=ddah-promises

@@ -83,36 +83,3 @@ class InstanceHomeView(TestCase):
         self.assertEquals(response.context['summary'].accomplished, 1)
         self.assertEquals(response.context['summary'].no_progress, 1)
         self.assertEquals(response.context['summary'].in_progress, 0)
-
-    def test_the_promisses_come_ordered(self):
-        '''The promises come ordered'''
-        instance1 = DDAHInstance.objects.create(label='bici1', title='bicicletas1')
-        one = DDAHCategory.objects.create(name="one", instance=instance1)
-        promise1 = Promise.objects.create(name="this is a promise",
-                                          person=self.person,
-                                          category=one
-                                          )
-        promise1.fulfillment.percentage = 50
-        promise1.fulfillment.save()
-        two = DDAHCategory.objects.create(name="two", instance=instance1)
-        promise2 = Promise.objects.create(name="this is another promise",
-                                          person=self.person,
-                                          category=two,
-                                          )
-        promise2.fulfillment.percentage = 75
-        promise2.fulfillment.save()
-        three = DDAHCategory.objects.create(name="three", instance=instance1)
-        promise3 = Promise.objects.create(name="this is another promise",
-                                          person=self.person,
-                                          category=three,
-                                          )
-        promise3.fulfillment.percentage = 25
-        promise3.fulfillment.save()
-
-        url = reverse('instance_home', kwargs={'slug': instance1.label})
-        c = Client()
-        response = c.get(url)
-        self.assertEquals(response.context['categories'].count(), 3)
-        self.assertEquals(response.context['categories'][0], two)
-        self.assertEquals(response.context['categories'][1], one)
-        self.assertEquals(response.context['categories'][2], three)
