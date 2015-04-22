@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'south',
     'popolo',
     'constance',
     'constance.backends.database',
@@ -91,12 +90,6 @@ USE_L10N = True
 SITE_ID = 1
 
 USE_TZ = True
-
-SOUTH_TESTS_MIGRATE = False
-
-SOUTH_MIGRATION_MODULES = {
-    'instances': 'instances.south_migrations',
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/

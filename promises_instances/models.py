@@ -2,6 +2,10 @@ from django.db import models
 from promises.models import Category
 from instances.models import Instance
 
-# Create your models here.
+
+class DDAHInstance(Instance):
+    pass
+
+
 class DDAHCategory(Category):
-    instance = models.ForeignKey(Instance, related_name='categories')
+    instance = models.ForeignKey(DDAHInstance, related_name='categories')
