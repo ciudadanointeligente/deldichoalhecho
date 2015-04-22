@@ -17,7 +17,7 @@ class InstanceDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(InstanceDetailView, self).get_context_data(**kwargs)
-        categories = DDAHCategory.objects.filter(instance=self.object)
+        categories = self.object.categories
         categories = self.order_categories(categories)
         context['categories'] = categories
         return context
