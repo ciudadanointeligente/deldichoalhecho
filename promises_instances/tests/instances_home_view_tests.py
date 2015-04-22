@@ -1,6 +1,5 @@
 from django.test import TestCase
-from promises_instances.models import DDAHCategory
-from instances.models import Instance
+from promises_instances.models import DDAHCategory, DDAHInstance
 from promises.models import Promise
 from django.core.urlresolvers import reverse
 from django.test import Client
@@ -14,7 +13,7 @@ class InstanceHomeView(TestCase):
 
     def test_every_instance_has_its_promises(self):
         '''Every instance has its promises and categories'''
-        instance = Instance.objects.create(label='bici', title='bicicletas')
+        instance = DDAHInstance.objects.create(label='bici', title='bicicletas')
         category = DDAHCategory.objects.create(name="Education", instance=instance)
         self.assertTrue(instance.categories)
         self.assertEquals(instance.categories.count(), 1)
@@ -22,14 +21,14 @@ class InstanceHomeView(TestCase):
 
     def test_there_is_a_url_for_every_instance(self):
         '''There is a url for every instance'''
-        instance = Instance.objects.create(label='bici', title='bicicletas')
-        url = reverse('instance_home', kwargs={'slug':instance.label})
+        instance = DDAHInstance.objects.create(label='bici', title='bicicletas')
+        url = reverse('instance_home', kwargs={'slug': instance.label})
         self.assertTrue(url)
 
     def test_the_instance_home_page_contains_the_instance(self):
         '''The instance home page contains the instance'''
-        instance = Instance.objects.create(label='bici', title='bicicletas')
-        url = reverse('instance_home', kwargs={'slug':instance.label})
+        instance = DDAHInstance.objects.create(label='bici', title='bicicletas')
+        url = reverse('instance_home', kwargs={'slug': instance.label})
         c = Client()
         response = c.get(url)
         self.assertEquals(response.status_code, 200)
@@ -38,13 +37,13 @@ class InstanceHomeView(TestCase):
 
     def test_the_home_page_contains_the_right_categories(self):
         '''The home page also brings the right categories as well'''
-        instance1 = Instance.objects.create(label='bici1', title='bicicletas1')
+        instance1 = DDAHInstance.objects.create(label='bici1', title='bicicletas1')
         category1 = DDAHCategory.objects.create(name="Education1", instance=instance1)
 
-        instance2 = Instance.objects.create(label='bici2', title='bicicletas2')
+        instance2 = DDAHInstance.objects.create(label='bici2', title='bicicletas2')
         category2 = DDAHCategory.objects.create(name="Education1", instance=instance2)
 
-        url = reverse('instance_home', kwargs={'slug':instance1.label})
+        url = reverse('instance_home', kwargs={'slug': instance1.label})
         c = Client()
         response = c.get(url)
 
@@ -54,30 +53,29 @@ class InstanceHomeView(TestCase):
 
     def test_there_is_a_summary_of_the_promises(self):
         '''There is a summary of the promises'''
-        instance2 = Instance.objects.create(label='bici2', title='bicicletas2')
+        instance2 = DDAHInstance.objects.create(label='bici2', title='bicicletas2')
         category2 = DDAHCategory.objects.create(name="Education1", instance=instance2)
-        promise3 = Promise.objects.create(name="this is a promise",\
-                                              person = self.person,
-                                              category=category2
-                                              )
+        promise3 = Promise.objects.create(name="this is a promise",
+                                          person=self.person,
+                                          category=category2
+                                          )
         promise3.fulfillment.percentage = 50
         promise3.fulfillment.save()
 
-        instance1 = Instance.objects.create(label='bici1', title='bicicletas1')
+        instance1 = DDAHInstance.objects.create(label='bici1', title='bicicletas1')
         category1 = DDAHCategory.objects.create(name="Education1", instance=instance1)
-        promise = Promise.objects.create(name="this is a promise",\
-                                              person = self.person,
-                                              category=category1
-                                              )
-        promise2 = Promise.objects.create(
-                                        name="this is another promise",\
-                                        person = self.person,
-                                        category=category1,
-                    )
+        Promise.objects.create(name="this is a promise",
+                               person=self.person,
+                               category=category1
+                               )
+        promise2 = Promise.objects.create(name="this is another promise",
+                                          person=self.person,
+                                          category=category1,
+                                          )
         promise2.fulfillment.percentage = 100
         promise2.fulfillment.save()
 
-        url = reverse('instance_home', kwargs={'slug':instance1.label})
+        url = reverse('instance_home', kwargs={'slug': instance1.label})
         c = Client()
         response = c.get(url)
         self.assertIn('summary', response.context)
@@ -88,32 +86,30 @@ class InstanceHomeView(TestCase):
 
     def test_the_promisses_come_ordered(self):
         '''The promises come ordered'''
-        instance1 = Instance.objects.create(label='bici1', title='bicicletas1')
+        instance1 = DDAHInstance.objects.create(label='bici1', title='bicicletas1')
         one = DDAHCategory.objects.create(name="one", instance=instance1)
-        promise1 = Promise.objects.create(name="this is a promise",\
-                                              person = self.person,
-                                              category=one
-                                              )
+        promise1 = Promise.objects.create(name="this is a promise",
+                                          person=self.person,
+                                          category=one
+                                          )
         promise1.fulfillment.percentage = 50
         promise1.fulfillment.save()
         two = DDAHCategory.objects.create(name="two", instance=instance1)
-        promise2 = Promise.objects.create(
-                                        name="this is another promise",\
-                                        person = self.person,
-                                        category=two,
-                    )
+        promise2 = Promise.objects.create(name="this is another promise",
+                                          person=self.person,
+                                          category=two,
+                                          )
         promise2.fulfillment.percentage = 75
         promise2.fulfillment.save()
         three = DDAHCategory.objects.create(name="three", instance=instance1)
-        promise3 = Promise.objects.create(
-                                        name="this is another promise",\
-                                        person = self.person,
-                                        category=three,
-                    )
+        promise3 = Promise.objects.create(name="this is another promise",
+                                          person=self.person,
+                                          category=three,
+                                          )
         promise3.fulfillment.percentage = 25
         promise3.fulfillment.save()
 
-        url = reverse('instance_home', kwargs={'slug':instance1.label})
+        url = reverse('instance_home', kwargs={'slug': instance1.label})
         c = Client()
         response = c.get(url)
         self.assertEquals(response.context['categories'].count(), 3)
