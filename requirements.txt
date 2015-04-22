@@ -1,14 +1,13 @@
-Django==1.6.2
+Django==1.8
 gunicorn==18.0
 dj-database-url==0.2.2
 dj-static==0.0.5
 psycopg2==2.5.2
-django-nose
-south==0.8.4
+-e git://github.com/django-nose/django-nose#egg=django-nose
 django-extensions
 ipython
 -e git://github.com/openpolis/django-popolo.git#egg=django-popolo
--e git://github.com/comoga/django-constance.git@fe7c633e4cd38ce081edf222e9a0d036294cd699#egg=django-constance
+-e git://github.com/CloudNcodeInc/django-constance#egg=django-constance
 django-picklefield
 django-markdown-deux
 newrelic
