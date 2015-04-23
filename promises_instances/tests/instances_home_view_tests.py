@@ -1,9 +1,8 @@
 from django.test import TestCase
 from promises_instances.models import DDAHCategory, DDAHInstance
 from promises.models import Promise
-from django.core.urlresolvers import reverse
-from django.test import Client
 from popolo.models import Person
+from promises_instances.views import InstanceDetailView
 from promises.queryset import PromiseSummary
 
 
@@ -19,21 +18,15 @@ class InstanceHomeView(TestCase):
         self.assertEquals(instance.categories.count(), 1)
         self.assertEquals(instance.categories.first(), category)
 
-    def test_there_is_a_url_for_every_instance(self):
-        '''There is a url for every instance'''
-        instance = DDAHInstance.objects.create(label='bici', title='bicicletas')
-        url = reverse('instance_home', kwargs={'slug': instance.label})
-        self.assertTrue(url)
-
     def test_the_instance_home_page_contains_the_instance(self):
         '''The instance home page contains the instance'''
         instance = DDAHInstance.objects.create(label='bici', title='bicicletas')
-        url = reverse('instance_home', kwargs={'slug': instance.label})
-        c = Client()
-        response = c.get(url)
-        self.assertEquals(response.status_code, 200)
-        self.assertIn('instance', response.context)
-        self.assertEquals(response.context['instance'], instance)
+        view = InstanceDetailView()
+        view.object = instance
+
+        context = view.get_context_data()
+        self.assertIn('instance', context)
+        self.assertEquals(context['instance'], instance)
 
     def test_the_home_page_contains_the_right_categories(self):
         '''The home page also brings the right categories as well'''
@@ -43,13 +36,14 @@ class InstanceHomeView(TestCase):
         instance2 = DDAHInstance.objects.create(label='bici2', title='bicicletas2')
         category2 = DDAHCategory.objects.create(name="Education1", instance=instance2)
 
-        url = reverse('instance_home', kwargs={'slug': instance1.label})
-        c = Client()
-        response = c.get(url)
+        view = InstanceDetailView()
+        view.object = instance1
 
-        self.assertIn('categories', response.context)
-        self.assertIn(category1, response.context['categories'])
-        self.assertNotIn(category2, response.context['categories'])
+        context = view.get_context_data()
+
+        self.assertIn('categories', context)
+        self.assertIn(category1, context['categories'])
+        self.assertNotIn(category2, context['categories'])
 
     def test_there_is_a_summary_of_the_promises(self):
         '''There is a summary of the promises'''
@@ -75,11 +69,13 @@ class InstanceHomeView(TestCase):
         promise2.fulfillment.percentage = 100
         promise2.fulfillment.save()
 
-        url = reverse('instance_home', kwargs={'slug': instance1.label})
-        c = Client()
-        response = c.get(url)
-        self.assertIn('summary', response.context)
-        self.assertIsInstance(response.context['summary'], PromiseSummary)
-        self.assertEquals(response.context['summary'].accomplished, 1)
-        self.assertEquals(response.context['summary'].no_progress, 1)
-        self.assertEquals(response.context['summary'].in_progress, 0)
+        view = InstanceDetailView()
+        view.object = instance1
+
+        context = view.get_context_data()
+
+        self.assertIn('summary', context)
+        self.assertIsInstance(context['summary'], PromiseSummary)
+        self.assertEquals(context['summary'].accomplished, 1)
+        self.assertEquals(context['summary'].no_progress, 1)
+        self.assertEquals(context['summary'].in_progress, 0)
