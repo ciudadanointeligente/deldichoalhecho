@@ -18,12 +18,138 @@
     "additional_name": "", 
     "name": "Michelle Bachelet", 
     "patronymic_name": "", 
-    "honorific_prefix": "", 
-    "slug": "michelle-bachelet", 
+    "honorific_prefix": "",
     "biography": "", 
     "death_date": ""
   }, 
   "model": "popolo.person"
+},
+{
+  "fields": {
+    "users": []
+  },
+  "model": "ddah_web.ddahinstanceweb",
+  "pk": 1
+},
+{
+  "fields": {
+    "content": "hola {{person}}!",
+    "instance": 1
+  },
+  "model": "ddah_web.ddahtemplate",
+  "pk": 1
+},
+{
+  "fields": {
+    "users": []
+  },
+  "model": "promises_instances.ddahinstance",
+  "pk": 1
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 36
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 37
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 38
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 39
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 40
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 41
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 42
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 43
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 44
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 45
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 46
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 47
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 48
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 49
+},
+{
+  "fields": {
+    "instance": 1
+  },
+  "model": "promises_instances.ddahcategory",
+  "pk": 50
 },
 {
   "fields": {
