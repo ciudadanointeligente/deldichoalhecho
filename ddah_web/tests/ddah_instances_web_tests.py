@@ -2,6 +2,7 @@ from django.test import TestCase
 from ddah_web.models import DDAHInstanceWeb
 from promises_instances.models import DDAHInstance
 from promises.models import Promise
+from django.core.urlresolvers import reverse
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -67,3 +68,16 @@ class DDAHInstanceWebTestCase(TestCase):
     def test_as_json(self):
         instance = DDAHInstanceWeb.objects.get(id=1)
         self.assertTrue(instance.to_json())
+
+
+class DDAHInstancesView(TestCase):
+    fixtures = ['100dias.json']
+
+    def setUp(self):
+        self.instance = DDAHInstanceWeb.objects.get(id=1)
+
+    def test_get_the_thing(self):
+        url = reverse('instance_home', kwargs={'slug': self.instance.label})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTrue(response.content)
