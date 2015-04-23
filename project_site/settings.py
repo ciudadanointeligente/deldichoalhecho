@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'markdown_deux',
     'instances',
     'promises_instances',
+    'ddah_web',
 )
 
 MIDDLEWARE_CLASSES = (
