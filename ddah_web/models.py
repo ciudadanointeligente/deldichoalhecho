@@ -5,6 +5,8 @@ from bunch import Bunch
 from promises.models import Promise
 import json
 import datetime
+from ddah_web.templatetags import simple_accomplishment
+import markdown
 
 
 def default_json_encoder(o):
@@ -21,6 +23,19 @@ class DDAHInstanceWeb(DDAHInstance):
         if creating:
             DDAHTemplate.objects.create(instance=self)
 
+    def _bunchify_summary(self, summary):
+        return Bunch(
+            no_progress=summary.no_progress,
+            accomplished=summary.accomplished,
+            in_progress=summary.in_progress,
+            total=summary.total,
+            total_progress=summary.total_progress,
+            formated_total_progress="{:10.1f}".format(summary.total_progress),
+            accomplished_percentage=summary.accomplished_percentage,
+            in_progress_percentage=summary.in_progress_percentage,
+            no_progress_percentage=summary.no_progress_percentage,
+            )
+
     def get_as_bunch(self):
         me = Bunch(label=self.label, title=self.title)
         categories = []
@@ -28,14 +43,18 @@ class DDAHInstanceWeb(DDAHInstance):
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)
             categories.append(cat_bunch)
             promises = []
-            for promise in category.promises.all():
+            the_promises_from_database = category.promises.all()
+            summary = the_promises_from_database.summary()
+            cat_bunch.summary = self._bunchify_summary(summary)
+            for promise in the_promises_from_database:
                 promise_bunch = Bunch(id=promise.id,
                     name=promise.name,
-                    description=promise.description,
+                    description=markdown.markdown(promise.description),
                     date=promise.date)
                 promise_bunch.fulfillment = Bunch(percentage=promise.fulfillment.percentage,
                                                   status=promise.fulfillment.status,
-                                                  description=promise.fulfillment.description
+                                                  description=markdown.markdown(promise.fulfillment.description),
+                                                  simple_accomplishment=simple_accomplishment(promise.fulfillment.percentage)
                                                   )
                 verification_documents = []
                 for verification_document in promise.verification_documents.all():
@@ -58,7 +77,7 @@ class DDAHInstanceWeb(DDAHInstance):
                 for milestone in promise.milestones.all():
                     milestones_bunch = Bunch(id=milestone.id,
                                              date=milestone.date,
-                                             description=milestone.description,
+                                             description=markdown.markdown(milestone.description),
                                              )
                     milestones.append(milestones_bunch)
                 promise_bunch.milestones = milestones
@@ -69,16 +88,7 @@ class DDAHInstanceWeb(DDAHInstance):
 
         me.categories = categories
         summary = Promise.objects.filter(category__in=self.categories.all()).summary()
-        me.summary = Bunch(
-            no_progress=summary.no_progress,
-            accomplished=summary.accomplished,
-            in_progress=summary.in_progress,
-            total=summary.total,
-            total_progress=summary.total_progress,
-            accomplished_percentage=summary.accomplished_percentage,
-            in_progress_percentage=summary.in_progress_percentage,
-            no_progress_percentage=summary.no_progress_percentage,
-            )
+        me.summary = self._bunchify_summary(summary)
         return me
 
     def to_json(self):

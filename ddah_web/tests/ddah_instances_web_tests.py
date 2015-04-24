@@ -3,6 +3,7 @@ from ddah_web.models import DDAHInstanceWeb
 from promises_instances.models import DDAHInstance
 from promises.models import Promise
 from django.core.urlresolvers import reverse
+import markdown
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -24,18 +25,29 @@ class DDAHInstanceWebTestCase(TestCase):
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
 
         for category in the_bunch.categories:
+
             the_cat_from_database = instance.categories.get(id=category.id)
             self.assertEquals(the_cat_from_database.name, category.name)
             self.assertEquals(the_cat_from_database.slug, category.slug)
             self.assertEquals(the_cat_from_database.promises.count(), len(category.promises))
+
+            expected_summary = Promise.objects.filter(category=the_cat_from_database).summary()
+            self.assertEquals(category.summary.no_progress, expected_summary.no_progress)
+            self.assertEquals(category.summary.accomplished, expected_summary.accomplished)
+            self.assertEquals(category.summary.in_progress, expected_summary.in_progress)
+            self.assertEquals(category.summary.total, expected_summary.total)
+            self.assertEquals(category.summary.total_progress, expected_summary.total_progress)
+            self.assertEquals(category.summary.accomplished_percentage, expected_summary.accomplished_percentage)
+            self.assertEquals(category.summary.in_progress_percentage, expected_summary.in_progress_percentage)
+            self.assertEquals(category.summary.no_progress_percentage, expected_summary.no_progress_percentage)
             for promise in category.promises:
                 the_promise_from_database = the_cat_from_database.promises.get(id=promise.id)
                 self.assertEquals(the_promise_from_database.name, promise.name)
-                self.assertEquals(the_promise_from_database.description, promise.description)
+                self.assertEquals(markdown.markdown(the_promise_from_database.description), promise.description)
                 self.assertTrue(promise.date)
                 self.assertEquals(the_promise_from_database.fulfillment.percentage, promise.fulfillment.percentage)
                 self.assertEquals(the_promise_from_database.fulfillment.status, promise.fulfillment.status)
-                self.assertEquals(the_promise_from_database.fulfillment.description, promise.fulfillment.description)
+                self.assertEquals(markdown.markdown(the_promise_from_database.fulfillment.description), promise.fulfillment.description)
                 for verification_doc in promise.verification_documents:
                     the_verification_doc_from_database = the_promise_from_database.verification_documents.get(id=verification_doc.id)
                     self.assertEquals(the_verification_doc_from_database.url, verification_doc.url)
@@ -47,7 +59,7 @@ class DDAHInstanceWebTestCase(TestCase):
                     self.assertEquals(the_information_source_from_database.display_name, information_source.display_name)
                 for milestone in promise.milestones:
                     milestone_from_db = the_promise_from_database.milestones.get(id=milestone.id)
-                    self.assertEquals(milestone_from_db.description, milestone.description)
+                    self.assertEquals(markdown.markdown(milestone_from_db.description), milestone.description)
                     self.assertTrue(milestone.date)
 
         expected_summary = Promise.objects.filter(category__in=instance.categories.all()).summary()

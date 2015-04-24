@@ -1,7 +1,7 @@
 Django==1.8
 gunicorn==18.0
 dj-database-url==0.2.2
-dj-static==0.0.5
+dj-static==0.0.6
 psycopg2==2.5.2
 -e git://github.com/django-nose/django-nose#egg=django-nose
 django-extensions
@@ -9,7 +9,7 @@ ipython
 -e git://github.com/openpolis/django-popolo.git#egg=django-popolo
 -e git://github.com/CloudNcodeInc/django-constance#egg=django-constance
 django-picklefield
-django-markdown-deux
+markdown
 newrelic
 django-subdomain-instances
 -e git://github.com/ciudadanointeligente/ddah-promises#egg=ddah-promises

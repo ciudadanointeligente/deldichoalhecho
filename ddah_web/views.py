@@ -9,6 +9,7 @@ class MoustacheTemplateResponse(TemplateResponse):
     def rendered_content(self):
         instance = self.context_data['instance']
         the_bunch = instance.get_as_bunch()
+
         return pystache.render(instance.template.content, the_bunch)
 
 
