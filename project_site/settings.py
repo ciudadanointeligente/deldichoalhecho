@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'instances',
     'promises_instances',
     'ddah_web',
+    'django_ace',
 )
 
 MIDDLEWARE_CLASSES = (
