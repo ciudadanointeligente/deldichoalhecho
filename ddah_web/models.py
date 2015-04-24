@@ -23,11 +23,11 @@ class DDAHInstanceWeb(DDAHInstance):
 
     def get_as_bunch(self):
         me = Bunch(label=self.label, title=self.title)
-        categories = Bunch()
+        categories = []
         for category in self.categories.all():
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)
-            categories[category.id] = cat_bunch
-            promises = Bunch()
+            categories.append(cat_bunch)
+            promises = []
             for promise in category.promises.all():
                 promise_bunch = Bunch(id=promise.id,
                     name=promise.name,
@@ -37,33 +37,33 @@ class DDAHInstanceWeb(DDAHInstance):
                                                   status=promise.fulfillment.status,
                                                   description=promise.fulfillment.description
                                                   )
-                verification_documents = Bunch()
+                verification_documents = []
                 for verification_document in promise.verification_documents.all():
                     v_d_bunch = Bunch(id=verification_document.id,
                                       url=verification_document.url,
                                       display_name=verification_document.display_name,
                                       )
-                    verification_documents[verification_document.id] = v_d_bunch
+                    verification_documents.append(v_d_bunch)
                 promise_bunch.verification_documents = verification_documents
-                information_sources = Bunch()
+                information_sources = []
                 for information_source in promise.information_sources.all():
                     i_s_bunch = Bunch(id=information_source.id,
                                       url=information_source.url,
                                       display_name=information_source.display_name,
                                       )
-                    information_sources[information_source.id] = i_s_bunch
+                    information_sources.append(i_s_bunch)
                 promise_bunch.information_sources = information_sources
 
-                milestones = Bunch()
+                milestones = []
                 for milestone in promise.milestones.all():
                     milestones_bunch = Bunch(id=milestone.id,
                                              date=milestone.date,
                                              description=milestone.description,
                                              )
-                    milestones[milestone.id] = milestones_bunch
+                    milestones.append(milestones_bunch)
                 promise_bunch.milestones = milestones
 
-                promises[promise.id] = promise_bunch
+                promises.append(promise_bunch)
 
             cat_bunch.promises = promises
 

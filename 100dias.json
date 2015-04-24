@@ -97,7 +97,7 @@
 },
 {
   "fields": {
-    "content": "hola {{person}}!",
+    "content": "hola {{label}}!",
     "instance": 1
   },
   "model": "ddah_web.ddahtemplate",

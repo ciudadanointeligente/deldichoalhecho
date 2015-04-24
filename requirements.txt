@@ -15,3 +15,4 @@ django-subdomain-instances
 -e git://github.com/ciudadanointeligente/ddah-promises#egg=ddah-promises
 bunch==1.0.1
 json-utils==0.2
+Pystache==0.5.4

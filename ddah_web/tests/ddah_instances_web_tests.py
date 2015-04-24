@@ -23,14 +23,12 @@ class DDAHInstanceWebTestCase(TestCase):
         self.assertEquals(the_bunch.title, instance.title)
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
 
-        for category_id in the_bunch.categories:
-            category = the_bunch.categories[category_id]
+        for category in the_bunch.categories:
             the_cat_from_database = instance.categories.get(id=category.id)
             self.assertEquals(the_cat_from_database.name, category.name)
             self.assertEquals(the_cat_from_database.slug, category.slug)
             self.assertEquals(the_cat_from_database.promises.count(), len(category.promises))
-            for promise_id in category.promises:
-                promise = category.promises[promise_id]
+            for promise in category.promises:
                 the_promise_from_database = the_cat_from_database.promises.get(id=promise.id)
                 self.assertEquals(the_promise_from_database.name, promise.name)
                 self.assertEquals(the_promise_from_database.description, promise.description)
@@ -38,19 +36,16 @@ class DDAHInstanceWebTestCase(TestCase):
                 self.assertEquals(the_promise_from_database.fulfillment.percentage, promise.fulfillment.percentage)
                 self.assertEquals(the_promise_from_database.fulfillment.status, promise.fulfillment.status)
                 self.assertEquals(the_promise_from_database.fulfillment.description, promise.fulfillment.description)
-                for verification_doc_id in promise.verification_documents:
-                    verification_doc = promise.verification_documents[verification_doc_id]
+                for verification_doc in promise.verification_documents:
                     the_verification_doc_from_database = the_promise_from_database.verification_documents.get(id=verification_doc.id)
                     self.assertEquals(the_verification_doc_from_database.url, verification_doc.url)
                     self.assertEquals(the_verification_doc_from_database.display_name, verification_doc.display_name)
 
-                for information_source_id in promise.information_sources:
-                    information_source = promise.information_sources[information_source_id]
+                for information_source in promise.information_sources:
                     the_information_source_from_database = the_promise_from_database.information_sources.get(id=information_source.id)
                     self.assertEquals(the_information_source_from_database.url, information_source.url)
                     self.assertEquals(the_information_source_from_database.display_name, information_source.display_name)
-                for milestone_id in promise.milestones:
-                    milestone = promise.milestones[milestone_id]
+                for milestone in promise.milestones:
                     milestone_from_db = the_promise_from_database.milestones.get(id=milestone.id)
                     self.assertEquals(milestone_from_db.description, milestone.description)
                     self.assertTrue(milestone.date)
@@ -81,3 +76,4 @@ class DDAHInstancesView(TestCase):
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         self.assertTrue(response.content)
+        self.assertIn(self.instance.label, response.content)
