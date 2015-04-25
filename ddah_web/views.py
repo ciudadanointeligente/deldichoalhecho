@@ -18,5 +18,8 @@ class DDAHInstanceWebView(DetailView):
     model = DDAHInstanceWeb
     context_object_name = 'instance'
 
+    def get_object(self):
+        return self.model.objects.get(id=self.request.instance.id)
+
     def get_slug_field(self):
         return 'label'

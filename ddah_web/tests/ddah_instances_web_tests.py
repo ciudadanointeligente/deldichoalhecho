@@ -1,9 +1,11 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from ddah_web.models import DDAHInstanceWeb
 from promises_instances.models import DDAHInstance
 from promises.models import Promise
 from django.core.urlresolvers import reverse
 import markdown
+from ddah_web.views import DDAHInstanceWebView
+from instances.models import Instance
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -81,11 +83,16 @@ class DDAHInstancesView(TestCase):
     fixtures = ['100dias.json']
 
     def setUp(self):
-        self.instance = DDAHInstanceWeb.objects.get(id=1)
+        self.ddah_instance = DDAHInstanceWeb.objects.get(id=1)
+        self.instance = Instance.objects.get(id=1)
+        self.factory = RequestFactory()
 
     def test_get_the_thing(self):
-        url = reverse('instance_home', kwargs={'slug': self.instance.label})
-        response = self.client.get(url)
+        url = reverse('instance_home')
+        request = self.factory.get(url)
+        request.instance = self.instance
+        response = DDAHInstanceWebView.as_view()(request)
         self.assertEquals(response.status_code, 200)
-        self.assertTrue(response.content)
+        content = response.render()
+        self.assertTrue(content)
         self.assertIn(self.instance.label, response.content)
