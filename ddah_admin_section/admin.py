@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ddah_web.models import DDAHInstanceWeb
+from ddah_web.models import DDAHInstanceWeb, DDAHTemplate
 from ddah_web.admin import DDAHTemplateInline
 from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm
 from promises_instances.models import DDAHCategory, DDAHInstance
@@ -10,6 +10,11 @@ from django import forms
 admin.site.unregister(DDAHInstanceWeb)
 admin.site.unregister(DDAHCategory)
 admin.site.unregister(Promise)
+
+
+@admin.register(DDAHTemplate)
+class DDAHTemplateAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(DDAHInstanceWeb)
