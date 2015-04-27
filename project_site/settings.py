@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'django_nose',
     'promises',
     'deldichoalhecho_theme',
-    'markdown_deux',
     'instances',
     'promises_instances',
     'ddah_web',
