@@ -123,7 +123,7 @@ TEMPLATE_LOADERS = (
 )
 # MultiInstance Thing
 
-BASE_HOST = '127.0.0.1.xip.io:8000'
+BASE_HOST = os.environ.get('BASE_HOST', '127.0.0.1.xip.io:8000')
 #HEROKU SPECIFICS
 # Parse database configuration from $DATABASE_URL
 if 'DATABASE_URL' in os.environ:
