@@ -96,3 +96,4 @@ class DDAHInstancesView(TestCase):
         content = response.render()
         self.assertTrue(content)
         self.assertIn(self.instance.label, response.content)
+
