@@ -21,6 +21,10 @@ class DDAHTemplateInline(admin.TabularInline):
     model = DDAHTemplate
     form = TemplateForm
 
+    def get_extra(self, request, obj=None, **kwargs):
+        extra = 0
+        return 0
+
 
 @admin.register(DDAHInstanceWeb)
 class InstanceAdmin(admin.ModelAdmin):
