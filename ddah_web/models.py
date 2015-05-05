@@ -7,6 +7,7 @@ import json
 import datetime
 from ddah_web.templatetags import simple_accomplishment
 import markdown
+from django.contrib.sites.models import Site
 
 
 def default_json_encoder(o):
@@ -101,3 +102,9 @@ default_template = read_template_as_string('instance_templates/default.html')
 class DDAHTemplate(models.Model):
     instance = models.OneToOneField(DDAHInstanceWeb, null=True, related_name="template")
     content = models.TextField(default=default_template)
+
+
+class DDAHSiteInstance(models.Model):
+    instance = models.OneToOneField(DDAHInstanceWeb)
+    site = models.OneToOneField(Site)
+
