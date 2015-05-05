@@ -108,3 +108,10 @@ class DDAHSiteInstance(models.Model):
     instance = models.OneToOneField(DDAHInstanceWeb)
     site = models.OneToOneField(Site)
 
+    def __unicode__(self):
+        dicti = {
+            'domain':self.site.domain,
+            'instance_title': self.instance.title
+        }
+        return u"{domain} redirects to {instance_title}".format(**dicti)
+

@@ -19,6 +19,8 @@ class InstanceSiteRelationTestCase(TestCase):
         self.assertTrue(the_record)
         self.assertEquals(the_record.site, the_site)
         self.assertEquals(the_record.instance, instance)
+        self.assertIn(the_site.domain, the_record.__unicode__())
+        self.assertIn(instance.title, the_record.__unicode__())
 
 
 @override_settings(ALLOWED_HOSTS=['*'])

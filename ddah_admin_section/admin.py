@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ddah_web.models import DDAHInstanceWeb, DDAHTemplate
+from ddah_web.models import DDAHInstanceWeb, DDAHTemplate, DDAHSiteInstance
 from ddah_web.admin import DDAHTemplateInline
 from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm
 from promises_instances.models import DDAHCategory, DDAHInstance
@@ -114,3 +114,8 @@ class DDAHPromiseAdmin(PromiseAdmin):
             return qs
 
         return qs.filter(category__in=get_categories_by_user(request.user))
+
+@admin.register(DDAHSiteInstance)
+class DDAHSiteInstanceAdmin(admin.ModelAdmin):
+    pass
+
