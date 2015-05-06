@@ -38,7 +38,9 @@ class DDAHInstanceWeb(DDAHInstance):
             )
 
     def get_as_bunch(self):
-        me = Bunch(label=self.label, title=self.title)
+        me = Bunch(label=self.label,
+                   title=self.title,
+                   description=self.description)
         categories = []
         for category in self.categories.all():
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)

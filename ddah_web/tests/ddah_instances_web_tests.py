@@ -26,10 +26,10 @@ class DDAHInstanceWebTestCase(TestCase):
         instance = DDAHInstanceWeb.objects.get(id=1)
         the_bunch = instance.get_as_bunch()
         self.assertEquals(the_bunch.title, instance.title)
+        self.assertEquals(the_bunch.description, instance.description)
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
 
         for category in the_bunch.categories:
-
             the_cat_from_database = instance.categories.get(id=category.id)
             self.assertEquals(the_cat_from_database.name, category.name)
             self.assertEquals(the_cat_from_database.slug, category.slug)
