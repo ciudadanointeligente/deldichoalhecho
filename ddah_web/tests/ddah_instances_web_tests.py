@@ -4,8 +4,10 @@ from promises_instances.models import DDAHInstance
 from promises.models import Promise
 from django.core.urlresolvers import reverse
 import markdown
-from ddah_web.views import DDAHInstanceWebView
+from ddah_web.views import DDAHInstanceWebView, DDAHInstanceWebJSONView
+from ddah_web.models import DDAHInstanceWeb
 from instances.models import Instance
+import json
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -96,4 +98,16 @@ class DDAHInstancesView(TestCase):
         content = response.render()
         self.assertTrue(content)
         self.assertIn(self.instance.label, response.content)
+
+    def test_get_the_data_as_json(self):
+        url = reverse('data_json')
+        request = self.factory.get(url)
+        request.instance = self.instance
+        instance_web = DDAHInstanceWeb.objects.get(id=self.instance.id)
+        response = DDAHInstanceWebJSONView.as_view()(request)
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response['Content-Type'], 'application/json')
+        self.assertEquals(response.content, instance_web.to_json())
+        the_data = json.loads(response.content)
+        self.assertTrue(the_data)
 

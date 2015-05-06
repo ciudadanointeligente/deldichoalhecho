@@ -2,6 +2,8 @@ from django.template.response import TemplateResponse
 from ddah_web.models import DDAHInstanceWeb
 from django.views.generic.detail import DetailView
 import pystache
+from django.http import HttpResponse
+import json
 
 
 class MoustacheTemplateResponse(TemplateResponse):
@@ -23,3 +25,18 @@ class DDAHInstanceWebView(DetailView):
 
     def get_slug_field(self):
         return 'label'
+
+class DDAHInstanceWebJSONView(DetailView):
+    model = DDAHInstanceWeb
+    context_object_name = 'instance'
+
+    def get_object(self):
+        return self.model.objects.get(id=self.request.instance.id)
+
+    def get_slug_field(self):
+        return 'label'
+
+    def render_to_response(self, context, **response_kwargs):
+        response_data = self.object.to_json()
+        return HttpResponse(response_data, content_type="application/json")
+
