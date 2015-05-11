@@ -1,4 +1,4 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase, RequestFactory, override_settings
 from ddah_web.models import DDAHInstanceWeb
 from promises_instances.models import DDAHInstance
 from promises.models import Promise
@@ -8,6 +8,7 @@ from ddah_web.views import DDAHInstanceWebView, DDAHInstanceWebJSONView
 from ddah_web.models import DDAHInstanceWeb
 from instances.models import Instance
 import json
+from django.conf import settings
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -15,6 +16,12 @@ class DDAHInstanceWebTestCase(TestCase):
 
     def setUp(self):
         pass
+
+    @override_settings(BASE_HOST='thesite.com')
+    def test_get_url(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title')
+        expected_url = 'label.thesite.com'
+        self.assertEquals(ddah_instance.url, expected_url)
 
     def test_this_is_ddah_instance_subclass(self):
         '''This is a DDAHInstance'''
@@ -26,6 +33,9 @@ class DDAHInstanceWebTestCase(TestCase):
         instance = DDAHInstanceWeb.objects.get(id=1)
         the_bunch = instance.get_as_bunch()
         self.assertEquals(the_bunch.title, instance.title)
+        home_url = reverse('instance_home') # Expected url without the base host
+        expected_url = '%s.%s%s' % (instance.label, settings.BASE_HOST, home_url)
+        self.assertEquals(the_bunch.url, expected_url)
         self.assertEquals(the_bunch.description, instance.description)
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
 

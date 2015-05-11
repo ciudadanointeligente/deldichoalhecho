@@ -8,6 +8,8 @@ import datetime
 from ddah_web.templatetags import simple_accomplishment
 import markdown
 from django.contrib.sites.models import Site
+from django.conf import settings
+from django.core.urlresolvers import reverse
 
 
 def default_json_encoder(o):
@@ -24,6 +26,10 @@ class DDAHInstanceWeb(DDAHInstance):
         if creating:
             DDAHTemplate.objects.create(instance=self)
 
+    @property
+    def url(self):
+        return '%s.%s' % (self.label, settings.BASE_HOST)
+
     def _bunchify_summary(self, summary):
         return Bunch(
             no_progress=summary.no_progress,
@@ -37,10 +43,14 @@ class DDAHInstanceWeb(DDAHInstance):
             no_progress_percentage=summary.no_progress_percentage,
             )
 
+
     def get_as_bunch(self):
+        home_url = reverse('instance_home')
+        home_url = '%s%s' % (self.url, home_url)
         me = Bunch(label=self.label,
                    title=self.title,
-                   description=self.description)
+                   description=self.description,
+                   url=home_url)
         categories = []
         for category in self.categories.all():
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)
