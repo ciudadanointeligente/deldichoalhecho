@@ -57,7 +57,6 @@ class DDAHInstanceWeb(DDAHInstance):
             no_progress_percentage=summary.no_progress_percentage,
             )
 
-
     def get_as_bunch(self):
         home_url = reverse('instance_home')
         home_url = '%s%s' % (self.url, home_url)
@@ -130,11 +129,19 @@ class DDAHInstanceWeb(DDAHInstance):
         return json.dumps(bunchified, default=default_json_encoder)
 
 default_template = read_template_as_string('instance_templates/default.html')
+default_template_head = read_template_as_string('instance_templates/partials/head.html')
+default_template_header = read_template_as_string('instance_templates/partials/header.html')
+default_template_style = read_template_as_string('instance_templates/partials/style.html')
+default_template_footer = read_template_as_string('instance_templates/partials/footer.html')
 
 
 class DDAHTemplate(models.Model):
     instance = models.OneToOneField(DDAHInstanceWeb, null=True, related_name="template")
     content = models.TextField(default=default_template)
+    head = models.TextField(default=default_template_head)
+    header = models.TextField(default=default_template_header)
+    style = models.TextField(default=default_template_style)
+    footer = models.TextField(default=default_template_footer)
 
 
 class DDAHSiteInstance(models.Model):
@@ -143,8 +150,7 @@ class DDAHSiteInstance(models.Model):
 
     def __unicode__(self):
         dicti = {
-            'domain':self.site.domain,
+            'domain': self.site.domain,
             'instance_title': self.instance.title
         }
         return u"{domain} redirects to {instance_title}".format(**dicti)
-
