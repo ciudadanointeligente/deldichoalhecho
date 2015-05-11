@@ -1,9 +1,8 @@
 from django.template.response import TemplateResponse
 from ddah_web.models import DDAHInstanceWeb
 from django.views.generic.detail import DetailView
-import pystache
+from pystache import Renderer
 from django.http import HttpResponse
-import json
 
 
 class MoustacheTemplateResponse(TemplateResponse):
@@ -11,8 +10,16 @@ class MoustacheTemplateResponse(TemplateResponse):
     def rendered_content(self):
         instance = self.context_data['instance']
         the_bunch = instance.get_as_bunch()
-
-        return pystache.render(instance.template.content, the_bunch)
+        # this works
+        # renderer = Renderer(partials={'h2':"oli {{title}} "})
+        partials = {
+            "head": instance.template.head,
+            "header": instance.template.header,
+            "style": instance.template.style,
+            "footer": instance.template.footer,
+        }
+        renderer = Renderer(partials=partials)
+        return renderer.render(instance.template.content, the_bunch)
 
 
 class DDAHInstanceWebView(DetailView):
@@ -25,6 +32,7 @@ class DDAHInstanceWebView(DetailView):
 
     def get_slug_field(self):
         return 'label'
+
 
 class DDAHInstanceWebJSONView(DetailView):
     model = DDAHInstanceWeb
@@ -39,4 +47,3 @@ class DDAHInstanceWebJSONView(DetailView):
     def render_to_response(self, context, **response_kwargs):
         response_data = self.object.to_json()
         return HttpResponse(response_data, content_type="application/json")
-
