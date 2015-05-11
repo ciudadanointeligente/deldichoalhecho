@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'picklefield',
     'popolo',
     'constance',
     'constance.backends.database',
@@ -174,6 +175,16 @@ LOGGING = {
         }
 }
 #END LOGGING
+
+# DEFAULT SETTINGS
+DEFAULT_SOCIAL_NETWORKS={
+    "twitter_text": "Mira que lindo mi sitio",
+    "og_img": "http://placehold.it/400x400"
+}
+DEFAULT_STYLE={
+    "header_img": "http://i.imgur.com/7ULzGlP.png"
+}
+# END DEFAULT SETTINGS
 try:
     from local_settings import *
 except ImportError:

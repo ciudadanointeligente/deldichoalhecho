@@ -1,7 +1,7 @@
 from django.contrib import admin
 from ddah_web.models import DDAHInstanceWeb, DDAHTemplate, DDAHSiteInstance
 from ddah_web.admin import DDAHTemplateInline
-from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm
+from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm, DDAHInstanceForm
 from promises_instances.models import DDAHCategory, DDAHInstance
 from promises.models import Promise, Category
 from promises.admin import PromiseAdmin
@@ -19,7 +19,7 @@ class DDAHTemplateAdmin(admin.ModelAdmin):
 
 @admin.register(DDAHInstanceWeb)
 class InstanceAdmin(admin.ModelAdmin):
-    # form = DDAHInstanceNonSuperUserForm
+    form = DDAHInstanceForm
     inlines = [
         DDAHTemplateInline
     ]

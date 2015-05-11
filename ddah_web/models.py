@@ -10,6 +10,7 @@ import markdown
 from django.contrib.sites.models import Site
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from picklefield.fields import PickledObjectField
 
 
 def default_json_encoder(o):
@@ -20,13 +21,24 @@ def default_json_encoder(o):
 # This could easily be a proxy model
 # I'm waiting until the end of the day to see what happens
 class DDAHInstanceWeb(DDAHInstance):
-    contact = models.EmailField(max_length=254, null=True)
+    contact = models.EmailField(max_length=254, null=True, blank=True)
+    style = PickledObjectField(default={})
+    social_networks = PickledObjectField(default={})
 
     def save(self, *args, **kwargs):
         creating = self.id is None
+        if creating:
+            default_style = getattr(settings, 'DEFAULT_STYLE', {})
+            if not self.style and default_style:
+                self.style = default_style
+            default_social_networks = getattr(settings, 'DEFAULT_SOCIAL_NETWORKS', {})
+            if not self.social_networks and default_social_networks:
+                self.social_networks = default_social_networks
         super(DDAHInstanceWeb, self).save(*args, **kwargs)
         if creating:
             DDAHTemplate.objects.create(instance=self)
+            if not self.style and default_style:
+                self.style = default_style
 
     @property
     def url(self):
@@ -54,6 +66,12 @@ class DDAHInstanceWeb(DDAHInstance):
                    description=self.description,
                    url=home_url,
                    contact=self.contact,)
+        style = getattr(settings, 'DEFAULT_STYLE', {})
+        style.update(self.style)
+        me.style = Bunch.fromDict(style)
+        social_networks = getattr(settings, 'DEFAULT_SOCIAL_NETWORKS', {})
+        social_networks.update(self.social_networks)
+        me.social_networks = Bunch.fromDict(social_networks)
         categories = []
         for category in self.categories.all():
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)
