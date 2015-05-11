@@ -2286,13 +2286,5 @@
     "promise": 111, 
     "notes": "27/10/13: Bachelet presenta programa de tres grandes ejes: Educaci\u00f3n, impuestos y nueva Constituci\u00f3n.\n4/11/13: Pi\u00f1era teme que pol\u00edticas anunciadas por Bachelet (reforma tributaria) sean un freno al crecimiento.\n31/3/14: Bachelet firm\u00f3 Proyecto de Ley de Reforma Tributaria.\n2/4/14: Ingreso de proyecto de ley, pasa a Comisi\u00f3n de Hacienda y entra con urgencia simple. \n8/4/14: Ministro de Hacienda da entrevistas televisadas explicando reforma tributaria. \n15/04/14: Comisi\u00f3n de Hacienda de la C\u00e1mara aprueba idea de legislar sobre proyecto de reforma tributaria."
   }
-},
-{
-  "pk": 1, 
-  "model": "promises_web.tagextracss", 
-  "fields": {
-    "classes": "prueba", 
-    "tag": 6
-  }
 }
 ]

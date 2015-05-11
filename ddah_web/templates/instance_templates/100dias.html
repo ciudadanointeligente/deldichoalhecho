@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <title>Del dicho al hecho</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="/static/main.css" rel="stylesheet">
+    <link href="/static/100dias/ciendias.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="/static/jquery.expander.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Del dicho al hecho" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://deldichoalhecho.cl/" />
+    <meta property="og:image" content="/static/img/header-xs.png" />
+    <meta property="og:description" content="Del dicho al hecho, a un año de Gobierno ¿Cuánto cumplió Bachelet?" />
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <div class="header">
+      <div class="container">
+        <h3 class="title"><a href="/"><img src="http://21m14.deldichoalhecho.cl/img/logo-ddah.png"></a></h3>
+        <ul class="nav nav-pills">
+          
+          
+          <li><a href="https://docs.google.com/document/d/1VRfCD9xDzvbOfJpnjHqUdnFtFeQ1akxix_ZQxP6EyOM/edit" target="_blank">Metodología</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Bachelet 2014-2018 <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="extra" href="http://deldichoalhecho.cl/">Programa de gob. estudio (2015)</a></li>
+              <li><a class="extra" href="http://deldichoalhecho.herokuapp.com/">Cumplimiento primeros cien días (2014)</a></li>
+              <li><a class="extra" href="http://21m14.deldichoalhecho.cl/">Discurso 21 de mayo (2014)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Piñera 2010-2014 <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="extra" href="http://anteriores.deldichoalhecho.cl/cumplimiento-pinera-2010-2014/" target="_blank">Cierre de gobierno</a></li>
+              <li><a class="extra" href="http://anteriores.deldichoalhecho.cl/cumplimiento-de-promesas-discurso-21m-2013/" target="_blank">Discurso 21 de mayo (2013)</a></li>
+              <li><a class="extra" href="http://anteriores.deldichoalhecho.cl/cumplimiento-programa-de-gobierno-en-materia-legislativa-al-2013/" target="_blank">Programa de gob. estudio (2013)</a></li>
+              <li><a class="extra" href="http://anteriores.deldichoalhecho.cl/cumplimiento-de-promesas-discurso-21m-2011/" target="_blank">Discurso 21 de mayo (2012)</a></li>
+              <li><a class="extra" href="http://anteriores.deldichoalhecho.cl/programa-de-gobierno-2012/" target="_blank">Programa de gob. estudio (2012)</a></li>
+              <li><a class="extra" href="http://21demayo.ciudadanointeligente.org" target="_blank">Discurso 21 de mayo (2011)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <div class="jumbotron">
+      
+      <div class="hero-space">
+        <div class="container">
+          <img src="/static/100dias/img/header.png">
+        </div>
+        
+        <div class="progress summary-progress" data-container="body" data-html="true" data-toggle="popover" data-placement="top" data-content="<i class='fa fa-check'></i> <strong>12</strong> promesas cumplidas</br> <i aria-hidden='true' data-icon='&#xe600;'></i> <strong>47</strong> promesas incompletas</br><i class='fa fa-times'></i> <strong>140</strong> promesas sin avance</br> Revisa la <a href='http://deldichoalhecho.cl/index.html'>metodología</a>">
+        <div class="progress-bar
+          " style="width: {{summary.total_progress}}%"><p>Primer Año: {{summary.formated_total_progress}}% de cumplimiento del programa</p></div>
+        </div>
+        <script type="text/javascript">
+        $(function(){
+        $('.summary-progress').popover(
+        )
+        })
+        </script>
+        <div class="container">
+          <div class="container">
+            <div class="ribbon">
+              <h1>100 días, 56 promesas</h1>
+              <div class="socialnetwork-home">
+                <ul class="social-network list-inline">
+                  <li>
+                    <a href="#" onclick="window.open(&quot;https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;hashtags=56promesasBachelet&amp;text=Paso a paso medimos su cumplimiento.&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onclick="window.open(&quot;https://www.facebook.com/sharer/sharer.php?u=http://deldichoalhecho.cl/&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <h2>Bienvenido al sitio de monitoreo y rendición de cuentas de Ciudadano Inteligente.</br>
+            A continuación encontrarás la medición del cumplimiento de las 56 promesas de los 100 primeros días de la Presidenta Bachelet.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="category-menu">
+        <div class="container">
+          <ul class="list-inline">
+            {{#categories}}
+            <li><a href="#{{slug}}">{{name}}</a></li>
+            {{/categories}}
+            
+          </ul>
+          <div class="pull-right">Revisa el <a href="https://docs.google.com/a/votainteligente.cl/document/d/1VRfCD9xDzvbOfJpnjHqUdnFtFeQ1akxix_ZQxP6EyOM/edit" target="_blank">informe</a> y la <a href="https://docs.google.com/a/votainteligente.cl/spreadsheets/d/1ejBFuK087wsuvi2eFn00IzfcNKlPJtO1WbjDBmv8tb0/edit" target="_blank">base de datos.</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="panel-group" id="categories">
+        
+        {{#categories}}
+        <div id="{{slug}}" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+            {{name}}
+            
+            <span class="read-more">
+              {{summary.total}} promesas
+              ({{summary.accomplished}} Completas, {{summary.in_progress}} Incompletas, {{summary.no_progress}} Sin progreso)
+            </span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar
+                " role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{summary.total_progress}}%;">
+                {{summary.formated_total_progress}}%
+              </div>
+            </div>
+          </div>
+          <div id="category_{{slug}}" class="category-body">
+            <div class="panel-body">
+              {{#promises}}
+              <div class="promise row panel">
+                <div class="col-md-1 clearfix">
+                  <div class="status {{fulfillment.simple_accomplishment}}">
+                  </div>
+                </div>
+                <div class="col-md-8 promise-description">
+                  <h4>
+                  {{name}}
+                  </h4>
+                  <span class="promise-description">
+                    {{{description}}}
+                  </span>
+                  <div class="promise-details">
+                    
+                  </div>
+                </div>
+                <div class="col-md-3 verification-document {{fulfillment.simple_accomplishment}}">
+                  
+                  <p>{{fulfillment.percentage}}% de cumplimiento
+                    
+                    <a data-toggle="modal" data-target="#modal-{{id}}">Leer más</a>
+                    
+                  </p>
+                  <div id="modal-{{id}}" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content b-color">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="myModalLabel">{{name}}</h4>
+                        </div>
+                        <div class="modal-body">
+                          {{{fulfillment.description}}}
+                          <h4>Hitos
+                          </h4>
+                          <ul>
+                            {{#milestones}}
+                            <li><span>{{date}}</span>{{{description}}}</li>
+                            {{/milestones}}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="verification-docs">
+                    
+                    Documentos de verificación:
+                    <ul>
+                      {{#verification_documents}}
+                      <li><a href="{{url}}" target="_blank">{{display_name}}</a></li>
+                      {{/verification_documents}}
+                      
+                    </ul>
+                    
+                  </div>
+                </div>
+              </div>
+              {{/promises}}
+              
+              
+            </div>
+          </div>
+          {{/categories}}
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.category-body').expander({
+    expandText: '<p class="text-center category-expander"><i class="fa fa-chevron-down"></i></p>',
+    userCollapseText: '<p class="text-center category-expander"><i class="fa fa-chevron-up"></i></p>',
+    slicePoint: 260,
+    expandPrefix:     '',
+    });
+    });
+    </script>
+    <div id="footer">
+      <div class="container">
+        <div class="socialnetwork-home">
+          <ul class="social-network list-inline">
+            <li>
+              <a href="#" onclick="window.open(&quot;https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;text=Del Dicho al Hecho, a un año de Gobierno ¿Cuánto cumplió Bachelet?.&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="window.open(&quot;https://www.facebook.com/sharer/sharer.php?u=http://deldichoalhecho.cl/&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="disqus_thread"></div>
+        <div class="row">
+          <div class="col-md-4">
+            <ul>
+              <li><a href="mailto:prensa@ciudadanointeligente.org?Subject=Prensa" class="email-prensa" target="_top"><i class="fa fa-envelope-o"></i> Contacto prensa</a></li>
+              <li><a href="https://github.com/ciudadanointeligente/check-it" target="_blank"><i class="fa fa-github-alt"></i> Revisa nuestro código en Github</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul>
+              <li>
+                Desarrollado por <a href="http://www.ciudadanointeligente.org/" target="_blank"><img src="https://ckannet-storage.commondatastorage.googleapis.com/2014-05-23T15:12:37.197Z/logo-ciudadanoi-parafondooscuro.png" title="Fundación Ciudadano Inteligente"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul>
+              <li><a href="tel:+56224192770"><i class="fa fa-phone"></i> +562 2 419 2770</a></li>
+              <li><a href="http://bit.ly/17qiMkf" target="_blank"><i class="fa fa-map-marker"></i> Holanda 895, Providencia, Santiago, Chile</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

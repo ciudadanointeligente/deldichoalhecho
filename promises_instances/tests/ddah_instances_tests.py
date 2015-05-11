@@ -1,11 +1,13 @@
 from django.test import TestCase
 from promises_instances.models import DDAHCategory, DDAHInstance
 from instances.models import Instance
+from popolo.models import Person
+from promises.models import Promise
 
 
 class DDAHInstancesTestCase(TestCase):
     def setUp(self):
-        pass
+        self.person = Person.objects.create(name=u"A person")
 
     def test_create_instance(self):
         '''Create an instance'''

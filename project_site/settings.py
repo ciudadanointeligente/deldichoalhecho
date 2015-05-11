@@ -22,7 +22,7 @@ SECRET_KEY = '^5(h974)gqu+-q%m+0gyp(io2=%(qa=9pb4outi=riv$o_lyzg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -44,11 +44,12 @@ INSTALLED_APPS = (
     'django_extensions',
     'django_nose',
     'promises',
-    'promises_web',
     'deldichoalhecho_theme',
-    'markdown_deux',
     'instances',
     'promises_instances',
+    'ddah_web',
+    'django_ace',
+    'ddah_admin_section',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +57,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'instances.middleware.MultiInstanceMiddleware',
+    'ddah_web.middleware.DDAHSiteMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -117,9 +120,11 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "constance.context_processors.config")
 
 TEMPLATE_LOADERS = (
-    'promises_web.loaders.ThemeLoader',
     'django.template.loaders.app_directories.Loader',
 )
+# MultiInstance Thing
+
+BASE_HOST = os.environ.get('BASE_HOST', '127.0.0.1.xip.io:8000')
 #HEROKU SPECIFICS
 # Parse database configuration from $DATABASE_URL
 if 'DATABASE_URL' in os.environ:
@@ -140,7 +145,6 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'promises_web', 'static'),
     # os.path.join(BASE_DIR, '..', 'deldichoalhecho_theme', 'edicion2015'),
 )
 
