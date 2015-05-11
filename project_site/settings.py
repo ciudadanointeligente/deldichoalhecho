@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'picklefield',
     'popolo',
     'constance',
     'constance.backends.database',
@@ -154,6 +155,36 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
 )
 # END OF HEROKU SPECIFICS
+
+#LOGGING
+LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'formatters': {
+                    'simple':   {'format': '%(asctime)s %(levelname)s %(message)s'},
+                },
+        'handlers': {
+                    'console':     {'level': 'DEBUG', 'class': 'logging.StreamHandler', 'formatter': 'simple'},
+                    'null': {
+                                    'level': 'DEBUG',
+                                    'class': 'logging.NullHandler',
+                                },
+                },
+        'loggers': {
+                    'django.db.backends': {'level': 'DEBUG', 'handlers': ['null'], 'propagate': False},
+        }
+}
+#END LOGGING
+
+# DEFAULT SETTINGS
+DEFAULT_SOCIAL_NETWORKS={
+    "twitter_text": "Mira que lindo mi sitio",
+    "og_img": "http://placehold.it/400x400"
+}
+DEFAULT_STYLE={
+    "header_img": "http://i.imgur.com/7ULzGlP.png"
+}
+# END DEFAULT SETTINGS
 try:
     from local_settings import *
 except ImportError:

@@ -90,6 +90,7 @@
   "pk": 1
 },{
   "fields": {
+    "contact":"feli@ciudadanoi.org",
     "users": []
   },
   "model": "ddah_web.ddahinstanceweb",

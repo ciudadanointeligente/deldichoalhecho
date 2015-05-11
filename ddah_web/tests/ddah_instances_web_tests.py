@@ -1,4 +1,4 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase, RequestFactory, override_settings
 from ddah_web.models import DDAHInstanceWeb
 from promises_instances.models import DDAHInstance
 from promises.models import Promise
@@ -8,6 +8,7 @@ from ddah_web.views import DDAHInstanceWebView, DDAHInstanceWebJSONView
 from ddah_web.models import DDAHInstanceWeb
 from instances.models import Instance
 import json
+from django.conf import settings
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -16,19 +17,58 @@ class DDAHInstanceWebTestCase(TestCase):
     def setUp(self):
         pass
 
+    def test_instance_attributes(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title', contact='feli@ciudadanoi.org')
+        self.assertEquals(ddah_instance.contact, 'feli@ciudadanoi.org')
+
+    @override_settings(BASE_HOST='thesite.com')
+    def test_get_url(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title')
+        expected_url = 'label.thesite.com'
+        self.assertEquals(ddah_instance.url, expected_url)
+
     def test_this_is_ddah_instance_subclass(self):
         '''This is a DDAHInstance'''
 
         instance = DDAHInstanceWeb.objects.create(label="bici", title="Bicicletas")
         self.assertIsInstance(instance, DDAHInstance)
 
+    @override_settings(DEFAULT_STYLE={"header-img": "http://i.imgur.com/7ULzGlP.png"})
+    def test_instance_with_style(self):
+        instance = DDAHInstanceWeb.objects.create(label="bici", title="Bicicletas")
+        self.assertEquals(instance.style['header-img'], "http://i.imgur.com/7ULzGlP.png")
+        instance.style = {"header-img": "http://i.imgur.com/7ULzGlP.png", "perrito": "Fiera"}
+        instance.save()
+        instance = DDAHInstanceWeb.objects.get(id=instance.id)
+        self.assertTrue(instance.style['header-img'])
+        self.assertEquals(instance.style['perrito'], 'Fiera')
+
+    @override_settings(DEFAULT_SOCIAL_NETWORKS={"twitter_text": "Mira que lindo mi sitio", "og-img": "http://placehold.it/400x400"})
+    def test_social_networking(self):
+        instance = DDAHInstanceWeb.objects.create(label="bici", title="Bicicletas")
+        self.assertEquals(instance.social_networks['twitter_text'], "Mira que lindo mi sitio")
+        self.assertEquals(instance.social_networks['og-img'], "http://placehold.it/400x400")
+        instance.social_networks = {"linkedin": "Fiera", "aboutme":"Benito"}
+        instance.save()
+        instance = DDAHInstanceWeb.objects.get(id=instance.id)
+        self.assertEquals(instance.social_networks["linkedin"], "Fiera")
+        self.assertEquals(instance.social_networks["aboutme"], "Benito")
+
+    @override_settings(DEFAULT_SOCIAL_NETWORKS={"twitter_text": "Mira que lindo mi sitio", "og_img": "http://placehold.it/400x400"})
+    @override_settings(DEFAULT_STYLE={"header_img": "http://i.imgur.com/7ULzGlP.png"})
     def test_instance_to_bunch(self):
         instance = DDAHInstanceWeb.objects.get(id=1)
         the_bunch = instance.get_as_bunch()
         self.assertEquals(the_bunch.title, instance.title)
+        home_url = reverse('instance_home') # Expected url without the base host
+        expected_url = '%s.%s%s' % (instance.label, settings.BASE_HOST, home_url)
+        self.assertEquals(the_bunch.url, expected_url)
         self.assertEquals(the_bunch.description, instance.description)
+        self.assertEquals(the_bunch.contact, instance.contact)
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
-
+        self.assertEquals(the_bunch.style.header_img, "http://i.imgur.com/7ULzGlP.png")
+        self.assertEquals(the_bunch.social_networks.twitter_text, "Mira que lindo mi sitio")
+        self.assertEquals(the_bunch.social_networks.og_img, "http://placehold.it/400x400")
         for category in the_bunch.categories:
             the_cat_from_database = instance.categories.get(id=category.id)
             self.assertEquals(the_cat_from_database.name, category.name)

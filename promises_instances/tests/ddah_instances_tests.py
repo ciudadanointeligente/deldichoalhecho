@@ -20,3 +20,4 @@ class DDAHInstancesTestCase(TestCase):
         category = DDAHCategory.objects.create(name="Education", instance=ddah_instance)
 
         self.assertIn(category, ddah_instance.categories.all())
+
