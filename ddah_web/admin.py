@@ -13,8 +13,12 @@ class TemplateForm(forms.ModelForm):
         model = DDAHTemplate
         widgets = {
             "content": AceWidget(mode='html'),
+            "head": AceWidget(mode='html'),
+            "header": AceWidget(mode='html'),
+            "footer": AceWidget(mode='html'),
+            "style": AceWidget(mode='html'),
         }
-        fields = ('content', )
+        fields = ('content',"head","header","footer","style", )
 
 
 class DDAHTemplateInline(admin.TabularInline):
