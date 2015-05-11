@@ -20,6 +20,8 @@ def default_json_encoder(o):
 # This could easily be a proxy model
 # I'm waiting until the end of the day to see what happens
 class DDAHInstanceWeb(DDAHInstance):
+    contact = models.EmailField(max_length=254, null=True)
+
     def save(self, *args, **kwargs):
         creating = self.id is None
         super(DDAHInstanceWeb, self).save(*args, **kwargs)
@@ -50,7 +52,8 @@ class DDAHInstanceWeb(DDAHInstance):
         me = Bunch(label=self.label,
                    title=self.title,
                    description=self.description,
-                   url=home_url)
+                   url=home_url,
+                   contact=self.contact,)
         categories = []
         for category in self.categories.all():
             cat_bunch = Bunch(id=category.id, name=category.name, slug=category.slug)

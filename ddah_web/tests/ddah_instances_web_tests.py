@@ -17,6 +17,10 @@ class DDAHInstanceWebTestCase(TestCase):
     def setUp(self):
         pass
 
+    def test_instance_attributes(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title', contact='feli@ciudadanoi.org')
+        self.assertEquals(ddah_instance.contact, 'feli@ciudadanoi.org')
+
     @override_settings(BASE_HOST='thesite.com')
     def test_get_url(self):
         ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title')
@@ -37,6 +41,7 @@ class DDAHInstanceWebTestCase(TestCase):
         expected_url = '%s.%s%s' % (instance.label, settings.BASE_HOST, home_url)
         self.assertEquals(the_bunch.url, expected_url)
         self.assertEquals(the_bunch.description, instance.description)
+        self.assertEquals(the_bunch.contact, instance.contact)
         self.assertEquals(len(the_bunch.categories), instance.categories.count())
 
         for category in the_bunch.categories:
