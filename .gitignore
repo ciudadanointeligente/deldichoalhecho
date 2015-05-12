@@ -62,3 +62,5 @@ docs/_build/
 
 # local_settings.py
 local_settings.py
+
+__staticfiles

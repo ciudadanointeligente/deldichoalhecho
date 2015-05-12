@@ -8,9 +8,13 @@
   "repository": "https://github.com/ciudadanointeligente/deldichoalhecho",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "python manage.py migrate"
+    "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput'"
   },
   "env": {
+    "DJANGO_SECRET_KEY": {
+          "description": "A randomly generated secret to secure your Django installation",
+          "generator": "secret"
+    }
   },
   "addons": [
   "heroku-postgresql"
