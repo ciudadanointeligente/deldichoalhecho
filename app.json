@@ -8,7 +8,7 @@
   "repository": "https://github.com/ciudadanointeligente/deldichoalhecho",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "python manage.py migrate"
+    "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput'"
   },
   "env": {
   },
