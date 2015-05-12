@@ -11,6 +11,7 @@ from django.contrib.sites.models import Site
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from picklefield.fields import PickledObjectField
+from django.contrib.flatpages.models import FlatPage
 
 
 def default_json_encoder(o):
@@ -129,6 +130,7 @@ class DDAHInstanceWeb(DDAHInstance):
         return json.dumps(bunchified, default=default_json_encoder)
 
 default_template = read_template_as_string('instance_templates/default.html')
+default_template_flat_page = read_template_as_string('instance_templates/default_flat_page.html')
 default_template_head = read_template_as_string('instance_templates/partials/head.html')
 default_template_header = read_template_as_string('instance_templates/partials/header.html')
 default_template_style = read_template_as_string('instance_templates/partials/style.html')
@@ -138,6 +140,7 @@ default_template_footer = read_template_as_string('instance_templates/partials/f
 class DDAHTemplate(models.Model):
     instance = models.OneToOneField(DDAHInstanceWeb, null=True, related_name="template")
     content = models.TextField(default=default_template)
+    flat_page_content = models.TextField(default=default_template_flat_page)
     head = models.TextField(default=default_template_head)
     header = models.TextField(default=default_template_header)
     style = models.TextField(default=default_template_style)
@@ -154,3 +157,7 @@ class DDAHSiteInstance(models.Model):
             'instance_title': self.instance.title
         }
         return u"{domain} redirects to {instance_title}".format(**dicti)
+
+
+class DdahFlatPage(FlatPage):
+    instance = models.ForeignKey(DDAHInstanceWeb)

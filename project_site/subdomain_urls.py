@@ -6,9 +6,3 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^', include('ddah_web.urls')),
 )
-
-
-# Your other patterns here
-urlpatterns += [
-    url(r'^pages/', include('django.contrib.flatpages.urls')),
-]

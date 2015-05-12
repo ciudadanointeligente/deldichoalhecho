@@ -9,6 +9,7 @@ class InstanceTemplateTestCase(TestCase):
 
     def setUp(self):
         self.default_template = read_template_as_string('instance_templates/default.html')
+        self.default_template_flat_page = read_template_as_string('instance_templates/default_flat_page.html')
         self.default_template_footer = read_template_as_string('instance_templates/partials/footer.html')
         self.default_template_head = read_template_as_string('instance_templates/partials/head.html')
         self.default_template_header = read_template_as_string('instance_templates/partials/header.html')
@@ -17,6 +18,7 @@ class InstanceTemplateTestCase(TestCase):
     def test_create_a_template(self):
         template = DDAHTemplate.objects.create()
         self.assertEquals(template.content, self.default_template)
+        self.assertEquals(template.flat_page_content, self.default_template_flat_page)
         self.assertEquals(template.head, self.default_template_head)
         self.assertEquals(template.header, self.default_template_header)
         self.assertEquals(template.style, self.default_template_style)
