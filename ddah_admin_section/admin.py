@@ -1,16 +1,22 @@
 from django.contrib import admin
-from ddah_web.models import DDAHInstanceWeb, DDAHTemplate, DDAHSiteInstance
+from ddah_web.models import DDAHInstanceWeb, DDAHTemplate, DDAHSiteInstance, DdahFlatPage
 from ddah_web.admin import DDAHTemplateInline
 from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm, DDAHInstanceForm
 from promises_instances.models import DDAHCategory, DDAHInstance
 from promises.models import Promise, Category
 from promises.admin import PromiseAdmin
+from django.contrib.flatpages.models import FlatPage
 from django import forms
 # Register your models here.
 admin.site.unregister(DDAHInstanceWeb)
 admin.site.unregister(DDAHCategory)
 admin.site.unregister(Promise)
+admin.site.unregister(FlatPage)
 
+
+@admin.register(DdahFlatPage)
+class DdahFlatPageAdmin(admin.ModelAdmin):
+    exclude = ('sites', "template_name", "registration_required", )
 
 @admin.register(DDAHTemplate)
 class DDAHTemplateAdmin(admin.ModelAdmin):
@@ -118,4 +124,3 @@ class DDAHPromiseAdmin(PromiseAdmin):
 @admin.register(DDAHSiteInstance)
 class DDAHSiteInstanceAdmin(admin.ModelAdmin):
     pass
-

@@ -24,6 +24,37 @@ class DDAHFlatPageTestCase(TestCase):
         self.assertFalse(flatpage.registration_required)
         self.assertFalse(flatpage.sites.all())
 
+    def test_get_absolute_url(self):
+        flatpage = DdahFlatPage.objects.create(url="about",
+                                               title="What about it?",
+                                               content="Hello this is the content as html",
+                                               enable_comments=True,
+                                               instance=self.instance,
+                                               )
+        url = flatpage.get_absolute_url()
+        self.assertIn(flatpage.url, url)
+        self.assertIn(self.instance.get_absolute_url(), url)
+
+    def test_get_the_flat_pages_in_the_bunch(self):
+        DdahFlatPage.objects.create(url="about",
+                                    title="Title1",
+                                    content="Hello this is the content as html",
+                                    enable_comments=True,
+                                    instance=self.instance,
+                                    )
+        DdahFlatPage.objects.create(url="about2",
+                                    title="title2",
+                                    content="Hello this is the content as html",
+                                    enable_comments=True,
+                                    instance=self.instance,
+                                    )
+        bunch = self.instance.get_as_bunch()
+        self.assertEquals(len(bunch.flatpages), 2)
+        self.assertTrue(hasattr(bunch.flatpages[0], 'title'))
+        self.assertTrue(hasattr(bunch.flatpages[0], 'url'))
+        self.assertTrue(hasattr(bunch.flatpages[1], 'title'))
+        self.assertTrue(hasattr(bunch.flatpages[1], 'url'))
+
     def test_get_the_view(self):
         flatpage = DdahFlatPage.objects.create(url="about",
                                                title="What about it?",

@@ -108,4 +108,4 @@ class FlatPageView(DetailView):
     context_object_name = 'instance'
 
     def get_object(self):
-        return get_object_or_404(DdahFlatPage, url=self.kwargs['url'])
+        return get_object_or_404(DdahFlatPage, url=self.kwargs['url'], instance__id=self.request.instance.id)

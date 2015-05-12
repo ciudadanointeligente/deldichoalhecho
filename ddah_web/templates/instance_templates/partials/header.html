@@ -2,8 +2,10 @@
       <div class="container">
         <h3 class="title"><a href="/">{{ title }}</a></h3>
         <ul class="nav nav-pills">
-          
-          
+
+          {{ #flatpages }}
+          <li><a href="{{url}}">{{title}}</a></li>
+          {{ /flatpages }}
           <li><a href="https://docs.google.com/document/d/1VRfCD9xDzvbOfJpnjHqUdnFtFeQ1akxix_ZQxP6EyOM/edit" target="_blank">Metodología</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">

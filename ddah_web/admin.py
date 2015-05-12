@@ -17,8 +17,9 @@ class TemplateForm(forms.ModelForm):
             "header": AceWidget(mode='html'),
             "footer": AceWidget(mode='html'),
             "style": AceWidget(mode='html'),
+            "flat_page_content": AceWidget(mode='html'),
         }
-        fields = ('content',"head","header","footer","style", )
+        fields = ('content', "head", "header", "footer", "style", "flat_page_content", )
 
 
 class DDAHTemplateInline(admin.TabularInline):

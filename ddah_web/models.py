@@ -12,6 +12,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from picklefield.fields import PickledObjectField
 from django.contrib.flatpages.models import FlatPage
+from urlparse import urljoin
 
 
 def default_json_encoder(o):
@@ -58,6 +59,14 @@ class DDAHInstanceWeb(DDAHInstance):
             no_progress_percentage=summary.no_progress_percentage,
             )
 
+    def get_flatpages(self):
+        result = []
+        for flatpage in self.ddahflatpage_set.all():
+            bunch = Bunch(title=flatpage.title, url=flatpage.get_absolute_url())
+            result.append(bunch)
+
+        return result
+
     def get_as_bunch(self):
         home_url = reverse('instance_home')
         home_url = '%s%s' % (self.url, home_url)
@@ -66,6 +75,7 @@ class DDAHInstanceWeb(DDAHInstance):
                    description=self.description,
                    url=home_url,
                    contact=self.contact,)
+        me.flatpages = self.get_flatpages()
         style = getattr(settings, 'DEFAULT_STYLE', {})
         style.update(self.style)
         me.style = Bunch.fromDict(style)
@@ -161,3 +171,7 @@ class DDAHSiteInstance(models.Model):
 
 class DdahFlatPage(FlatPage):
     instance = models.ForeignKey(DDAHInstanceWeb)
+
+    def get_absolute_url(self):
+        url = reverse('flat_page', kwargs={'url': self.url})
+        return urljoin(self.instance.get_absolute_url(), url)
