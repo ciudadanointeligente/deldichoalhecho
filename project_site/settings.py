@@ -64,7 +64,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'project_site.urls'
+ROOT_URLCONF = 'project_site.subdomain_urls'
+ROOT_URLCONF_HOST = 'project_site.non_subdomain_urls'
 
 WSGI_APPLICATION = 'project_site.wsgi.application'
 
