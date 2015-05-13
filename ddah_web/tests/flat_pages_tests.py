@@ -4,6 +4,7 @@ from ddah_web.views import FlatPageView, MoustacheFlatPageTemplateResponse
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
+import markdown
 
 
 class DDAHFlatPageTestCase(TestCase):
@@ -74,7 +75,8 @@ class DDAHFlatPageTestCase(TestCase):
         del expected_data.summary
         del expected_data.categories
         expected_data.page_title = flatpage.title
-        expected_data.page_content = flatpage.content
+        # It is marked down
+        expected_data.page_content = markdown.markdown(flatpage.content)
         expected_data.enable_comments = flatpage.enable_comments
         self.assertEquals(response.get_the_data(), expected_data)
         self.assertEquals(response.get_template(), self.instance.template)

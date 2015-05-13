@@ -4,6 +4,7 @@ from django.views.generic.detail import DetailView
 from pystache import Renderer
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+import markdown
 
 
 class MoustacheTemplateResponseBase(TemplateResponse):
@@ -67,7 +68,7 @@ class MoustacheFlatPageTemplateResponse(MoustacheTemplateResponseBase):
         del data.summary
         del data.categories
         data.page_title = flatpage.title
-        data.page_content = flatpage.content
+        data.page_content = markdown.markdown(flatpage.content)
         data.enable_comments = flatpage.enable_comments
         return data
 
