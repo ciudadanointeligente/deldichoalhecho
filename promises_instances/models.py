@@ -9,3 +9,8 @@ class DDAHInstance(Instance):
 
 class DDAHCategory(Category):
     instance = models.ForeignKey(DDAHInstance, related_name='categories')
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    class Meta:
+        ordering = ('order', )
+
