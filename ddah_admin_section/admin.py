@@ -3,6 +3,7 @@ from ddah_web.models import DDAHInstanceWeb, DDAHTemplate, DDAHSiteInstance, Dda
 from ddah_web.admin import DDAHTemplateInline
 from ddah_admin_section.forms import DDAHInstanceNonSuperUserForm, DDAHInstanceForm
 from promises_instances.models import DDAHCategory, DDAHInstance
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 from promises.models import Promise, Category
 from promises.admin import PromiseAdmin
 from django.contrib.flatpages.models import FlatPage
@@ -23,11 +24,17 @@ class DDAHTemplateAdmin(admin.ModelAdmin):
     pass
 
 
+class DDAHCategoryInline(SortableInlineAdminMixin, admin.TabularInline):
+    model = DDAHCategory
+    extra = 0
+
+
 @admin.register(DDAHInstanceWeb)
 class InstanceAdmin(admin.ModelAdmin):
     form = DDAHInstanceForm
     inlines = [
-        DDAHTemplateInline
+        DDAHTemplateInline,
+        DDAHCategoryInline,
     ]
 
     def get_form(self, request, obj=None, **kwargs):
@@ -60,7 +67,7 @@ class DDAHCategoryForm(forms.ModelForm):
 
 
 @admin.register(DDAHCategory)
-class DDAHCategoryAdmin(admin.ModelAdmin):
+class DDAHCategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
             return super(DDAHCategoryAdmin, self).get_form(request, obj, **kwargs)

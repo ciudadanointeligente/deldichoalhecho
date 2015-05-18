@@ -21,3 +21,12 @@ class DDAHInstancesTestCase(TestCase):
 
         self.assertIn(category, ddah_instance.categories.all())
 
+    def test_category_can_have_order(self):
+        ddah_instance = DDAHInstance.objects.create(label='label', title='the title')
+        category1 = DDAHCategory.objects.create(name="Education1", instance=ddah_instance, order=2)
+        category2 = DDAHCategory.objects.create(name="Education2", instance=ddah_instance, order=1)
+
+        all_categories = DDAHCategory.objects.all()
+        self.assertEquals(all_categories[0], category2)
+        self.assertEquals(all_categories[1], category1)
+
