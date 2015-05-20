@@ -139,6 +139,12 @@ class DDAHInstanceWeb(DDAHInstance):
         bunchified = self.get_as_bunch()
         return json.dumps(bunchified, default=default_json_encoder)
 
+    def get_absolute_url(self):
+        sites = Site.objects.filter(ddahsiteinstance__instance=self)
+        if sites:
+            return "http://%s" % (sites.first().domain)
+        return super(DDAHInstanceWeb, self).get_absolute_url()
+
 default_template = read_template_as_string('instance_templates/default.html')
 default_template_flat_page = read_template_as_string('instance_templates/default_flat_page.html')
 default_template_head = read_template_as_string('instance_templates/partials/head.html')
