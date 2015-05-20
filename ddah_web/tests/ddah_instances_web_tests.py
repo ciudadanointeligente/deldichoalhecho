@@ -5,10 +5,11 @@ from promises.models import Promise
 from django.core.urlresolvers import reverse
 import markdown
 from ddah_web.views import DDAHInstanceWebView, DDAHInstanceWebJSONView
-from ddah_web.models import DDAHInstanceWeb
+from ddah_web.models import DDAHInstanceWeb, DDAHSiteInstance
 from instances.models import Instance
 import json
 from django.conf import settings
+from django.contrib.sites.models import Site
 
 
 class DDAHInstanceWebTestCase(TestCase):
@@ -120,6 +121,17 @@ class DDAHInstanceWebTestCase(TestCase):
         instance = DDAHInstanceWeb.objects.get(id=1)
         self.assertTrue(instance.to_json())
 
+    @override_settings(BASE_HOST="perrito.url.com")
+    def test_get_absolute_url(self):
+        instance = DDAHInstanceWeb.objects.get(id=1)
+        original_url = instance.get_absolute_url()
+
+        self.assertIn("perrito.url.com", original_url)
+        self.assertIn(instance.label, original_url)
+        the_site = Site.objects.create(name="name", domain="www.thesite.com")
+        the_record = DDAHSiteInstance.objects.create(site=the_site, instance=instance)
+        after_site_url = instance.get_absolute_url()
+        self.assertIn('www.thesite.com', after_site_url)
 
 class DDAHInstancesView(TestCase):
     fixtures = ['100dias.json']
