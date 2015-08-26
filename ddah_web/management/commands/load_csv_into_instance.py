@@ -46,5 +46,5 @@ class Command(BaseCommand):
                 person_name = u"Tabaré Vásquez"
                 category, created_category = DDAHCategory.objects.get_or_create(name=category_name, instance=instance)
                 person, created_person = Person.objects.get_or_create(name=person_name)
-                promise_, created_promise = Promise.objects.get_or_create(name=promise_name, person=person)
+                promise_, created_promise = Promise.objects.get_or_create(name=promise_name, person=person, category=category)
                 i, c = InformationSource.objects.get_or_create(url='http://datauy.org', display_name = promise[0] + u" página " + promise[1], promise=promise_, date=datetime.now())
