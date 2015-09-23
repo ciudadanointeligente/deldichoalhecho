@@ -12,7 +12,7 @@ markdown
 newrelic
 django-subdomain-instances
 django-taggit
-ddah-promises==0.0.5
+ddah-promises
 -e git://github.com/bradleyayers/django-ace.git#egg=django-ace
 bunch==1.0.1
 json-utils==0.2
