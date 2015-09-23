@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('promises', '0007_promise_tags'),
+        ('promises', '__latest__'),
         ('promises_instances', '0005_auto_20150518_1623'),
     ]
 
