@@ -1,5 +1,5 @@
 from django.test import TestCase
-from promises_instances.models import DDAHCategory, DDAHInstance
+from promises_instances.models import DDAHCategory, DDAHInstance, DDAHPromise
 from instances.models import Instance
 from popolo.models import Person
 from promises.models import Promise
@@ -20,6 +20,16 @@ class DDAHInstancesTestCase(TestCase):
         category = DDAHCategory.objects.create(name="Education", instance=ddah_instance)
 
         self.assertIn(category, ddah_instance.categories.all())
+
+    def test_an_instance_can_have_promises(self):
+        ddah_instance = DDAHInstance.objects.create(label='label', title='the title')
+        promise = DDAHPromise.objects.create(name='promise', instance=ddah_instance)
+        self.assertIsInstance(promise, Promise)
+        self.assertIn(promise, ddah_instance.promises.all())
+        category = DDAHCategory.objects.create(name="Education", instance=ddah_instance)
+        promise = DDAHPromise.objects.create(name='promise', category=category)
+        self.assertEquals(promise.instance, ddah_instance)
+
 
     def test_category_can_have_order(self):
         ddah_instance = DDAHInstance.objects.create(label='label', title='the title')

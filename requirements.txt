@@ -11,7 +11,7 @@ django-constance-updated==1.0.1
 markdown
 newrelic
 django-subdomain-instances
-ddah-promises==0.0.2
+ddah-promises==0.0.4
 -e git://github.com/bradleyayers/django-ace.git#egg=django-ace
 bunch==1.0.1
 json-utils==0.2

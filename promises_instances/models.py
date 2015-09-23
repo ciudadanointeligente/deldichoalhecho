@@ -1,5 +1,5 @@
 from django.db import models
-from promises.models import Category
+from promises.models import Category, Promise
 from instances.models import Instance
 
 
@@ -14,3 +14,11 @@ class DDAHCategory(Category):
     class Meta:
         ordering = ('order', )
 
+
+class DDAHPromise(Promise):
+    instance = models.ForeignKey(DDAHInstance, related_name='promises')
+
+    def save(self, *args, **kwargs):
+        if self.category is not None:
+            self.instance = self.category.instance
+        return super(DDAHPromise, self).save()

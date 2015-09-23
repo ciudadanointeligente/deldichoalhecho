@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'constance.backends.database',
     'django_extensions',
     'django_nose',
+    'taggit',
     'promises',
     'deldichoalhecho_theme',
     'instances',
