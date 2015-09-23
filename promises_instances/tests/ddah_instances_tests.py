@@ -21,6 +21,9 @@ class DDAHInstancesTestCase(TestCase):
 
         self.assertIn(category, ddah_instance.categories.all())
 
+        category = DDAHCategory.objects.create(name="Education")
+        self.assertIsNone(category.instance)
+
     def test_an_instance_can_have_promises(self):
         ddah_instance = DDAHInstance.objects.create(label='label', title='the title')
         promise = DDAHPromise.objects.create(name='promise', instance=ddah_instance)
@@ -29,6 +32,8 @@ class DDAHInstancesTestCase(TestCase):
         category = DDAHCategory.objects.create(name="Education", instance=ddah_instance)
         promise = DDAHPromise.objects.create(name='promise', category=category)
         self.assertEquals(promise.instance, ddah_instance)
+        promise = DDAHPromise.objects.create(name='promise')
+        self.assertIsNone(promise.instance)
 
 
     def test_category_can_have_order(self):

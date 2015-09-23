@@ -8,7 +8,7 @@ class DDAHInstance(Instance):
 
 
 class DDAHCategory(Category):
-    instance = models.ForeignKey(DDAHInstance, related_name='categories')
+    instance = models.ForeignKey(DDAHInstance, related_name='categories', null=True, blank=True)
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     class Meta:
@@ -16,7 +16,7 @@ class DDAHCategory(Category):
 
 
 class DDAHPromise(Promise):
-    instance = models.ForeignKey(DDAHInstance, related_name='promises')
+    instance = models.ForeignKey(DDAHInstance, related_name='promises', null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.category is not None:
