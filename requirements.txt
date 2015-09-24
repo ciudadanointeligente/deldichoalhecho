@@ -19,3 +19,4 @@ json-utils==0.2
 Pystache==0.5.4
 django-picklefield==0.3.1
 django-admin-sortable2==0.5.0
+celery

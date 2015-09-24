@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+import sys
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -72,6 +72,7 @@ ROOT_URLCONF_HOST = 'project_site.non_subdomain_urls'
 WSGI_APPLICATION = 'project_site.wsgi.application'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+TESTING = 'test' in sys.argv
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -187,6 +188,9 @@ DEFAULT_SOCIAL_NETWORKS={
 DEFAULT_STYLE={
     "header_img": "http://i.imgur.com/7ULzGlP.png"
 }
+if TESTING:
+    CELERY_ALWAYS_EAGER = True
+CELERY_ALWAYS_EAGER = True
 # END DEFAULT SETTINGS
 try:
     from local_settings import *
