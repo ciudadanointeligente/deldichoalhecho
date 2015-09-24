@@ -1,0 +1,8 @@
+<form enctype="multipart/form-data" class="uniForm" id="wayfinder_map_form" method="POST" action="">
+
+{{form.errors}}
+{{ form.non_field_errors }}
+
+{{form.as_p}}
+{% csrf_token %}
+</form>

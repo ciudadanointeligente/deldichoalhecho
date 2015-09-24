@@ -1,0 +1,15 @@
+The instance {{instance}}
+
+<div>
+	{% for category in instance.categories.all %}
+	<div>
+		<h2>{{category.name}}</h2>
+		{% for promise in category.promises.all %}
+		<div>
+			{{promise.name}}
+		</div>
+		{% endfor %}
+	</div>
+	{% endfor %}
+
+</div>

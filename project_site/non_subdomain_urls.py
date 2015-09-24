@@ -16,7 +16,6 @@ urlpatterns = patterns('',
 )
 
 
-# Your other patterns here
 urlpatterns += [
 	url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
