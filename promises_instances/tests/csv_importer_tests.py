@@ -5,6 +5,7 @@ import codecs
 from promises_instances.models import DDAHInstance
 from promises_instances.csv_loader import DDAHCSVProcessor
 
+
 class CSVCommandTestCase(TestCase):
     def setUp(self):
         super(CSVCommandTestCase, self).setUp()

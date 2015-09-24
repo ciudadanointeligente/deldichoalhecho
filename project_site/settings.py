@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'instances',
     'promises_instances',
     'ddah_web',
+    'backend',
     'django_ace',
     'ddah_admin_section',
 )

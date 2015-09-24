@@ -1,0 +1,12 @@
+{% load i18n %}
+Aquí se vienen tus instancias
+
+<h1>{% trans "Instances" %}</h1>
+<h2>Hola esto es el landing page para el del dicho al hecho</h2>
+<ul>
+  {% for i in instances %}
+    <li><a href="{{ i.get_absolute_url }}">{{ i }}</a></li>
+  {% empty %}
+    <li>{% trans "No instances present." %}</li>
+  {% endfor %}
+</ul>

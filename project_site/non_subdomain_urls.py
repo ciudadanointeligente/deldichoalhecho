@@ -3,6 +3,7 @@ from ddah_web.models import DDAHInstanceWeb
 from django.views.generic import ListView
 
 from django.contrib import admin
+from backend import urls as backend_urls
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -17,5 +18,7 @@ urlpatterns = patterns('',
 
 # Your other patterns here
 urlpatterns += [
+	url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^administrator/', include(backend_urls, namespace="backend")),
 ]
