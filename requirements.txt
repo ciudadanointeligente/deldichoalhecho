@@ -6,15 +6,17 @@ psycopg2==2.5.2
 -e git://github.com/django-nose/django-nose#egg=django-nose
 django-extensions
 ipython
--e git://github.com/openpolis/django-popolo.git#egg=django-popolo
+-e git+https://github.com/ciudadanointeligente/django-popolo.git@django_version_18#egg=django-popolo
 django-constance-updated==1.0.1
 markdown
 newrelic
 django-subdomain-instances
-ddah-promises==0.0.2
+django-taggit
+ddah-promises
 -e git://github.com/bradleyayers/django-ace.git#egg=django-ace
 bunch==1.0.1
 json-utils==0.2
 Pystache==0.5.4
 django-picklefield==0.3.1
 django-admin-sortable2==0.5.0
+celery

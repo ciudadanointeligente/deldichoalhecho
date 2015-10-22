@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block 'title' %}{% trans "Instances" %}{% endblock 'title' %}
+
+{% block 'content' %}
+
+<h2>{% trans 'Hola! estas son tus instancias:' %}</h2>
+<ul>
+  {% for i in instances %}
+    <li><a href="{% url 'backend:instance' slug=i.label %}">{{ i }}</a> - <a target="blank_" href="{{ i.get_absolute_url }}"><i class="fa fa-external-link"></i>
+</a></li>
+  {% empty %}
+    <li>{% trans "No instances present." %}</li>
+  {% endfor %}
+</ul>
+{% endblock 'content' %}

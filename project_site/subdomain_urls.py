@@ -6,3 +6,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^', include('ddah_web.urls')),
 )
+
+
