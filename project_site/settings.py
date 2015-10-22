@@ -20,7 +20,7 @@ import sys
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','s3cret0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEBUG' in os.environ and os.environ.get('DEBUG') == 1
 
 TEMPLATE_DEBUG = True
 
