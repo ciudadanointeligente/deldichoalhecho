@@ -5,10 +5,9 @@ from django.contrib.auth.models import User
 from ddah_web.models import DDAHInstanceWeb
 from django.test.utils import override_settings
 from django.conf import settings
-from backend.forms import CSVUploadForm
+from backend.forms import CSVUploadForm, ColorPickerForm
 import codecs
 import os
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 PASSWORD = 'feroz'
@@ -88,4 +87,48 @@ class CSVUploadTestCase(TestCase):
         self.assertRedirects(response, reverse('backend:instance', kwargs={'slug': self.instance.label}))
         self.assertTrue(self.instance.promises.all())
         self.assertTrue(self.instance.categories.all())
+
+
+class ColorPickerFormTestCase(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(ColorPickerFormTestCase, self).setUp()
+        self.data = {
+            "background_color": "Fiera",
+            "second_color": "Feroz",
+            "read_more_color": "Inteligente"
+        }
+
+    def test_instanciate_form(self):
+        form = ColorPickerForm(data=self.data, instance=self.instance)
+        self.assertTrue(form)
+        self.assertTrue(form.is_valid())
+        form.update_colors()
+        instance = form.instance
+        self.assertEquals(instance.style["background_color"],self.data["background_color"])
+        self.assertEquals(instance.style["second_color"],self.data["second_color"])
+        self.assertEquals(instance.style["read_more_color"],self.data["read_more_color"])
+
+    def test_instance_initial(self):
+        form = ColorPickerForm(data={}, instance=self.instance)
+        self.assertEquals(form.fields["background_color"].initial, self.instance.style['background_color'])
+        self.assertEquals(form.fields["second_color"].initial, self.instance.style['second_color'])
+        self.assertEquals(form.fields["read_more_color"].initial, self.instance.style['read_more_color'])
+
+    def test_color_picker_view(self):
+        url = reverse('backend:instance_style', kwargs={'slug': self.instance.label})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertIn('form', response.context)
+        form = response.context['form']
+        self.assertIsInstance(form, ColorPickerForm)
+        # posting
+        response = self.client.post(url, data=self.data, follow=True)
+        self.assertEquals(response.status_code, 200)
+        instance = DDAHInstanceWeb.objects.get(id=self.instance.id)
+        self.assertEquals(instance.style['background_color'], self.data['background_color'])
+        self.assertEquals(instance.style['second_color'], self.data['second_color'])
+        self.assertEquals(instance.style['read_more_color'], self.data['read_more_color'])
+
+
 

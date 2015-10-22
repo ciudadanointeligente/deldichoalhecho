@@ -181,6 +181,29 @@ LOGGING = {
         }
 }
 #END LOGGING
+#Testing without migrations
+from django.conf import settings
+from django_nose import NoseTestSuiteRunner
+
+
+class DisableMigrations(object):
+    def __contains__(self, item):
+        return True
+
+    def __getitem__(self, item):
+        return "notmigrations"
+
+
+class Runner(NoseTestSuiteRunner):
+    def run_tests(self, test_labels, extra_tests=None):
+        settings.MIGRATION_MODULES = DisableMigrations()
+        super(Runner, self).run_tests(test_labels, extra_tests=extra_tests)
+
+
+DONT_USE_MIGRATIONS = 'DONT_USE_MIGRATIONS' in os.environ.keys() and os.environ['DONT_USE_MIGRATIONS'] == '1'
+
+if DONT_USE_MIGRATIONS:
+    TEST_RUNNER = 'project_site.settings.Runner'
 
 # DEFAULT SETTINGS
 DEFAULT_SOCIAL_NETWORKS={
@@ -188,7 +211,10 @@ DEFAULT_SOCIAL_NETWORKS={
     "og_img": "http://placehold.it/400x400"
 }
 DEFAULT_STYLE={
-    "header_img": "http://i.imgur.com/7ULzGlP.png"
+    "header_img": "http://i.imgur.com/7ULzGlP.png",
+    "background_color": "0F2356",
+    "second_color": "0F0F28",
+    "read_more_color": "750661"
 }
 if TESTING:
     CELERY_ALWAYS_EAGER = True
