@@ -152,7 +152,9 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    # os.path.join(BASE_DIR, '..', 'deldichoalhecho_theme', 'edicion2015'),
+    os.path.join(BASE_DIR, '..', 'deldichoalhecho_theme', 'edicion2015', 'static'),
+    os.path.join(BASE_DIR, '..', 'backend', 'static'),
+    os.path.join(BASE_DIR, '..', 'ddah_web', 'static'),
 )
 
 # EXTRA TEMPLATE_CONTEXT_PROCESSORS
