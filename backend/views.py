@@ -9,6 +9,7 @@ from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
+from .forms import ColorPickerForm
 
 
 class BackendBase(View):
@@ -20,7 +21,7 @@ class BackendBase(View):
 class InstanceBase(View):
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
-		# if self.request.user not in 
+		# if self.request.user not in
 		instance = self.get_object()
 		if self.request.user not in instance.users.all():
 			return HttpResponse('Unauthorized', status=401)
@@ -43,6 +44,30 @@ class InstanceDetailView(DetailView, InstanceBase):
 	template_name = 'instance_detail.html'
 	context_object_name = 'instance'
 	slug_field = 'label'
+
+
+class StyleView(InstanceBase, FormView):
+    template_name = 'style_color_picker.html'
+    form_class = ColorPickerForm
+
+    def get_object(self):
+        self.instance =  get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
+        return self.instance
+
+    def get_form_kwargs(self):
+		kwargs = super(StyleView, self).get_form_kwargs()
+		kwargs.update({'instance': self.instance})
+		return kwargs
+
+    def get_success_url(self):
+        url = reverse('backend:instance_style', kwargs={'slug': self.instance.label})
+        return url
+
+    def form_valid(self, form):
+        form.update_colors()
+        return super(StyleView, self).form_valid(form)
+
+
 
 
 class CSVUploadView(FormView, InstanceBase):

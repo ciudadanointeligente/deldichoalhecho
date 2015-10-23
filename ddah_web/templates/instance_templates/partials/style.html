@@ -48,5 +48,38 @@
         }
  
       }
- 
+body {
+    background-color: #{{ style.background_color }};
+}
+#footer {
+    background-color: #{{ style.background_color }};
+}
+.dropdown-menu {
+  background-color: #{{ style.background_color }};
+}
+.progress {
+  background-color: #{{ style.background_color }};
+}
+.b-color {
+  background-color: #{{ style.background_color }};
+}
+.category-menu li a {
+  background: #{{ style.second_color }};
+}
+.panel {
+  background-color: #{{ style.second_color }};
+}
+.panel-default>.panel-heading {
+  background-color: #{{ style.second_color }};
+}
+.panel-body .read-more:before {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00{{ style.second_color }}', endColorstr='#{{ style.second_color }}',GradientType=0 );
+}
+.read-more p.text-center.category-expander {
+  background-color: #{{ style.read_more_color }};
+}
+
+.read-less p.text-center.category-expander {
+  background-color: #{{ style.read_more_color }};
+} 
     </style>
