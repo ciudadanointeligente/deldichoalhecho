@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from ddah_web.models import DDAHInstanceWeb
 from django.test.utils import override_settings
 from django.conf import settings
-from backend.forms import CSVUploadForm, ColorPickerForm
+from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm
+from promises_instances.models import DDAHCategory
 import codecs
 import os
 
@@ -87,6 +88,38 @@ class CSVUploadTestCase(TestCase):
         self.assertRedirects(response, reverse('backend:instance', kwargs={'slug': self.instance.label}))
         self.assertTrue(self.instance.promises.all())
         self.assertTrue(self.instance.categories.all())
+
+
+
+class CategoryCreateTestCase(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(CategoryCreateTestCase, self).setUp()
+        self.data = {"name": "New Category"}
+
+    def test_instanciate_form(self):
+        form = CategoryCreateForm(data=self.data, ddah_instance=self.instance)
+        self.assertTrue(form)
+        self.assertTrue(form.is_valid())
+        category = form.save()
+        self.assertIsInstance(category, DDAHCategory)
+        self.assertEquals(category.name, 'New Category')
+        self.assertEquals(category.instance, self.instance)
+
+    def test_create_view(self):
+        url = reverse('backend:create_category', kwargs={'slug': self.instance.label})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'category_create.html')
+        self.assertEquals(self.instance, response.context['instance'])
+        # Posting
+        original_count = self.instance.categories.count()
+        data = {'name': "This is a new Category"}
+        response = self.client.post(url, data=data, follow=True)
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(original_count + 1, self.instance.categories.count())
+        the_created_category = self.instance.categories.last()
+        self.assertEquals(the_created_category.name, data["name"])
 
 
 class ColorPickerFormTestCase(BackendHomeTestCaseBase):

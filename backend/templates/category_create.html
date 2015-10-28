@@ -1,0 +1,7 @@
+<form action="{% url 'backend:create_category' slug=instance.label %}" method="post">{% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        <input type="text" class="form-control" placeholder="{{ form.name.help_text }}" name="{{ form.name.html_name }}">
+    </div>
+    <input type="submit" value="OK">
+</form>

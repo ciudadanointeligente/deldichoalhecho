@@ -4,12 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.base import View
-from django.http import HttpResponse
+from django.views.generic.edit import CreateView
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
-from .forms import ColorPickerForm
+from promises_instances.models import DDAHCategory
+from .forms import ColorPickerForm, CategoryCreateForm
 
 
 class BackendBase(View):
@@ -22,8 +24,8 @@ class InstanceBase(View):
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
 		# if self.request.user not in
-		instance = self.get_object()
-		if self.request.user not in instance.users.all():
+		self.ddah_instance = self.get_object()
+		if self.request.user not in self.ddah_instance.users.all():
 			return HttpResponse('Unauthorized', status=401)
 		return super(InstanceBase, self).dispatch(*args, **kwargs)
 
@@ -69,7 +71,6 @@ class StyleView(InstanceBase, FormView):
 
 
 
-
 class CSVUploadView(FormView, InstanceBase):
 	template_name = 'csv_upload.html'
 	form_class = CSVUploadForm
@@ -92,3 +93,26 @@ class CSVUploadView(FormView, InstanceBase):
 
 	def get_success_url(self):
 		return reverse('backend:instance', kwargs={'slug': self.instance.label})
+
+
+class CategoryCreateView(CreateView, InstanceBase):
+    form_class = CategoryCreateForm
+    model = DDAHCategory
+    template_name = 'category_create.html'
+
+    def get_object(self):
+        instance =  get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
+        return instance
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryCreateView, self).get_context_data(**kwargs)
+        context['instance'] = self.ddah_instance
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super(CategoryCreateView, self).get_form_kwargs()
+        kwargs.update({'ddah_instance': self.ddah_instance})
+        return kwargs
+
+    def get_success_url(self):
+        return reverse('backend:instance', kwargs={'slug': self.ddah_instance.label})

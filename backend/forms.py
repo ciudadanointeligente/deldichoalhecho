@@ -1,5 +1,6 @@
 from django import forms
 from promises_instances.csv_loader import DDAHCSVProcessor
+from promises_instances.models import DDAHCategory
 
 class BelongingToInstanceMixin(object):
 	def __init__(self, instance, *args, **kwargs):
@@ -32,3 +33,19 @@ class ColorPickerForm(BelongingToInstanceMixin, forms.Form):
             self.instance.style[key] = value
         self.instance.save()
         return self.instance
+
+class CategoryCreateForm(forms.ModelForm):
+    class Meta:
+        model = DDAHCategory
+        fields = ('name', )
+
+    def __init__(self, ddah_instance, *args, **kwargs):
+        self.ddah_instance = ddah_instance
+        return super(CategoryCreateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        category = super(CategoryCreateForm, self).save(commit=False)
+        category.instance = self.ddah_instance
+        if commit:
+            category.save()
+        return category
