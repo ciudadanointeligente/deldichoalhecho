@@ -5,13 +5,14 @@ from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.base import View
 from django.views.generic.edit import CreateView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from promises_instances.models import DDAHCategory
-from .forms import ColorPickerForm, CategoryCreateForm
+from .forms import ColorPickerForm, CategoryCreateForm, PromiseCreateForm
+from promises.models import Promise
 
 
 class BackendBase(View):
@@ -93,6 +94,25 @@ class CSVUploadView(FormView, InstanceBase):
 
 	def get_success_url(self):
 		return reverse('backend:instance', kwargs={'slug': self.instance.label})
+
+
+class PromiseCreateView(CreateView):
+    form_class = PromiseCreateForm
+    model = Promise
+
+    def get_form_kwargs(self):
+        kwargs = super(PromiseCreateView, self).get_form_kwargs()
+        self.category = DDAHCategory.objects.get(id=self.kwargs['category_id'])
+        kwargs.update({'ddah_category': self.category})
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super(PromiseCreateView, self).get_context_data(**kwargs)
+        context['category'] = self.category
+        return context
+
+    def get_success_url(self):
+        return reverse('backend:instance', kwargs={'slug': self.category.instance.label})
 
 
 class CategoryCreateView(CreateView, InstanceBase):

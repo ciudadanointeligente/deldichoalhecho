@@ -29,6 +29,28 @@ $(function(){
 </script>
 <!-- Modal for creating a new category-->
 
+<!--Modal for creating a new promise-->
+<div class="modal fade" id="createPromiseModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{% trans 'Create a new Category' %}</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+$(function(){
+	$("#createPromiseModal").on('show.bs.modal', function(e){
+		//$("#createPromiseModal .modal-body").load("{% url 'backend:create_category' slug=instance.label %}");
+	});
+
+});
+</script>
 
 
 
@@ -52,6 +74,10 @@ $(function(){
     <div class="panel panel-default">
         <div class="panel-heading">
         	<h2>{{category.name}}</h2>
+
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" href="{% url 'backend:create_promise' label=instance.label category_id=category.id %}" data-target="#createPromiseModal">
+		  {% trans 'Create a new Promise' %}
+		</button>	
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">

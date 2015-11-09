@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'backend',
     'django_ace',
     'ddah_admin_section',
+    'django_forms_bootstrap',
 )
 
 MIDDLEWARE_CLASSES = (

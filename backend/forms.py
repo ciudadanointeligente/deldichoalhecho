@@ -1,6 +1,7 @@
 from django import forms
 from promises_instances.csv_loader import DDAHCSVProcessor
 from promises_instances.models import DDAHCategory
+from promises.models import Promise
 
 class BelongingToInstanceMixin(object):
 	def __init__(self, instance, *args, **kwargs):
@@ -34,6 +35,7 @@ class ColorPickerForm(BelongingToInstanceMixin, forms.Form):
         self.instance.save()
         return self.instance
 
+
 class CategoryCreateForm(forms.ModelForm):
     class Meta:
         model = DDAHCategory
@@ -49,3 +51,23 @@ class CategoryCreateForm(forms.ModelForm):
         if commit:
             category.save()
         return category
+
+
+class PromiseCreateForm(forms.ModelForm):
+    fulfillment = forms.FloatField()
+
+    def __init__(self, ddah_category, *args, **kwargs):
+        self.ddah_category = ddah_category
+        super(PromiseCreateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        promise = super(PromiseCreateForm, self).save(commit=False)
+        promise.category = self.ddah_category
+        if commit:
+            promise.save()
+            promise.fulfillment.percentage = self.cleaned_data['fulfillment']
+        return promise
+
+    class Meta:
+        model = Promise
+        fields = ['name','description', 'date', 'ponderator', ]

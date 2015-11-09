@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 from ddah_web.models import DDAHInstanceWeb
 from django.test.utils import override_settings
 from django.conf import settings
-from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm
+from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm
 from promises_instances.models import DDAHCategory
+from promises.models import Promise
 import codecs
 import os
 
@@ -43,6 +44,7 @@ class BackendHomeTestCaseBase(TestCase):
         url = reverse('backend:instance', kwargs={'slug': self.instance2.label})
         response = self.client.get(url)
         self.assertEquals(response.status_code, 401)
+
 
 
 @override_settings(ROOT_URLCONF=settings.ROOT_URLCONF_HOST)
@@ -120,6 +122,53 @@ class CategoryCreateTestCase(BackendHomeTestCaseBase):
         self.assertEquals(original_count + 1, self.instance.categories.count())
         the_created_category = self.instance.categories.last()
         self.assertEquals(the_created_category.name, data["name"])
+
+
+
+class PromiseCreateTestCase(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(PromiseCreateTestCase, self).setUp()
+        self.category = DDAHCategory.objects.create(instance=self.instance,
+                                                    name="TheCategory")
+        self.data = {"name": "Promise",
+                     "description": "The description",
+                     "date": "11/02/2015",
+                     "ponderator": "0.2",
+                     "fulfillment": "45"}
+
+    def test_instanciate_form(self):
+        form = PromiseCreateForm(data=self.data,
+                                 ddah_category=self.category)
+        self.assertTrue(form)
+        self.assertTrue(form.is_valid())
+        promise = form.save()
+        self.assertIsInstance(promise, Promise)
+        self.assertEquals(promise.name, self.data["name"])
+        self.assertEquals(promise.description, self.data["description"])
+        self.assertEquals(promise.ponderator, 0.2)
+        self.assertEquals(promise.category, self.category)
+        self.assertEquals(promise.fulfillment.percentage, 45)
+
+    def test_get_view(self):
+        url = reverse('backend:create_promise', kwargs={'category_id': self.category.id,
+                                                        'label': self.category.instance.label})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.context['category'], self.category)
+        self.assertIn('form', response.context)
+        form = response.context['form']
+        self.assertIsInstance(form, PromiseCreateForm)
+        self.assertTemplateUsed(response, 'promises/promise_form.html')
+
+    def test_post_view(self):
+        url = reverse('backend:create_promise', kwargs={'category_id': self.category.id,
+                                                        'label': self.category.instance.label})
+        self.assertFalse(self.category.promises.all())
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.post(url, data=self.data, follow=True)
+        self.assertEquals(response.status_code, 200)
+        self.assertTrue(self.category.promises.all())
 
 
 class ColorPickerFormTestCase(BackendHomeTestCaseBase):
