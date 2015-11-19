@@ -1,0 +1,7 @@
+{% load bootstrap_tags %}
+<form action="{% url 'backend:update_promise' pk=promise.pk %}" method="post">{% csrf_token %}
+    <div class="form-group">
+	{{ form|as_bootstrap }}
+	<input type="submit" value="OK">
+    </div>
+</form>
