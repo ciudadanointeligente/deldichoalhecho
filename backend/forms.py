@@ -53,9 +53,28 @@ class CategoryCreateForm(forms.ModelForm):
         return category
 
 
-class PromiseCreateForm(forms.ModelForm):
+class PromiseUpdateForm(forms.ModelForm):
     fulfillment = forms.FloatField()
 
+    def __init__(self, *args, **kwargs):
+        super(PromiseUpdateForm, self).__init__(*args, **kwargs)
+        if 'instance' in kwargs and kwargs['instance'] is not None:
+            self.fields['fulfillment'].initial = kwargs['instance'].fulfillment.percentage
+
+    def save(self, commit=True):
+        promise = super(PromiseUpdateForm, self).save(commit=False)
+        if commit:
+            promise.save()
+            promise.fulfillment.percentage = self.cleaned_data['fulfillment']
+            promise.fulfillment.save()
+        return promise
+
+    class Meta:
+        model = Promise
+        fields = ['name','description', 'date', 'ponderator', "fulfillment"]
+
+
+class PromiseCreateForm(PromiseUpdateForm):
     def __init__(self, ddah_category, *args, **kwargs):
         self.ddah_category = ddah_category
         super(PromiseCreateForm, self).__init__(*args, **kwargs)
@@ -68,6 +87,3 @@ class PromiseCreateForm(forms.ModelForm):
             promise.fulfillment.percentage = self.cleaned_data['fulfillment']
         return promise
 
-    class Meta:
-        model = Promise
-        fields = ['name','description', 'date', 'ponderator', ]

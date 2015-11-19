@@ -4,14 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.base import View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from promises_instances.models import DDAHCategory
-from .forms import ColorPickerForm, CategoryCreateForm, PromiseCreateForm
+from .forms import ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm
 from promises.models import Promise
 
 
@@ -114,6 +114,15 @@ class PromiseCreateView(CreateView):
     def get_success_url(self):
         return reverse('backend:instance', kwargs={'slug': self.category.instance.label})
 
+
+class PromiseUpdateView(UpdateView):
+    model = Promise
+    form_class = PromiseUpdateForm
+    template_name = "promises/promise_update.html"
+
+    def get_success_url(self):
+        ddah_category = DDAHCategory.objects.get(id=self.object.category.id)
+        return reverse('backend:instance', kwargs={'slug': ddah_category.instance.label})
 
 class CategoryCreateView(CreateView, InstanceBase):
     form_class = CategoryCreateForm

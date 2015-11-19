@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from ddah_web.models import DDAHInstanceWeb
 from django.test.utils import override_settings
 from django.conf import settings
-from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm
+from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm
 from promises_instances.models import DDAHCategory
 from promises.models import Promise
 import codecs
@@ -125,16 +125,16 @@ class CategoryCreateTestCase(BackendHomeTestCaseBase):
 
 
 
-class PromiseCreateTestCase(BackendHomeTestCaseBase):
+class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
     def setUp(self):
-        super(PromiseCreateTestCase, self).setUp()
+        super(PromiseCreateAndUpdateTestCase, self).setUp()
         self.category = DDAHCategory.objects.create(instance=self.instance,
                                                     name="TheCategory")
         self.data = {"name": "Promise",
                      "description": "The description",
                      "date": "11/02/2015",
-                     "ponderator": "0.2",
-                     "fulfillment": "45"}
+                     "ponderator": 0.2,
+                     "fulfillment": 45.0}
 
     def test_instanciate_form(self):
         form = PromiseCreateForm(data=self.data,
@@ -169,6 +169,44 @@ class PromiseCreateTestCase(BackendHomeTestCaseBase):
         response = self.client.post(url, data=self.data, follow=True)
         self.assertEquals(response.status_code, 200)
         self.assertTrue(self.category.promises.all())
+
+    def test_update_form(self):
+        promise = Promise.objects.create(name="Original Promise")
+        promise.fulfillment.percentage = 35
+        promise.fulfillment.save()
+        form = PromiseUpdateForm(instance=promise)
+        self.assertEquals(form.fields['fulfillment'].initial, 35)
+
+        form = PromiseUpdateForm(instance=promise, data=self.data)
+        self.assertTrue(form.is_valid())
+        promise = form.save()
+        self.assertEquals(promise.name, self.data["name"])
+        self.assertEquals(promise.description, self.data["description"])
+        self.assertEquals(promise.ponderator, self.data["ponderator"])
+        self.assertEquals(promise.fulfillment.percentage, self.data["fulfillment"])
+
+    def test_get_update_view(self):
+        promise = Promise.objects.create(name="Original Promise", category=self.category)
+        url = reverse('backend:update_promise', kwargs={'pk': promise.id})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertIn('form', response.context)
+        form = response.context['form']
+        self.assertIsInstance(form, PromiseUpdateForm)
+        self.assertTemplateUsed(response, 'promises/promise_update.html')
+
+    def test_post_update_view(self):
+        promise = Promise.objects.create(name="Original Promise", category=self.category)
+        url = reverse('backend:update_promise', kwargs={'pk': promise.id})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.post(url, data=self.data, follow=True)
+        self.assertEquals(response.status_code, 200)
+        promise = Promise.objects.get(id=promise.id)
+        self.assertEquals(promise.name, self.data["name"])
+        self.assertEquals(promise.description, self.data["description"])
+        self.assertEquals(promise.ponderator, self.data["ponderator"])
+        self.assertEquals(promise.fulfillment.percentage, self.data["fulfillment"])
 
 
 class ColorPickerFormTestCase(BackendHomeTestCaseBase):
