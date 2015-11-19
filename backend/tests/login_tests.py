@@ -209,6 +209,30 @@ class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
         self.assertEquals(promise.fulfillment.percentage, self.data["fulfillment"])
 
 
+
+class InstanceCreateViewTestCase(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(InstanceCreateViewTestCase, self).setUp()
+
+    def test_get_view(self):
+        url = reverse('backend:create_instance')
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertIn('form', response.context)
+        form = response.context['form']
+        self.assertEquals(form._meta.model, DDAHInstanceWeb)
+        self.assertTemplateUsed(response, 'instances/create.html')
+
+        data = {"title": "theNewInstance", "label": 'the-new-instance'}
+        response = self.client.post(url, data=data, follow=True)
+        self.assertEquals(response.status_code, 200)
+
+        instance = DDAHInstanceWeb.objects.get(title="theNewInstance")
+        self.assertEquals(instance.label, 'the-new-instance')
+        self.assertIn(self.user, instance.users.all())
+
+
 class ColorPickerFormTestCase(BackendHomeTestCaseBase):
     def setUp(self):
         super(ColorPickerFormTestCase, self).setUp()
