@@ -54,7 +54,7 @@ class CategoryCreateForm(forms.ModelForm):
 
 
 class PromiseUpdateForm(forms.ModelForm):
-    fulfillment = forms.FloatField()
+    fulfillment = forms.FloatField(initial=0)
 
     def __init__(self, *args, **kwargs):
         super(PromiseUpdateForm, self).__init__(*args, **kwargs)
