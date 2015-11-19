@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.base import View
 from django.views.generic.edit import CreateView, UpdateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
@@ -142,6 +142,20 @@ class CategoryCreateView(CreateView, InstanceBase):
         kwargs = super(CategoryCreateView, self).get_form_kwargs()
         kwargs.update({'ddah_instance': self.ddah_instance})
         return kwargs
+
+    def get_success_url(self):
+        return reverse('backend:instance', kwargs={'slug': self.ddah_instance.label})
+
+
+class CreateInstanceView(CreateView):
+    model = DDAHInstanceWeb
+    fields = ('title', 'label', )
+    template_name = 'instances/create.html'
+
+    def form_valid(self, form):
+        self.ddah_instance = form.save()
+        self.ddah_instance.users.add(self.request.user)
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse('backend:instance', kwargs={'slug': self.ddah_instance.label})

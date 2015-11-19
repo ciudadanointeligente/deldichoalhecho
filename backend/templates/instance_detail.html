@@ -2,7 +2,7 @@
 {% load i18n %}
 
 
-{% block 'title' %}{{instance}}{% endblock 'title' %}
+{% block 'title' %}{{instance}} - <a target="blank_" href="{{ instance.get_absolute_url }}"><i class="fa fa-external-link"></i>{% endblock 'title' %}
 
 {% block 'content' %}
 <!--Modal for creating a new category-->
