@@ -7,7 +7,7 @@ psycopg2==2.5.2
 django-extensions
 ipython
 -e git+https://github.com/ciudadanointeligente/django-popolo.git@django_version_18#egg=django-popolo
-django-constance-updated==1.0.1
+-e git://github.com/jezdez/django-constance.git#egg=django-constance-updated
 markdown
 newrelic
 django-subdomain-instances
