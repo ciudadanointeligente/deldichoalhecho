@@ -28,6 +28,11 @@
       data-width="450"
       data-show-faces="true">
     </div>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}">{% trans "Login" %}</a>
+        {% else %}
+        <a href="{% url 'backend:home' %}">{% trans "Your Instances" %}</a>
+        {% endif %}
         <h1>{% trans "Instances" %}</h1>
         <h2>Hola esto es el landing page para el del dicho al hecho</h2>
         <ul>

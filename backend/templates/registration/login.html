@@ -1,1 +1,15 @@
-Dame tu user y password!!
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+	{% include 'nav_bar_header.html' %}
+</nav>
+{% endblock navbar %}
+{% block 'content' %}
+
+
+<a class="btn btn-primary btn-full-width btn-google" href="{% url 'socialauth_begin' 'facebook' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
+            <i class="fa fa-google"></i> Sign in with Facebook
+</a>
+
+{% endblock 'content' %}

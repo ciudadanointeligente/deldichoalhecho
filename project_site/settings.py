@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 
 # Application definition
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'django_nose',
     'taggit',
+    'social_auth',
     'promises',
     'deldichoalhecho_theme',
     'instances',
@@ -68,7 +70,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
+## SOCIAL AUTH CONFIG
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
+FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET', '')
+## END SOCIAL AUTH
 ROOT_URLCONF = 'project_site.subdomain_urls'
 ROOT_URLCONF_HOST = 'project_site.non_subdomain_urls'
 

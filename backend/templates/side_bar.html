@@ -2,6 +2,7 @@
 
 <div class="sidebar-nav navbar-collapse">
 	<ul class="nav" id="side-menu">
+		{% if user.is_authenticated %}
 	    <li class="sidebar-search">
 	        <div class="input-group custom-search-form">
 	            <input type="text" class="form-control" placeholder="Search...">
@@ -14,6 +15,7 @@
 	        <!-- /input-group -->
 	    </li>
 	    <li>
+	    	{% if user.instances.all %}
 	        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {% trans 'Instances' %}<span class="fa arrow"></span></a>
 	        <ul class="nav nav-second-level">
 	        	{% for instance in user.instances.all %}
@@ -22,7 +24,11 @@
 	            </li>
 	            {% endfor %}
 	        </ul>
+	        {% else %}
+	        <span>{% trans 'You have no instances yet!' %}</span>
+	        {% endif %}
 	        <!-- /.nav-second-level -->
 	    </li>
+	    {% endif %}
 	</ul>
 	</div>
