@@ -20,4 +20,5 @@ urlpatterns += [
 	url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^administrator/', include(backend_urls, namespace="backend")),
+    url(r'^social_auth/', include('social_auth.urls')),
 ]
