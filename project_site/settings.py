@@ -77,6 +77,7 @@ AUTHENTICATION_BACKENDS = (
 )
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
 FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET', '')
+LOGIN_REDIRECT_URL = '/administrator/'
 ## END SOCIAL AUTH
 ROOT_URLCONF = 'project_site.subdomain_urls'
 ROOT_URLCONF_HOST = 'project_site.non_subdomain_urls'
