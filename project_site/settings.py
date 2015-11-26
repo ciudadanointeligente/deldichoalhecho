@@ -225,9 +225,9 @@ DEFAULT_SOCIAL_NETWORKS={
 }
 DEFAULT_STYLE={
     "header_img": "http://i.imgur.com/7ULzGlP.png",
-    "background_color": "0F2356",
-    "second_color": "0F0F28",
-    "read_more_color": "750661"
+    "background_color": "#0F2356",
+    "second_color": "#0F0F28",
+    "read_more_color": "#750661"
 }
 if TESTING:
     CELERY_ALWAYS_EAGER = True
