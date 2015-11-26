@@ -73,10 +73,15 @@ MIDDLEWARE_CLASSES = (
 ## SOCIAL AUTH CONFIG
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.twitter.TwitterBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
 FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET', '')
+
+TWITTER_CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY', '')
+TWITTER_CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET', '')
+
 LOGIN_REDIRECT_URL = '/administrator/'
 ## END SOCIAL AUTH
 ROOT_URLCONF = 'project_site.subdomain_urls'

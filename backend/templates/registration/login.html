@@ -8,8 +8,12 @@
 {% block 'content' %}
 
 
-<a class="btn btn-primary btn-full-width btn-google" href="{% url 'socialauth_begin' 'facebook' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
-            <i class="fa fa-google"></i> Sign in with Facebook
+<a class="btn btn-primary btn-full-width btn-facebook" href="{% url 'socialauth_begin' 'facebook' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+</a>
+
+<a class="btn btn-primary btn-full-width btn-twitter" href="{% url 'socialauth_begin' 'twitter' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
+            <i class="fa fa-twitter"></i> Sign in with Twitter
 </a>
 
 {% endblock 'content' %}
