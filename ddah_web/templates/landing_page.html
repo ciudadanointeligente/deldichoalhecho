@@ -1,10 +1,13 @@
-{% load i18n %}<!DOCTYPE html>
-<html>
-    <head>
-        <title>{% trans "Instances" %}</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  {% include 'nav_bar_header.html' %}
+</nav>
+{% endblock navbar %}
+{% block 'content' %}
+
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -28,9 +31,7 @@
       data-width="450"
       data-show-faces="true">
     </div>
-        {% if not user.is_authenticated %}
-        <a href="{% url 'login' %}">{% trans "Login" %}</a>
-        {% else %}
+        {% if user.is_authenticated %}
         <a href="{% url 'backend:home' %}">{% trans "Your Instances" %}</a>
         {% endif %}
         <h1>{% trans "Instances" %}</h1>
@@ -42,5 +43,4 @@
             <li>{% trans "No instances present." %}</li>
           {% endfor %}
         </ul>
-    </body>
-</html>
+{% endblock 'content' %}

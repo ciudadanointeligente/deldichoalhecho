@@ -11,11 +11,13 @@
 <!-- /.navbar-header -->
 
 <ul class="nav navbar-top-links navbar-right">
+    {% if user.is_authenticated %}
     <!-- /.dropdown -->
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
         </a>
+        
         <ul class="dropdown-menu dropdown-user">
             <li><a href="#"><i class="fa fa-user fa-fw"></i> {{user.username}}</a>
             </li>
@@ -23,8 +25,16 @@
             <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out fa-fw"></i> {% trans 'Logout' %}</a>
             </li>
         </ul>
+
         <!-- /.dropdown-user -->
     </li>
+    {% else %}
+    <li>
+        <a class="btn btn-primary btn-full-width btn-google" href="{% url 'socialauth_begin' 'facebook' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
+            <i class="fa fa-google"></i> Sign in with Facebook</a>
+    </li>
+    {% endif %}
     <!-- /.dropdown -->
 </ul>
+
 <!-- /.navbar-top-links -->
