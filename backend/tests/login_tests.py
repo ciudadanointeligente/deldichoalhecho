@@ -239,7 +239,8 @@ class ColorPickerFormTestCase(BackendHomeTestCaseBase):
         self.data = {
             "background_color": "Fiera",
             "second_color": "Feroz",
-            "read_more_color": "Inteligente"
+            "read_more_color": "Inteligente",
+            "header_img": "http://i.imgur.com/fiera_tempura.png"
         }
 
     def test_instanciate_form(self):
@@ -251,6 +252,7 @@ class ColorPickerFormTestCase(BackendHomeTestCaseBase):
         self.assertEquals(instance.style["background_color"],self.data["background_color"])
         self.assertEquals(instance.style["second_color"],self.data["second_color"])
         self.assertEquals(instance.style["read_more_color"],self.data["read_more_color"])
+        self.assertEquals(instance.style["header_img"],self.data["header_img"])
 
     def test_instance_initial(self):
         form = ColorPickerForm(data={}, instance=self.instance)

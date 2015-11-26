@@ -35,6 +35,11 @@
 		<input id="id_read_more_color" class="form-control colorpicker" name="read_more_color" type="text" value="{{ form.read_more_color.value }}" />
 	</div>
 	<div class="form-group">
+		<label for="id_header_img">{% trans 'Read more color' %}:</label>
+		<input id="id_header_img" class="form-control " name="header_img" type="text" value="{{ form.header_img.value }}" />
+		<img src="{{ form.header_img.value }}">
+	</div>
+	<div class="form-group">
 	    <input type="submit" value="{% trans 'Update color' %}" />
     	</div>
 </form>
