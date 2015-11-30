@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block 'title' %}{{instance}}{% endblock 'title' %}
+
+{% block extra_scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function(){
+		var element_ids = [
+		"content",
+		"flat_page_content",
+		"head",
+		"header",
+		"style",
+		"footer" ];
+		var form = $('#updateTemplate');
+		element_ids.forEach(function(el, id){
+			var editor = ace.edit("div_"+el);
+		    editor.setTheme("ace/theme/monokai");
+		    editor.getSession().setMode("ace/mode/handlebars");
+		    editor.setOptions({
+			    maxLines: 20
+			});
+			editor.getSession().on('change', function(){
+			  	$("#"+el).val(editor.getSession().getValue());
+				console.log($("#"+el))
+			});
+		})
+	    
+	})
+</script>
+{% endblock extra_scripts %}
+
+{% block extra_stylesheets %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.css" rel="stylesheet">
+{% endblock extra_stylesheets %}
+
+{% block 'content' %}
+
+
+
+<form id='updateTemplate' action="" method="post">{% csrf_token %}
+	<div class="form-group">
+		<label for="id_content">{{ form.content.label }}:</label>
+
+		<textarea id="content" style="display:none" name="content">{{ form.content.value }}</textarea>
+		<div id='div_content'>{{ form.content.value }}</div>
+	</div>
+	<div class="form-group">
+		<label for="id_flat_page_content">{{ form.flat_page_content.label }}:</label>
+		<textarea id="flat_page_content" style="display:none" name="flat_page_content">{{ form.flat_page_content.value }}</textarea>
+		<div id='div_flat_page_content'>{{ form.flat_page_content.value }}</div>
+	</div>
+	<div class="form-group">
+		<label for="id_head">{{ form.head.label }}:</label>
+		<textarea id="head" style="display:none" name="head">{{ form.head.value }}</textarea>
+		<div id='div_head'>{{ form.head.value }}</div>
+	</div>
+	<div class="form-group">
+		<label for="id_header">{{ form.header.label }}:</label>
+		<textarea id="header" style="display:none" name="header">{{ form.header.value }}</textarea>
+		<div id='div_header'>{{ form.header.value }}</div>
+	</div>
+	<div class="form-group">
+		<label for="id_style">{{ form.style.label }}:</label>
+		<textarea id="style" style="display:none" name="style">{{ form.style.value }}</textarea>
+		<div id='div_style'>{{ form.style.value }}</div>
+
+	</div>
+	<div class="form-group">
+		<label for="id_footer">{{ form.footer.label }}:</label>
+		<textarea id="footer" style="display:none" name="footer">{{ form.footer.value }}</textarea>
+		<div id='div_footer'>{{ form.footer.value }}</div>
+	</div>
+	<div class="form-group">
+	    <input type="submit" value="{% trans 'Update templates' %}" />
+    	</div>
+</form>
+{% endblock 'content' %}

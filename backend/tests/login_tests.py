@@ -2,7 +2,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from ddah_web.models import DDAHInstanceWeb
+from ddah_web.models import DDAHInstanceWeb, DDAHTemplate
 from django.test.utils import override_settings
 from django.conf import settings
 from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm
@@ -207,6 +207,47 @@ class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
         self.assertEquals(promise.description, self.data["description"])
         self.assertEquals(promise.ponderator, self.data["ponderator"])
         self.assertEquals(promise.fulfillment.percentage, self.data["fulfillment"])
+
+
+
+class TemplateUpdateView(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(TemplateUpdateView, self).setUp()
+        self.data = {
+            'content': "content",
+            'flat_page_content': 'flat_page_content',
+            'head': 'head',
+            'header': 'header',
+            'style': 'style',
+            'footer': 'footer'
+        }
+
+
+    def test_get_url(self):
+        url = reverse('backend:update_template', kwargs={'slug': self.instance.label})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertIn('form', response.context)
+        form = response.context['form']
+        self.assertIsInstance(form.instance, DDAHTemplate)
+        self.assertEquals(form.instance, self.instance.template)
+        self.assertTemplateUsed(response, 'instances/update_template.html')
+
+    def test_post_url(self):
+        url = reverse('backend:update_template', kwargs={'slug': self.instance.label})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.post(url, data=self.data)
+        self.assertRedirects(response, url)
+        template = self.instance.template
+        template.content = "content"
+        template.flat_page_content = 'flat_page_content'
+        template.head = 'head'
+        template.header = 'header'
+        template.style = 'style'
+        template.footer = 'footer'
+
+
 
 
 
