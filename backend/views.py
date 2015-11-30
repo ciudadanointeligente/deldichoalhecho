@@ -1,5 +1,5 @@
 from django.views.generic.list import ListView
-from ddah_web.models import DDAHInstanceWeb
+from ddah_web.models import DDAHInstanceWeb, DDAHTemplate
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
@@ -159,3 +159,14 @@ class CreateInstanceView(CreateView):
 
     def get_success_url(self):
         return reverse('backend:instance', kwargs={'slug': self.ddah_instance.label})
+
+class TemplateUpdateView(UpdateView):
+    model = DDAHTemplate
+    fields = ('content', 'flat_page_content', 'head', 'header', 'style', 'footer', )
+    template_name = 'instances/update_template.html'
+    slug_field = 'instance__label'
+
+    def get_success_url(self):
+        return reverse('backend:update_template', kwargs={'slug': self.object.instance.label})
+
+
