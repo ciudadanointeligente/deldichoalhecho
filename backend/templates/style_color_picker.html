@@ -6,7 +6,7 @@
 {% block 'title' %}{{instance}}{% endblock 'title' %}
 
 {% block extra_scripts %}
-<script src="{% static 'mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/js/bootstrap-colorpicker.min.js"></script>
 <script>
     $(function(){
         $('.colorpicker').colorpicker({
@@ -17,7 +17,7 @@
 {% endblock extra_scripts %}
 
 {% block extra_stylesheets %}
-<link href="{% static 'mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css' %}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.css" rel="stylesheet">
 {% endblock extra_stylesheets %}
 
 {% block 'content' %}
