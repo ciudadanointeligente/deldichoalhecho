@@ -40,8 +40,17 @@
 
 {% block 'content' %}
 
+<div class="panel panel-info">
+    <div class="panel-heading">
+    <h3 class="panel-title">{% trans 'Want to try this in your local machine?' %}</h3>
+  </div>
+  <div class="panel-body">
 
-
+    {% blocktrans %}
+    If you want to try this at your localhost you could give <a href="https://github.com/ciudadanointeligente/deldichoalhecho-express">deldichoalhecho-express</a> a go and replace the content inside the view/*.mustache files with the content below. You can also use your data if you replace the file routes/json/data.json with the content of your instance data.
+    {% endblocktrans %}
+  </div>
+</div>
 <form id='updateTemplate' action="" method="post">{% csrf_token %}
 	<div class="form-group">
 		<label for="id_content">{{ form.content.label }}:</label>
