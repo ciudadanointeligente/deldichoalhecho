@@ -6,7 +6,7 @@ psycopg2==2.5.2
 -e git://github.com/django-nose/django-nose#egg=django-nose
 django-extensions
 ipython
--e git+https://github.com/ciudadanointeligente/django-popolo.git@django_version_18#egg=django-popolo
+-e git+https://github.com/ciudadanointeligente/django-popolo.git#egg=django-popolo
 -e git://github.com/jezdez/django-constance.git#egg=django-constance-updated
 markdown
 newrelic
