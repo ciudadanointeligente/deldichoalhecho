@@ -2,6 +2,7 @@ from django import forms
 from promises_instances.csv_loader import DDAHCSVProcessor
 from promises_instances.models import DDAHCategory
 from promises.models import Promise
+from ddah_web.models import DDAHInstanceWeb
 
 class BelongingToInstanceMixin(object):
 	def __init__(self, instance, *args, **kwargs):
@@ -87,4 +88,9 @@ class PromiseCreateForm(PromiseUpdateForm):
             promise.save()
             promise.fulfillment.percentage = self.cleaned_data['fulfillment']
         return promise
+
+class InstanceCreateForm(forms.ModelForm):
+    class Meta:
+        model = DDAHInstanceWeb
+        fields = ('title', )
 

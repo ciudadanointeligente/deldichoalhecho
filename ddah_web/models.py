@@ -13,6 +13,8 @@ from django.core.urlresolvers import reverse
 from picklefield.fields import PickledObjectField
 from django.contrib.flatpages.models import FlatPage
 from urlparse import urljoin
+from django.utils.text import slugify
+import itertools
 
 
 def default_json_encoder(o):
@@ -36,6 +38,12 @@ class DDAHInstanceWeb(DDAHInstance):
             default_social_networks = getattr(settings, 'DEFAULT_SOCIAL_NETWORKS', {})
             if not self.social_networks and default_social_networks:
                 self.social_networks = default_social_networks
+        if not self.label:
+            self.label = orig = slugify(self.title)
+            for x in itertools.count(1):
+                if not DDAHInstanceWeb.objects.filter(label=self.label).exists():
+                    break
+                self.label = '%s-%d' % (orig, x)
         super(DDAHInstanceWeb, self).save(*args, **kwargs)
         if creating:
             DDAHTemplate.objects.create(instance=self)
