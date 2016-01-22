@@ -24,11 +24,9 @@ class DDAHInstanceForm(forms.ModelForm):
         self.instance.social_networks['og_img'] = self['og_img'].value()
         return super(DDAHInstanceForm, self).save(*args, **kwargs)
 
-
-
     class Meta:
         model = DDAHInstanceWeb
-        exclude = ( )
+        exclude = ()
 
 class DDAHInstanceNonSuperUserForm(DDAHInstanceForm):
     class Meta:
