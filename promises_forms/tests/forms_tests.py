@@ -16,4 +16,3 @@ class CategoryCreationTestCase(TestCase):
         self.assertEquals(category.instance, self.instance)
         self.assertEquals(category.name, data['name'])
         self.assertIsInstance(category, DDAHCategory)
-
