@@ -35,7 +35,6 @@ class DDAHInstancesTestCase(TestCase):
         promise = DDAHPromise.objects.create(name='promise')
         self.assertIsNone(promise.instance)
 
-
     def test_category_can_have_order(self):
         ddah_instance = DDAHInstance.objects.create(label='label', title='the title')
         category1 = DDAHCategory.objects.create(name="Education1", instance=ddah_instance, order=2)
@@ -44,4 +43,3 @@ class DDAHInstancesTestCase(TestCase):
         all_categories = DDAHCategory.objects.all()
         self.assertEquals(all_categories[0], category2)
         self.assertEquals(all_categories[1], category1)
-

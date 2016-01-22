@@ -4,7 +4,6 @@ import os
 import codecs
 from ddah_web.models import DDAHInstanceWeb
 from promises_instances.celery import csv_loader_task
-from django.conf import settings
 
 
 class CSVImporterTaskTestCase(TestCase):
@@ -15,7 +14,6 @@ class CSVImporterTaskTestCase(TestCase):
 
     def test_csv_loader_task(self):
         file_ = codecs.open(self.csv_file)
-        result = csv_loader_task.delay(file_, self.instance)
+        csv_loader_task.delay(file_, self.instance)
         self.assertTrue(self.instance.promises.all())
         self.assertTrue(self.instance.categories.all())
-
