@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from ddah_web.models import DDAHInstanceWeb, DDAHTemplate
 from django.test.utils import override_settings
 from django.conf import settings
-from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm
+from backend.forms import CSVUploadForm, ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm,\
+    InstanceCreateForm
 from promises_instances.models import DDAHCategory
 from promises.models import Promise
 import codecs
@@ -255,6 +256,13 @@ class InstanceCreateViewTestCase(BackendHomeTestCaseBase):
     def setUp(self):
         super(InstanceCreateViewTestCase, self).setUp()
 
+    def test_instance_create_form(self):
+        data = {"title": "The Instance"}
+        form = InstanceCreateForm(data=data)
+        self.assertTrue(form.is_valid())
+        instance = form.save()
+        self.assertTrue(instance.label)
+
     def test_get_view(self):
         url = reverse('backend:create_instance')
         self.client.login(username=self.user.username, password=PASSWORD)
@@ -265,12 +273,12 @@ class InstanceCreateViewTestCase(BackendHomeTestCaseBase):
         self.assertEquals(form._meta.model, DDAHInstanceWeb)
         self.assertTemplateUsed(response, 'instances/create.html')
 
-        data = {"title": "theNewInstance", "label": 'the-new-instance'}
+        data = {"title": "theNewInstance"}
         response = self.client.post(url, data=data, follow=True)
         self.assertEquals(response.status_code, 200)
 
         instance = DDAHInstanceWeb.objects.get(title="theNewInstance")
-        self.assertEquals(instance.label, 'the-new-instance')
+        self.assertTrue(instance.label)
         self.assertIn(self.user, instance.users.all())
 
 

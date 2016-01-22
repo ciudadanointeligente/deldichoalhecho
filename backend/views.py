@@ -11,7 +11,7 @@ from backend.forms import CSVUploadForm
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from promises_instances.models import DDAHCategory
-from .forms import ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm
+from .forms import ColorPickerForm, CategoryCreateForm, PromiseCreateForm, PromiseUpdateForm, InstanceCreateForm
 from promises.models import Promise
 
 
@@ -149,7 +149,7 @@ class CategoryCreateView(CreateView, InstanceBase):
 
 class CreateInstanceView(CreateView):
     model = DDAHInstanceWeb
-    fields = ('title', 'label', )
+    form_class = InstanceCreateForm
     template_name = 'instances/create.html'
 
     def form_valid(self, form):

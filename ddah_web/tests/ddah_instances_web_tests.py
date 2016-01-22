@@ -5,7 +5,7 @@ from promises.models import Promise
 from django.core.urlresolvers import reverse
 import markdown
 from ddah_web.views import DDAHInstanceWebView, DDAHInstanceWebJSONView
-from ddah_web.models import DDAHInstanceWeb, DDAHSiteInstance
+from ddah_web.models import DDAHSiteInstance
 from instances.models import Instance
 import json
 from django.conf import settings
@@ -21,6 +21,13 @@ class DDAHInstanceWebTestCase(TestCase):
     def test_instance_attributes(self):
         ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title', contact='feli@ciudadanoi.org')
         self.assertEquals(ddah_instance.contact, 'feli@ciudadanoi.org')
+
+    def test_instance_without_label(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(title='the title', contact='feli@ciudadanoi.org')
+        self.assertTrue(ddah_instance.label)
+        ddah_instance2 = DDAHInstanceWeb.objects.create(title='the title', contact='feli@ciudadanoi.org')
+        self.assertTrue(ddah_instance2.label)
+        self.assertNotEquals(ddah_instance.label, ddah_instance2.label)
 
     @override_settings(BASE_HOST='thesite.com')
     def test_get_url(self):
@@ -129,7 +136,7 @@ class DDAHInstanceWebTestCase(TestCase):
         self.assertIn("perrito.url.com", original_url)
         self.assertIn(instance.label, original_url)
         the_site = Site.objects.create(name="name", domain="www.thesite.com")
-        the_record = DDAHSiteInstance.objects.create(site=the_site, instance=instance)
+        DDAHSiteInstance.objects.create(site=the_site, instance=instance)
         after_site_url = instance.get_absolute_url()
         self.assertIn('www.thesite.com', after_site_url)
 
