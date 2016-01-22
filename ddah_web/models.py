@@ -55,17 +55,16 @@ class DDAHInstanceWeb(DDAHInstance):
         return '%s.%s' % (self.label, settings.BASE_HOST)
 
     def _bunchify_summary(self, summary):
-        return Bunch(
-            no_progress=summary.no_progress,
-            accomplished=summary.accomplished,
-            in_progress=summary.in_progress,
-            total=summary.total,
-            total_progress=summary.total_progress,
-            formated_total_progress="{:10.1f}".format(summary.total_progress),
-            accomplished_percentage=summary.accomplished_percentage,
-            in_progress_percentage=summary.in_progress_percentage,
-            no_progress_percentage=summary.no_progress_percentage,
-            )
+        return Bunch(no_progress=summary.no_progress,
+                     accomplished=summary.accomplished,
+                     in_progress=summary.in_progress,
+                     total=summary.total,
+                     total_progress=summary.total_progress,
+                     formated_total_progress="{:10.1f}".format(summary.total_progress),
+                     accomplished_percentage=summary.accomplished_percentage,
+                     in_progress_percentage=summary.in_progress_percentage,
+                     no_progress_percentage=summary.no_progress_percentage,
+                     )
 
     def get_flatpages(self):
         result = []
@@ -100,9 +99,10 @@ class DDAHInstanceWeb(DDAHInstance):
             cat_bunch.summary = self._bunchify_summary(summary)
             for promise in the_promises_from_database:
                 promise_bunch = Bunch(id=promise.id,
-                    name=promise.name,
-                    description=markdown.markdown(promise.description),
-                    date=promise.date)
+                                      name=promise.name,
+                                      description=markdown.markdown(promise.description),
+                                      date=promise.date
+                                      )
                 promise_bunch.fulfillment = Bunch(percentage=promise.fulfillment.percentage,
                                                   status=promise.fulfillment.status,
                                                   description=markdown.markdown(promise.fulfillment.description),

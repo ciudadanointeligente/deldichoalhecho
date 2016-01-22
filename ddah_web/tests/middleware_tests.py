@@ -1,11 +1,8 @@
 from django.test import TestCase, RequestFactory, override_settings
 from django.contrib.sites.models import Site
-from promises_instances.models import DDAHInstance
 from ddah_web.models import DDAHSiteInstance, DDAHInstanceWeb
 from ddah_web.middleware import DDAHSiteMiddleware
 from django.http.request import HttpRequest
-from django.core.urlresolvers import reverse
-from ddah_web.views import DDAHInstanceWebView
 
 
 class InstanceSiteRelationTestCase(TestCase):
@@ -71,4 +68,3 @@ class DDAHMiddlewareTestCase(TestCase):
         middleware = DDAHSiteMiddleware()
         middleware.process_request(request)
         self.assertIsInstance(request, HttpRequest)
-
