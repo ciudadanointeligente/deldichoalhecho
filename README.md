@@ -10,6 +10,8 @@ This is intended to be a django-app and also a site by itself that allows citize
 
 [![Dependency Status](https://www.versioneye.com/user/projects/56a2489c9b5998003c000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56a2489c9b5998003c000025)
 
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/8c60078cc0c04ec284a7e93d89459491/badge.svg)](https://www.quantifiedcode.com/app/project/8c60078cc0c04ec284a7e93d89459491)
+
 ## Installation
 
 The installation requires certain software to be installed in your machine
