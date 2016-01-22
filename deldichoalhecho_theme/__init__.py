@@ -1,16 +1,15 @@
 from django.conf import settings
-import os,sys
+import os
 # Store current working directory
 pwd = os.path.dirname(__file__)
 
-PROMISES_THEMES = (
-	'edicion2015',
-	# '100dias',
-	'incendiovalpo',
-	'terremotonorte',
-	'test'
-	)
+PROMISES_THEMES = ('edicion2015',
+                   # '100dias',
+                   'incendiovalpo',
+                   'terremotonorte',
+                   'test'
+                   )
 
 for theme in PROMISES_THEMES:
-	static_dir = os.path.join(pwd, theme, 'static')
-	settings.STATICFILES_DIRS += (static_dir ,)
+    static_dir = os.path.join(pwd, theme, 'static')
+    settings.STATICFILES_DIRS += (static_dir, )
