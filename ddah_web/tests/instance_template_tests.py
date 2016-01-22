@@ -38,10 +38,10 @@ class InstanceTemplateTestCase(TestCase):
 class MustacheTemplateResponseTestCase(TestCase):
     def setUp(self):
         self.template = DDAHTemplate.objects.create(content="content {{> head }} {{> header }} {{> style }} {{> footer }}",
-                            head="head",
-                            header="header",
-                            style="style",
-                            footer="footer")
+                                                    head="head",
+                                                    header="header",
+                                                    style="style",
+                                                    footer="footer")
         self.instance = DDAHInstanceWeb.objects.create(label="bici", title="Bicicletas")
         self.instance.template = self.template
         self.factory = RequestFactory()

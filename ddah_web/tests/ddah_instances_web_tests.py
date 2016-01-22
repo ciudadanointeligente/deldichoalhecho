@@ -56,7 +56,7 @@ class DDAHInstanceWebTestCase(TestCase):
         instance = DDAHInstanceWeb.objects.create(label="bici", title="Bicicletas")
         self.assertEquals(instance.social_networks['twitter_text'], "Mira que lindo mi sitio")
         self.assertEquals(instance.social_networks['og-img'], "http://placehold.it/400x400")
-        instance.social_networks = {"linkedin": "Fiera", "aboutme":"Benito"}
+        instance.social_networks = {"linkedin": "Fiera", "aboutme": "Benito"}
         instance.save()
         instance = DDAHInstanceWeb.objects.get(id=instance.id)
         self.assertEquals(instance.social_networks["linkedin"], "Fiera")
@@ -68,7 +68,7 @@ class DDAHInstanceWebTestCase(TestCase):
         instance = DDAHInstanceWeb.objects.get(id=1)
         the_bunch = instance.get_as_bunch()
         self.assertEquals(the_bunch.title, instance.title)
-        home_url = reverse('instance_home') # Expected url without the base host
+        home_url = reverse('instance_home')  # Expected url without the base host
         expected_url = '%s.%s%s' % (instance.label, settings.BASE_HOST, home_url)
         self.assertEquals(the_bunch.url, expected_url)
         self.assertEquals(the_bunch.description, instance.description)
@@ -169,4 +169,3 @@ class DDAHInstancesView(TestCase):
         self.assertEquals(response.content, instance_web.to_json())
         the_data = json.loads(response.content)
         self.assertTrue(the_data)
-

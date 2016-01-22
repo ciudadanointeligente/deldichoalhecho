@@ -1,5 +1,4 @@
-from django.contrib.sites.models import Site
-from ddah_web.models import DDAHSiteInstance, DDAHInstanceWeb
+from ddah_web.models import DDAHSiteInstance
 
 
 class DDAHSiteMiddleware(object):
@@ -13,4 +12,3 @@ class DDAHSiteMiddleware(object):
                 del request.urlconf
         except DDAHSiteInstance.DoesNotExist:
             pass
-

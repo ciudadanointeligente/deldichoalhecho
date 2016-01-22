@@ -5,18 +5,18 @@ from promises.models import Promise
 from ddah_web.models import DDAHInstanceWeb
 
 class BelongingToInstanceMixin(object):
-	def __init__(self, instance, *args, **kwargs):
-		self.instance = instance
-		return super(BelongingToInstanceMixin, self).__init__(*args, **kwargs)
+    def __init__(self, instance, *args, **kwargs):
+        self.instance = instance
+        return super(BelongingToInstanceMixin, self).__init__(*args, **kwargs)
 
 class CSVUploadForm(BelongingToInstanceMixin, forms.Form):
-	csv_file = forms.FileField()
+    csv_file = forms.FileField()
 
-	def upload(self):
-		file_ = self.cleaned_data['csv_file']
+    def upload(self):
+        file_ = self.cleaned_data['csv_file']
 
-		processor = DDAHCSVProcessor(file_, self.instance)
-		processor.work()
+        processor = DDAHCSVProcessor(file_, self.instance)
+        processor.work()
 
 
 class ColorPickerForm(BelongingToInstanceMixin, forms.Form):
@@ -73,7 +73,7 @@ class PromiseUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Promise
-        fields = ['name','description', 'date', 'ponderator', "fulfillment"]
+        fields = ['name', 'description', 'date', 'ponderator', "fulfillment"]
 
 
 class PromiseCreateForm(PromiseUpdateForm):
@@ -93,4 +93,3 @@ class InstanceCreateForm(forms.ModelForm):
     class Meta:
         model = DDAHInstanceWeb
         fields = ('title', )
-

@@ -17,4 +17,3 @@ class CategoryCreateForm(ModelForm):
     class Meta:
         model = DDAHCategory
         fields = ['name', ]
-

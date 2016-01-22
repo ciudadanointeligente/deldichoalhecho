@@ -16,37 +16,37 @@ from promises.models import Promise
 
 
 class BackendBase(View):
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		return super(BackendBase, self).dispatch(*args, **kwargs)
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(BackendBase, self).dispatch(*args, **kwargs)
 
 
 class InstanceBase(View):
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		# if self.request.user not in
-		self.ddah_instance = self.get_object()
-		if self.request.user not in self.ddah_instance.users.all():
-			return HttpResponse('Unauthorized', status=401)
-		return super(InstanceBase, self).dispatch(*args, **kwargs)
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        # if self.request.user not in
+        self.ddah_instance = self.get_object()
+        if self.request.user not in self.ddah_instance.users.all():
+            return HttpResponse('Unauthorized', status=401)
+        return super(InstanceBase, self).dispatch(*args, **kwargs)
 
 
 class BackendHomeView(ListView, BackendBase):
-	model = DDAHInstanceWeb
-	template_name = 'home.html'
-	context_object_name = 'instances'
+    model = DDAHInstanceWeb
+    template_name = 'home.html'
+    context_object_name = 'instances'
 
-	def get_queryset(self):
-		qs = super(BackendHomeView, self).get_queryset()
-		qs = qs.filter(users=self.request.user)
-		return qs
+    def get_queryset(self):
+        qs = super(BackendHomeView, self).get_queryset()
+        qs = qs.filter(users=self.request.user)
+        return qs
 
 
 class InstanceDetailView(DetailView, InstanceBase):
-	model = DDAHInstanceWeb
-	template_name = 'instance_detail.html'
-	context_object_name = 'instance'
-	slug_field = 'label'
+    model = DDAHInstanceWeb
+    template_name = 'instance_detail.html'
+    context_object_name = 'instance'
+    slug_field = 'label'
 
 
 class StyleView(InstanceBase, FormView):
@@ -54,13 +54,13 @@ class StyleView(InstanceBase, FormView):
     form_class = ColorPickerForm
 
     def get_object(self):
-        self.instance =  get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
+        self.instance = get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
         return self.instance
 
     def get_form_kwargs(self):
-		kwargs = super(StyleView, self).get_form_kwargs()
-		kwargs.update({'instance': self.instance})
-		return kwargs
+        kwargs = super(StyleView, self).get_form_kwargs()
+        kwargs.update({'instance': self.instance})
+        return kwargs
 
     def get_success_url(self):
         url = reverse('backend:instance_style', kwargs={'slug': self.instance.label})
@@ -71,29 +71,28 @@ class StyleView(InstanceBase, FormView):
         return super(StyleView, self).form_valid(form)
 
 
-
 class CSVUploadView(FormView, InstanceBase):
-	template_name = 'csv_upload.html'
-	form_class = CSVUploadForm
+    template_name = 'csv_upload.html'
+    form_class = CSVUploadForm
 
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		self.instance = get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
-		if self.request.user not in self.instance.users.all():
-			return HttpResponse('Unauthorized', status=401)
-		return super(InstanceBase, self).dispatch(*args, **kwargs)
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        self.instance = get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
+        if self.request.user not in self.instance.users.all():
+            return HttpResponse('Unauthorized', status=401)
+        return super(InstanceBase, self).dispatch(*args, **kwargs)
 
-	def get_form_kwargs(self):
-		kwargs = super(CSVUploadView, self).get_form_kwargs()
-		kwargs.update({'instance': self.instance})
-		return kwargs
+    def get_form_kwargs(self):
+        kwargs = super(CSVUploadView, self).get_form_kwargs()
+        kwargs.update({'instance': self.instance})
+        return kwargs
 
-	def form_valid(self, form):
-		form.upload()
-		return super(CSVUploadView, self).form_valid(form)
+    def form_valid(self, form):
+        form.upload()
+        return super(CSVUploadView, self).form_valid(form)
 
-	def get_success_url(self):
-		return reverse('backend:instance', kwargs={'slug': self.instance.label})
+    def get_success_url(self):
+        return reverse('backend:instance', kwargs={'slug': self.instance.label})
 
 
 class PromiseCreateView(CreateView):
@@ -130,7 +129,7 @@ class CategoryCreateView(CreateView, InstanceBase):
     template_name = 'category_create.html'
 
     def get_object(self):
-        instance =  get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
+        instance = get_object_or_404(DDAHInstanceWeb, label=self.kwargs['slug'])
         return instance
 
     def get_context_data(self, **kwargs):
@@ -168,5 +167,3 @@ class TemplateUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('backend:update_template', kwargs={'slug': self.object.instance.label})
-
-
