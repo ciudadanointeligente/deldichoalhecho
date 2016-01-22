@@ -8,6 +8,8 @@ This is intended to be a django-app and also a site by itself that allows citize
 [![Build Status](https://travis-ci.org/ciudadanointeligente/deldichoalhecho.svg?branch=master)](https://travis-ci.org/ciudadanointeligente/deldichoalhecho)
 [![Coverage Status](https://coveralls.io/repos/ciudadanointeligente/deldichoalhecho/badge.png?branch=master)](https://coveralls.io/r/ciudadanointeligente/deldichoalhecho?branch=master)
 
+[![Dependency Status](https://www.versioneye.com/user/projects/56a2489c9b5998003c000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56a2489c9b5998003c000025)
+
 ## Installation
 
 The installation requires certain software to be installed in your machine
