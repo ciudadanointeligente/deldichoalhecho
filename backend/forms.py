@@ -7,7 +7,7 @@ from ddah_web.models import DDAHInstanceWeb
 class BelongingToInstanceMixin(object):
     def __init__(self, instance, *args, **kwargs):
         self.instance = instance
-        return super(BelongingToInstanceMixin, self).__init__(*args, **kwargs)
+        super(BelongingToInstanceMixin, self).__init__(*args, **kwargs)
 
 class CSVUploadForm(BelongingToInstanceMixin, forms.Form):
     csv_file = forms.FileField()
