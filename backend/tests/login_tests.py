@@ -47,7 +47,6 @@ class BackendHomeTestCaseBase(TestCase):
         self.assertEquals(response.status_code, 401)
 
 
-
 @override_settings(ROOT_URLCONF=settings.ROOT_URLCONF_HOST)
 class CSVUploadTestCase(TestCase):
     def setUp(self):
@@ -58,12 +57,13 @@ class CSVUploadTestCase(TestCase):
         self.instance.users.add(self.user)
         self.instance2.users.add(self.other_user)
         self.current_dir = os.path.dirname(os.path.realpath(__file__))
-        self.file_ = codecs.open(os.path.join(self.current_dir,'../../promises_instances/tests', 'fixtures', 'example_data.csv'))
-
+        self.file_ = codecs.open(os.path.join(self.current_dir,
+                                              '../../promises_instances/tests', 'fixtures', 'example_data.csv'))
 
     def atest_form(self):
         form = CSVUploadForm(instance=self.instance)
-        file_ = codecs.open(os.path.join(self.current_dir,'../../promises_instances/tests', 'fixtures', 'example_data.csv'))
+        file_ = codecs.open(os.path.join(self.current_dir,
+                                         '../../promises_instances/tests', 'fixtures', 'example_data.csv'))
         form.csv_file = file_
         self.assertTrue(form.is_valid())
         form.upload()
@@ -84,14 +84,14 @@ class CSVUploadTestCase(TestCase):
         response = self.client.post(url, {'file': self.file_})
         self.assertRedirects(response, reverse('login') + '?next=' + url)
         self.client.login(username=self.user.username, password=PASSWORD)
-        file_ = codecs.open(os.path.join(self.current_dir,'../../promises_instances/tests', 'fixtures', 'example_data.csv'))
+        file_ = codecs.open(os.path.join(self.current_dir,
+                                         '../../promises_instances/tests', 'fixtures', 'example_data.csv'))
         data = {'csv_file': file_}
 
         response = self.client.post(url, data)
         self.assertRedirects(response, reverse('backend:instance', kwargs={'slug': self.instance.label}))
         self.assertTrue(self.instance.promises.all())
         self.assertTrue(self.instance.categories.all())
-
 
 
 class CategoryCreateTestCase(BackendHomeTestCaseBase):
@@ -123,7 +123,6 @@ class CategoryCreateTestCase(BackendHomeTestCaseBase):
         self.assertEquals(original_count + 1, self.instance.categories.count())
         the_created_category = self.instance.categories.last()
         self.assertEquals(the_created_category.name, data["name"])
-
 
 
 class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
@@ -210,7 +209,6 @@ class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
         self.assertEquals(promise.fulfillment.percentage, self.data["fulfillment"])
 
 
-
 class TemplateUpdateView(BackendHomeTestCaseBase):
     def setUp(self):
         super(TemplateUpdateView, self).setUp()
@@ -222,7 +220,6 @@ class TemplateUpdateView(BackendHomeTestCaseBase):
             'style': 'style',
             'footer': 'footer'
         }
-
 
     def test_get_url(self):
         url = reverse('backend:update_template', kwargs={'slug': self.instance.label})
@@ -247,9 +244,6 @@ class TemplateUpdateView(BackendHomeTestCaseBase):
         template.header = 'header'
         template.style = 'style'
         template.footer = 'footer'
-
-
-
 
 
 class InstanceCreateViewTestCase(BackendHomeTestCaseBase):
@@ -298,10 +292,10 @@ class ColorPickerFormTestCase(BackendHomeTestCaseBase):
         self.assertTrue(form.is_valid())
         form.update_colors()
         instance = form.instance
-        self.assertEquals(instance.style["background_color"],self.data["background_color"])
-        self.assertEquals(instance.style["second_color"],self.data["second_color"])
-        self.assertEquals(instance.style["read_more_color"],self.data["read_more_color"])
-        self.assertEquals(instance.style["header_img"],self.data["header_img"])
+        self.assertEquals(instance.style["background_color"], self.data["background_color"])
+        self.assertEquals(instance.style["second_color"], self.data["second_color"])
+        self.assertEquals(instance.style["read_more_color"], self.data["read_more_color"])
+        self.assertEquals(instance.style["header_img"], self.data["header_img"])
 
     def test_instance_initial(self):
         form = ColorPickerForm(data={}, instance=self.instance)
@@ -324,6 +318,3 @@ class ColorPickerFormTestCase(BackendHomeTestCaseBase):
         self.assertEquals(instance.style['background_color'], self.data['background_color'])
         self.assertEquals(instance.style['second_color'], self.data['second_color'])
         self.assertEquals(instance.style['read_more_color'], self.data['read_more_color'])
-
-
-
