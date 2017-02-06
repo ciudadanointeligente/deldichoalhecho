@@ -41,12 +41,6 @@ cd deldichoalhecho
 pip install -r requirements.txt
 ```
 
-* Create the database
-
-```
-python manage.py syncdb
-```
-
 * Install migrations
 
 ```
