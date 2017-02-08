@@ -3,22 +3,21 @@ gunicorn==18.0
 dj-database-url==0.2.2
 dj-static==0.0.6
 psycopg2==2.5.2
--e git://github.com/django-nose/django-nose#egg=django-nose
-django-extensions
-ipython
+django-nose==1.4.4
+django-extensions==1.7.6
 -e git+https://github.com/ciudadanointeligente/django-popolo.git#egg=django-popolo
--e git://github.com/jezdez/django-constance.git#egg=django-constance-updated
+django-constance-updated==1.0.1
 markdown
-newrelic
-django-subdomain-instances
-django-taggit
+newrelic==2.78.0.57
+django-subdomain-instances==1.0
+django-taggit==0.22.0
 -e git://github.com/ciudadanointeligente/ddah-promises.git#egg=ddah-promises
--e git://github.com/bradleyayers/django-ace.git#egg=django-ace
+django-ace==1.0.2
 bunch==1.0.1
 json-utils==0.2
 Pystache==0.5.4
 django-picklefield==0.3.1
 django-admin-sortable2==0.5.0
-celery
+celery==4.0.2
 django-forms-bootstrap==3.0.1
 django-social-auth==0.7.28
