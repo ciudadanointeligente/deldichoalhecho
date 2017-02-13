@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'taggit',
     'social_auth',
     'promises',
-    'deldichoalhecho_theme',
     'instances',
     'promises_instances',
     'ddah_web',
