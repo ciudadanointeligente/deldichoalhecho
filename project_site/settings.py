@@ -118,7 +118,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 #CONSTANCE
@@ -167,9 +168,8 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'deldichoalhecho_theme', 'edicion2015', 'static'),
-    os.path.join(BASE_DIR, '..', 'backend', 'static'),
-    os.path.join(BASE_DIR, '..', 'ddah_web', 'static'),
+    os.path.join(PROJECT_ROOT, '..', 'backend', 'static'),
+    os.path.join(PROJECT_ROOT, '..', 'ddah_web', 'static'),
 )
 
 # EXTRA TEMPLATE_CONTEXT_PROCESSORS
