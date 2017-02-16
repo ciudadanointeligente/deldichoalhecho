@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.views.generic.base import View
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import FormView
 from backend.forms import CSVUploadForm
@@ -25,10 +25,13 @@ class InstanceBase(View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         # if self.request.user not in
-        self.ddah_instance = self.get_object()
+        self.ddah_instance = self.determine_instance()
         if self.request.user not in self.ddah_instance.users.all():
             return HttpResponse('Unauthorized', status=401)
         return super(InstanceBase, self).dispatch(*args, **kwargs)
+
+    def determine_instance(self):
+        return self.get_object()
 
 
 class BackendHomeView(ListView, BackendBase):
@@ -145,6 +148,15 @@ class CategoryCreateView(CreateView, InstanceBase):
     def get_success_url(self):
         return reverse('backend:instance', kwargs={'slug': self.ddah_instance.label})
 
+class CategoryDeleteView(InstanceBase, DeleteView):
+    model = DDAHCategory
+    template_name = 'category_confirm_delete.html'
+
+    def get_success_url(self):
+        return reverse('backend:instance', kwargs={'slug': self.object.instance.label})
+
+    def determine_instance(self):
+        return self.get_object().instance
 
 class CreateInstanceView(CreateView):
     model = DDAHInstanceWeb

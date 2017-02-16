@@ -124,6 +124,33 @@ class CategoryCreateTestCase(BackendHomeTestCaseBase):
         the_created_category = self.instance.categories.last()
         self.assertEquals(the_created_category.name, data["name"])
 
+class CategoryDeleteTestCase(BackendHomeTestCaseBase):
+    def setUp(self):
+        super(CategoryDeleteTestCase, self).setUp()
+        self.category = DDAHCategory.objects.create(instance=self.instance, name="TheCategory")
+
+    def test_delete_category(self):
+        url = reverse('backend:delete_category', kwargs={'pk': self.category.id})
+        self.client.login(username=self.user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'category_confirm_delete.html')
+        response_post = self.client.post(url)
+        url_instance = reverse('backend:instance', kwargs={'slug': self.instance.label})
+        self.assertRedirects(response_post, url_instance)
+        self.assertFalse(DDAHCategory.objects.filter(id=self.category.id))
+
+    def test_delete_category_not_logged(self):
+        url = reverse('backend:delete_category', kwargs={'pk': self.category.id})
+        # self.client.login(username=self.other_user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 302)
+
+    def test_delete_category_unauthorized(self):
+        url = reverse('backend:delete_category', kwargs={'pk': self.category.id})
+        self.client.login(username=self.other_user.username, password=PASSWORD)
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 401)
 
 class PromiseCreateAndUpdateTestCase(BackendHomeTestCaseBase):
     def setUp(self):

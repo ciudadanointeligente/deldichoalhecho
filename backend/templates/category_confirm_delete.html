@@ -1,0 +1,12 @@
+{% load bootstrap_tags %}
+{% load i18n %}
+<form action="{% url 'backend:delete_category' pk=object.id %}" method="post">{% csrf_token %}
+    <div class="form-group">
+      <h3>{% trans 'Are you sure?' %}</h3>
+      <p>
+
+      {% blocktrans with name=object.name %}You're about to delete {{ name }} category. Please confirm..{% endblocktrans %}</p>
+
+	<input type="submit" value="OK">
+    </div>
+</form>
