@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 import markdown
 
 
+
 class MoustacheTemplateResponseBase(TemplateResponse):
     def __init__(self, request, template, context=None, content_type=None, status=None,
                  charset=None, using=None, context_object_name='instance',
@@ -74,6 +75,11 @@ class MoustacheFlatPageTemplateResponse(MoustacheTemplateResponseBase):
 
     def get_template(self):
         return self.get_instance().instance.template
+
+    @property
+    def rendered_content(self):
+        renderer = Renderer(partials=self.get_partials(), escape=lambda u: u)
+        return renderer.render(self.get_content(), self.get_the_data())
 
 
 class DDAHInstanceWebView(DetailView):
