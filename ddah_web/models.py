@@ -52,7 +52,10 @@ class DDAHInstanceWeb(DDAHInstance):
 
     @property
     def url(self):
-        return '%s.%s' % (self.label, settings.BASE_HOST)
+        try:
+            return self.ddahsiteinstance.site.domain
+        except DDAHSiteInstance.DoesNotExist:
+            return '%s.%s' % (self.label, settings.BASE_HOST)
 
     def _bunchify_summary(self, summary):
         return Bunch(no_progress=summary.no_progress,

@@ -35,6 +35,13 @@ class DDAHInstanceWebTestCase(TestCase):
         expected_url = 'label.thesite.com'
         self.assertEquals(ddah_instance.url, expected_url)
 
+    @override_settings(BASE_HOST='thesite.com')
+    def test_get_url_if_there_is_a_site_asociated(self):
+        ddah_instance = DDAHInstanceWeb.objects.create(label='label', title='the title')
+        the_site = Site.objects.create(name="name", domain="www.jefe.cl")
+        DDAHSiteInstance.objects.create(site=the_site, instance=ddah_instance)
+        expected_url = 'www.jefe.cl'
+        self.assertEquals(ddah_instance.url, expected_url)
     def test_this_is_ddah_instance_subclass(self):
         '''This is a DDAHInstance'''
 
