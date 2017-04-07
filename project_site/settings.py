@@ -225,6 +225,8 @@ if DONT_USE_MIGRATIONS:
 # DEFAULT SETTINGS
 DEFAULT_SOCIAL_NETWORKS={
     "twitter_text": "Mira que lindo mi sitio",
+    "g_analytics_code": "UA-XXXXXXXX-X",
+    "twitter_hashtags": "#deldichoalhecho",
     "og_img": "http://placehold.it/400x400"
 }
 DEFAULT_STYLE={
