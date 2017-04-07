@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
  
   {{> head }}
  
@@ -10,15 +10,11 @@
     <div class="jumbotron">
       <div class="hero-space">
         <img src="{{ style.header_img }}">
-        <div class="progress summary-progress" data-container="body" data-html="true" data-toggle="popover" data-placement="top" data-content="<i class='fa fa-check'></i> <strong>12</strong> promesas cumplidas</br> <i aria-hidden='true' data-icon='&#xe600;'></i> <strong>47</strong> promesas incompletas</br><i class='fa fa-times'></i> <strong>140</strong> promesas sin avance</br> Revisa la <a href='http://deldichoalhecho.cl/index.html'>metodología</a>">
-        <div class="progress-bar
-          " style="width: {{summary.total_progress}}%"><p>Primer Año: {{summary.formated_total_progress}}% de cumplimiento del programa</p></div>
+        <div class="progress summary-progress" data-container="body" data-html="true" data-toggle="popover" data-placement="top" data-content="<i class='fa fa-check'></i> <strong>0</strong> promesas cumplidas</br> <i aria-hidden='true' data-icon='&#xe600;'></i> <strong>13</strong> promessas incompletas</br><i class='fa fa-times'></i> <strong>13</strong> promesas sin avance</br> Revisa la <a href='https://docs.google.com/a/ciudadanointeligente.org/document/d/1R6IdG9QK1YwWsZk6yJbwWjnMYnEwsaQobkoCB9VtE2E/edit?usp=sharing' onclick='ga(\'send\',\'event\',\'progressbar-metodologia\',\'click\')'>metodología</a>">
+          <div class="progress-bar" style="width: {{summary.total_progress}}%"><p>Primeiros 100 dias: {{summary.formated_total_progress}}% de cumprimento do programa</p></div>
         </div>
         <script type="text/javascript">
-        $(function(){
-        $('.summary-progress').popover(
-        )
-        })
+        $(function(){ $('.summary-progress').popover(); })
         </script>
         <div class="container">
           <div class="container">
@@ -26,7 +22,7 @@
             <div class="socialnetwork-home">
               <ul class="social-network list-inline">
                 <li>
-                  <a href="#" onclick="window.open(&quot;https://twitter.com/share?url=http://deldichoalhecho.cl/&amp;via=ciudadanoi&amp;hashtags=56promesasBachelet&amp;text=Paso a paso medimos su cumplimiento.&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
+                  <a href="#" onclick="window.open(&quot;https://twitter.com/share?url=https://ditoefeito.cidadaniainteligente.org/&amp;via=ciudadanoi&amp;hashtags={{ social_networks.twitter_hashtags }}&amp;text={{ social_networks.twitter_text }}&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
                     <span class="fa-stack fa-lg">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -34,7 +30,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" onclick="window.open(&quot;https://www.facebook.com/sharer/sharer.php?u={{ url }}&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
+                  <a href="#" onclick="window.open(&quot;https://www.facebook.com/sharer/sharer.php?u=https://ditoefeito.cidadaniainteligente.org&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
                     <span class="fa-stack fa-lg">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -51,7 +47,7 @@
         <div class="container">
           <ul class="list-inline">
             {{#categories}}
-            <li><a href="#{{slug}}">{{name}}</a></li>
+            <li><a href="#{{slug}}" onclick="ga('send','event','category-{{name}}','click')">{{name}}</a></li>
             {{/categories}}
             
           </ul>
@@ -69,8 +65,8 @@
             {{name}}
             
             <span class="read-more">
-              {{summary.total}} promesas
-              ({{summary.accomplished}} Completas, {{summary.in_progress}} Incompletas, {{summary.no_progress}} Sin progreso)
+              {{summary.total}} promessas
+              ({{summary.accomplished}} Completas, {{summary.in_progress}} Incompletas, {{summary.no_progress}} Sem progresso)
             </span>
             </h3>
             <div class="progress">
@@ -97,8 +93,8 @@
                   <div class="promise-details"></div>
                 </div>
                 <div class="col-md-3 verification-document {{fulfillment.simple_accomplishment}}">
-                  <p>{{fulfillment.percentage}}% de cumplimiento
-                    <a data-toggle="modal" data-target="#modal-{{id}}">Leer más</a>
+                  <p>{{fulfillment.percentage}}% de execução
+                    <a data-toggle="modal" data-target="#modal-{{id}}">Veja mais</a>
                   </p>
                   <div id="modal-{{id}}" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -109,7 +105,7 @@
                         </div>
                         <div class="modal-body">
                           {{{fulfillment.description}}}
-                          <h4>Hitos
+                          <h4>Atos
                           </h4>
                           <ul>
                             {{#milestones}}
@@ -122,10 +118,10 @@
                   </div>
                   <div class="verification-docs">
                     
-                    Documentos de verificación:
+                    Documentos de verificação:
                     <ul>
                       {{#verification_documents}}
-                      <li><a href="{{url}}" target="_blank">{{display_name}}</a></li>
+                      <li><a href="{{url}}" target="_blank" onclick="ga('send','event','documento-verificacion-{{display_name}}','click')">{{display_name}}</a></li>
                       {{/verification_documents}}
                       
                     </ul>
@@ -143,8 +139,8 @@
     <script type="text/javascript">
     $(document).ready(function() {
     $('.category-body').expander({
-    expandText: '<p class="text-center category-expander"><i class="fa fa-chevron-down"></i></p>',
-    userCollapseText: '<p class="text-center category-expander"><i class="fa fa-chevron-up"></i></p>',
+    expandText: '<p class="text-center category-expander" onclick="ga(\'send\',\'event\',\'show-more\',\'click\')"><i class="fa fa-chevron-down"></i></p>',
+    userCollapseText: '<p class="text-center category-expander" onclick="ga(\'send\',\'event\',\'show-less\',\'click\')"><i class="fa fa-chevron-up"></i></p>',
     slicePoint: 260,
     expandPrefix:     '',
     });
@@ -157,5 +153,15 @@
  
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', '{{social_networks.g_analitycs_code}}', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>
